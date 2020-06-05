@@ -1,0 +1,87 @@
+extends ../layout/main
+block variable
+block meta
+    title= '= NEWS = Rusaniv Residence '
+    meta(name='description', content='')
+block head
+        link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/news.js')
+block content
+    .wrapper.first
+        .breadcrumbs-wrapper
+            h1.page-title NEWS
+            .breadcrumbs-block
+                a(href="/").link Головна
+                a(href="/").link.current-link Новини
+        .news-navigation-block
+            +SelectBox('month', [
+                {name: 'Січень',value: '1'}, 
+                {name: 'Лютий',value: '2'}, 
+                {name: 'Березень',value: '3'}, 
+                {name: 'Квітень', value: '4'}, 
+                {name: 'Травень',value: '5'},
+                {name: 'Червень',value: '6'},
+                {name: 'Липень',value: '7'},
+                {name: 'Серпень',value: '8'},
+                {name: 'Вересень',value: '9'},
+                {name: 'Жовтень',value: '10'},
+                {name: 'Листопад',value: '11'},
+                {name: 'Грудень',value: '12'},
+                ]).select-box
+            ul.years-slider.years-slider-js
+                li(data-value="2019").active 2019
+                li(data-value="2020") 2020
+                li(data-value="2021") 2021
+                li(data-value="2022") 2022
+                li(data-value="2023") 2023
+            .years-arrows
+                .prev
+                    <svg width="76" height="14" viewBox="0 0 76 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.92308 14.0001L7.8756 13.0334L2.61944 7.69066L75.5 7.69067L75.5 6.3097L2.61944 6.3097L7.8756 0.966789L6.92308 0.000115121L6.11954e-07 7.00018L6.92308 14.0001Z" />
+                    </svg>
+                .next
+                    <svg width="76" height="14" viewBox="0 0 76 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M69.0769 0.000137329L68.1244 0.966812L73.3806 6.30959H0.5V7.69056H73.3806L68.1244 13.0335L69.0769 14.0001L76 7.00007L69.0769 0.000137329Z" />
+                    </svg>
+    .wrapper.news-wrapper
+        .news-articles-wrapper 
+            .news-article
+                +img('news/article-img.jpg').news-article__img
+                .news-article__text
+                    .subtitle Графік роботи відділу продажу на День захисника України
+                    .news-date 19 листопада 2019
+                    .text-standart Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому...
+                    a.button.text-small.transparent.hvr-bounce-to-right Читати новину
+            .news-article
+                +img('news/article-img.jpg').news-article__img
+                .news-article__text
+                    .subtitle Графік роботи відділу продажу на День захисника України
+                    .news-date 19 листопада 2019
+                    .text-standart Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому...
+                    a.button.text-small.transparent.hvr-bounce-to-right Читати новину
+            .news-article
+                +img('news/article-img.jpg').news-article__img
+                .news-article__text
+                    .subtitle Графік роботи відділу продажу на День захисника України
+                    .news-date 19 листопада 2019
+                    .text-standart Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому...
+                    a.button.text-small.transparent.hvr-bounce-to-right Читати новину
+            .news-article
+                +img('news/article-img.jpg').news-article__img
+                .news-article__text
+                    .subtitle Графік роботи відділу продажу на День захисника України
+                    .news-date 19 листопада 2019
+                    .text-standart Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому...
+                    a.button.text-small.transparent.hvr-bounce-to-right Читати новину
+            .news-article
+                +img('news/article-img.jpg').news-article__img
+                .news-article__text
+                    .subtitle Графік роботи відділу продажу на День захисника України
+                    .news-date 19 листопада 2019
+                    .text-standart Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому...
+                    a.button.text-small.transparent.hvr-bounce-to-right Читати новину
+
+

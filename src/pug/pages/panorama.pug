@@ -1,0 +1,21 @@
+extends ../layout/main
+block variable
+    -pageName = 'panorama';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/gallery.js')
+block content
+        .gallery-slider
+            +img('panorama/panorama.jpg')
+        .wrapper.first.gallery-page
+            .breadcrumbs-wrapper
+                h1.page-title Панорама
+                .breadcrumbs-block
+                    a(href="/").link Головна
+                    a(href="/news.html").link.current-link Панорама

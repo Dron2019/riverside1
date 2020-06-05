@@ -1,0 +1,32 @@
+extends ../layout/main
+block variable
+    -pageName = 'gallery';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/gallery.js')
+block content
+        .gallery-slider.gallery-slider-js
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+            +img('gallery/img.jpg')
+        .wrapper.first.gallery-page
+            .breadcrumbs-wrapper
+                h1.page-title Галерея
+                .breadcrumbs-block
+                    a(href="/").link Головна
+                    a(href="/news.html").link.current-link Галерея
+            .slider-numbers
+                .current 2
+                .total 10
+            .circle-red-arrow.gallery-arrow-js

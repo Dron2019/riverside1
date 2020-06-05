@@ -1,0 +1,53 @@
+include ../includes/mixins.pug
+block variable
+	
+doctype html
+html(lang="uk")
+	head
+		meta(charset='utf-8')
+		meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+		//- Edge и ряд мобильных браузеров слишком умны. Отключим это.
+		meta(name='format-detection', content='telephone=no')
+		meta(name='format-detection', content='date=no')
+		meta(name='format-detection', content='address=no')
+		meta(name='format-detection', content='email=no')
+		meta(content='notranslate', name='google')
+		//- Фавиконки (https://realfavicongenerator.net)
+		//- link(rel='apple-touch-icon', sizes='180x180', href='/img/favicon/apple-touch-icon.png')
+		//- link(rel='icon', type='image/png', sizes='32x32', href='/img/favicon/favicon-32x32.png')
+		//- link(rel='icon', type='image/png', sizes='16x16', href='../static/favicon.ico')
+		//- link(rel='manifest', href='/img/favicon/site.webmanifest')
+		//- link(rel='mask-icon', href='/img/favicon/safari-pinned-tab.svg', color='#5bbad5')
+		//- meta(name='msapplication-TileColor', content='#5bbad5')
+		//- meta(name='theme-color', content='#000')
+		//- meta(name='msapplication-navbutton-color', content='#000')
+		//- meta(name='apple-mobile-web-app-status-bar-style', content='#000')
+		block meta
+		block head
+
+	body
+		// START SVG SPRITE
+		include ../../assets/svg-sprite/sprite/symbol_sprite.php
+		// END SVG SPRITE
+		// START LOADER
+		//- .preloader
+			<svg class="screen6__letter squiggle-animated" width="355" height="358" viewBox="0 0 355 358" fill="none" xmlns="http://www.w3.org/2000/svg" >
+				<path class="preload-letter-path" d="M219 -2.95639e-05L354.5 356.5H272.5L244.5 277H112L83 356.5H3L138.5 -2.95639e-05H219ZM225.5 220L178.5 87.5L131 220H225.5Z" fill="#434549"/>
+				//- <path d="M163.5 220H225.5L203.5 158" stroke="#F7F7F7" stroke-width="0"/>
+				<path d="M244.5 277H112L83 356.5H3L90.5 127" stroke="transparent" stroke-width="3"/>
+			</svg>
+		// END LOADER
+		// START HEADER
+		block header
+		include ../includes/header.pug
+		// END HEADER
+		.page__inner(id=pageName)
+			.page__content
+				block content
+
+			.page__footer-wrapper
+				// START FOOTER
+				block footer
+				include ../includes/footer.pug
+				// END FOOTER
+		block scripts

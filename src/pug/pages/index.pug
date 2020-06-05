@@ -1,0 +1,43 @@
+extends ../layout/main
+block variable
+block meta
+	title= 'Riverside 1'
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+	
+	script(defer src='./assets/scripts/libs.js')
+	script( src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+	script( src='./assets/scripts/pixi.min.js')
+	script( src='./assets/scripts/canvas_slideshow.js')
+
+	script( src='./assets/scripts/home.js')
+	script(defer src='./assets/scripts/index.js')
+
+	
+block content
+	.main-screen-layout
+		.slide-wrapper
+			.slide-item
+				h3.slide-item__title Slide 1
+				+img('main1.jpg').slide-item__image
+			.slide-item
+				h3.slide-item__title Slide 2
+				+img('main2.jpg').slide-item__image
+			.slide-item
+				h3.slide-item__title Slide 3
+				+img('main3.jpg').slide-item__image
+			.slide-item
+				h3.slide-item__title Slide 3
+				+img('main4.jpg').slide-item__image
+		.main-screen
+		<a href="#" class="scene-nav scene-nav--prev" data-nav="previous">PREV</a>
+		<a href="#" class="scene-nav scene-nav--next" data-nav="next">NEXT</a>
+		
+
+block footer
+block header
+	
+
+

@@ -1,0 +1,47 @@
+extends ../layout/main
+block variable
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+block content
+    .single-news-page
+        .wrapper.first
+            .breadcrumbs-wrapper
+                h1.page-title Графік роботи відділу продажу на День захисника України
+                .breadcrumbs-block
+                    a(href="/").link Головна
+                    a(href="/news.html").link Новини
+                    a(href="/").link.current-link Графік роботи відділу продажу на День захисника України
+            .article-wrapper
+                +img('news/article-img-large.jpg').article-image
+                .article-text.text-standart
+                    +svg('vertical-line').vertical-line
+                    p Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому комплексі Rusaniv Residence, вільний час можна витратити інші речі. Збираєтесь відвідати наш відділ продажу? Телефонуйте за номером, вказаним на сайті та замовляйте трансфер прямісінько до дверей офісу. 
+                    p Ми — за чисте довкілля та збереження природних ресурсів, саме тому для трансферу обрали екологічні електрокари Nissan LEAF.
+                    p Чекаємо на вас за адресою: Харківське шосе, 22 км, щоб детальніше розповісти про проект, допомогти вам обрати планування квартири та влаштувати екскурсію мальовничою.
+                    a(href="/news.html").link-standart Назад до новин
+                    .button.text.arrow Обрати квартиру
+                .button.text-small.separate-position-button Замовити дзвінок
+        .layout.layout__white
+            .wrapper.similar-news-wrapper
+                a(href="#").similar-news-link
+                    .news-date.news-date__red 19 листопада 2019
+                    .subtitle 
+                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
+                        +svg('arrow-left-red')
+                a(href="#").similar-news-link
+                    .news-date.news-date__red 19 листопада 2019
+                    .subtitle 
+                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
+                        +svg('arrow-left-red')
+                a(href="#").similar-news-link
+                    .news-date.news-date__red 19 листопада 2019
+                    .subtitle 
+                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
+block footer
+block header

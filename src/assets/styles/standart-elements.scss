@@ -1,0 +1,331 @@
+.layout {
+    background-color: var(--white);
+    &__white {
+        background-color: var(--shta);
+    }
+    padding: 0 var(--side-fields) 0px var(--side-fields);
+}
+
+.wrapper {
+    @include wrapper();
+    &.first {
+        padding-top: 90px;
+    }
+}
+
+.button {
+    background-color: var(--red);
+    border-radius: 25px;
+    color: var(--white);
+    fill: var(--white);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 310px;
+    text-transform: none;
+    white-space: nowrap;
+    font-family: $default-font;
+    &.icon {
+        width: 40px;
+        height: 40px;
+    }
+    &.icon svg {
+        width: 50%;
+        height: 50%;
+        fill: var(--white);
+        stroke: none;
+    }
+    &.text {
+        padding-left: 10%;
+        padding-right: 10%;
+        height: 50px;
+        font-size: 25px;
+        letter-spacing: 0.025em;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    &.text-small {
+        font-size: 18px;
+        line-height: 1.1em;
+        letter-spacing: 0.025em;
+        max-width: 170px;
+        height: 30px;
+        padding-left: 1%;
+        padding-right: 1%;
+    }
+    &.arrow:after {
+        content: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 0 18 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.0764 -9.15527e-05L10.1239 0.966584L15.3801 6.30936H-0.000488281V7.69033H15.3801L10.1239 13.0332L11.0764 13.9999L17.9995 6.99985L11.0764 -9.15527e-05Z' fill='white'/%3E%3C/svg%3E%0A");
+        margin-left: 25px;
+    }
+    &.transparent {
+        background-color: transparent;
+        border: 1px solid var(--gray);
+        color: var(--blue);
+    }
+    &.hvr-bounce-to-right {
+        border-radius: 25px;
+    }
+    &.hvr-bounce-to-right:before {
+        background: var(--blue);
+    }
+    &.hvr-bounce-to-right:hover {
+        color: var(--white);
+    }
+}
+
+.text-standart {
+    position: relative;
+    color: var(--dark-gray);
+    font-size: 14px;
+    line-height: 2em;
+    font-family: $default-font2;
+}
+
+.title-large {
+    font-size: 68px;
+    line-height: 1em;
+    color: var(--blue);
+}
+
+.vertical-line {
+    height: 68.82px;
+    width: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.bg-title-large {
+    font-size: 400px;
+    line-height: 1em;
+    color: var(--shta);
+    font-family: Cormorant;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.subtitle {
+    font-size: 36px;
+    line-height: 1.25em;
+    color: var(--blue);
+}
+
+.news-date {
+    font-size: 18px;
+    line-height: 1.67em;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    &__red {
+        color: var(--red);
+    }
+}
+
+.arrows-container {
+    --arrow-width: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(var(--arrow-width) * 2 + 30px);
+    & svg {
+        display: flex;
+        width: 18px;
+        height: 14px;
+        align-items: center;
+        justify-content: center;
+    }
+    .next {
+        width: var(--arrow-width);
+        height: var(--arrow-width);
+        border: 1px solid var(--red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    .previous {
+        width: var(--arrow-width);
+        height: var(--arrow-width);
+        border: 1px solid var(--red);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(180deg);
+        cursor: pointer;
+    }
+}
+
+.page-title {
+    font-size: 36px;
+    line-height: 1.33em;
+    color: var(--blue);
+    margin-right: 1em;
+}
+
+.breadcrumbs-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumbs-block {
+    font-family: $default-font2;
+    .link {
+        color: var(--gray);
+        margin-right: 10px;
+    }
+    .link:after {
+        content: url(../images/common/breadcrump-line.svg);
+        transform: translateY(2px);
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .link.current-link {
+        color: var(--red);
+    }
+    .link.current-link:after {
+        display: none;
+        pointer-events: none;
+    }
+}
+
+.select-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 30px;
+    color: var(--blue);
+    max-width: 170px;
+    &__current {
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid var(--gray);
+        border-radius: 25px;
+        &:focus {
+            &+.select-box__list {
+                opacity: 1;
+                // We have to set "animation-name: none;" to make the list visible (read below how it works)
+                animation-name: none;
+                .select-box__option {
+                    cursor: pointer;
+                }
+            }
+            .select-box__icon {
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 12px;
+        opacity: 0.3;
+        transition: 0.2s ease;
+    }
+    &__value {
+        display: flex;
+    }
+    &__input {
+        display: none;
+        &:checked+.select-box__input-text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__input-text {
+        display: none;
+        width: 100%;
+        margin: 0;
+        // padding: 15px;
+        height: 30px;
+        text-align: center;
+        margin-right: 12px;
+    }
+    &__list {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        // We need to use animation with delay.
+        // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
+        // This delay will not be noticed because we set "opacity" to "0".
+        // We also use "animation-fill-mode: forwards" to make the list stay hidden.
+        animation-name: HideList;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: step-start;
+        box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
+    }
+    &__option {
+        display: block;
+        // padding: 15px;
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        &:hover,
+        &:focus {
+            color: #546c84;
+            background-color: #fbfbfb;
+        }
+    }
+}
+
+@keyframes HideList {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}
+
+.link-standart {
+    color: var(--red);
+    font-size: 18px;
+    line-height: 1.1em;
+    letter-spacing: 0.025em;
+    &[href] {
+        text-decoration: underline;
+    }
+    &:before {
+        content: url(../images/common/arrow-left-red.svg);
+        margin-right: 15px;
+    }
+}
+
+.slider-numbers {
+    --numbers-height: 64px;
+    display: flex;
+    align-items: flex-end;
+    color: var(--blue);
+    height: var(--numbers-height);
+    .current {
+        font-size: var(--numbers-height);
+        line-height: 0.8em;
+    }
+    .total:before {
+        content: '/';
+    }
+}
+
+.circle-red-arrow {
+    width: 91px;
+    height: 91px;
+    border-radius: 50%;
+    background-color: var(--red);
+    position: relative;
+    &:after {
+        position: absolute;
+        width: 18px;
+        height: 14px;
+        top: calc(50% - 7px);
+        left: calc(50% - 9px);
+        content: url("data:image/svg+xml,%3Csvg width='18' height='14' viewBox='0 -2 18 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath transform='translate(0 -2)' d='M11.0764 -9.15527e-05L10.1239 0.966584L15.3801 6.30936H-0.000488281V7.69033H15.3801L10.1239 13.0332L11.0764 13.9999L17.9995 6.99985L11.0764 -9.15527e-05Z' fill='white'/%3E%3C/svg%3E%0A");
+    }
+}

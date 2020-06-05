@@ -1,0 +1,27 @@
+.smarto-logo {
+    &>img {
+        width: 70px;
+        height: 28px;
+    }
+}
+
+.footer-adress {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 174px;
+    .button {
+        margin-top: 12px;
+    }
+}
+
+.page__footer-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-left: var(--side-fields);
+    padding-right: var(--side-fields);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
