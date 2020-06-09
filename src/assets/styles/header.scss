@@ -14,6 +14,7 @@ header.header {
     font-size: 18px;
     line-height: 1em;
     text-transform: uppercase;
+    justify-content: space-between;
 }
 
 .header-telephone {
@@ -79,4 +80,52 @@ header.header {
 
 .scene-nav--prev {
     left: 2%;
+}
+
+.menu-button {
+    & path {
+        transition: .5s;
+    }
+    &:hover path {
+        transform: matrix(1, -0.2, 0, 1, 0, 2);
+    }
+}
+
+.lang-block {
+    width: 40px;
+    max-height: 1.6em;
+    height: 1.6em;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+    cursor: pointer;
+    &:hover:after {
+        transform: rotate(-90deg);
+    }
+    &:after {
+        transition: .5s;
+        position: absolute;
+        right: 0cm;
+        content: '>';
+        transform: rotate(90deg);
+        top: 0.2em;
+    }
+    & a {
+        color: #fff;
+        line-height: 1.5em;
+        display: flex;
+        align-items: center;
+    }
+    &>a.active {
+        order: 0;
+    }
+    &:hover {
+        overflow: visible;
+    }
+    &:hover>a:not(.active) {
+        position: absolute;
+        top: 100%;
+    }
 }

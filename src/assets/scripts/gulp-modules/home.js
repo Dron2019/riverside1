@@ -40,7 +40,7 @@ var moveSlider = new CanvasSlideshow({
     // If you choose to not have a fullscreen slideshow, set the stage's width & height accordingly
     stageWidth: document.documentElement.clientWidth * 1.1,
 
-    stageHeight: document.documentElement.clientWidth * 0.6,
+    stageHeight: document.documentElement.clientWidth * 1.1 * 0.6,
 
     // add you navigation element. Should have a 'data-nav' attribute with a value of next/previous
     navElement: document.querySelectorAll('.scene-nav'),

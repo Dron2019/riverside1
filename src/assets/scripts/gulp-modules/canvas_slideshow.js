@@ -1,15 +1,9 @@
 (function() {
 
     window.CanvasSlideshow = function(options) {
-
-
-
         //  SCOPE
         /// ---------------------------      
         var that = this;
-
-
-
         //  OPTIONS
         /// ---------------------------      
         options = options || {};
@@ -38,10 +32,10 @@
 
         //  PIXI VARIABLES
         /// ---------------------------    
-        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: true, });
+        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, backgroundColor: '0x0085FF' });
         var stage = new PIXI.Container();
         var slidesContainer = new PIXI.Container();
-        var displacementSprite = new PIXI.Sprite.fromImage(options.displacementImage);
+        var displacementSprite = new PIXI.Sprite.from(options.displacementImage);
         var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
 
 
@@ -142,8 +136,12 @@
 
             for (var i = 0; i < rSprites.length; i++) {
 
-                var texture = new PIXI.Texture.fromImage(sprites[i]);
+                var texture = new PIXI.Texture.from(sprites[i]);
                 var image = new PIXI.Sprite(texture);
+                console.log(texture);
+
+                image.scale.x = options.stageWidth / 2200;
+                image.scale.y = options.stageHeight / 1213;
 
                 if (rTexts) {
                     var richText = new PIXI.Text(rTexts[i], style);
