@@ -42,6 +42,10 @@ a[href] {
     .slider-counter {
         margin-left: auto;
     }
+    .wave {
+        height: calc(100% - 70px);
+        margin-top: 70px;
+    }
 }
 
 .main-screen-layout {
@@ -173,7 +177,37 @@ a[href] {
         width: 50%;
     }
     .left {
-        background-color: gold;
         position: relative;
+        &__content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-left: calc(var(--side-fields) + 42px);
+            padding-top: calc(var(--side-fields) + 81px);
+            padding-bottom: calc(var(--side-fields) + 81px);
+            padding-right: calc(calc(var(--side-fields) + 42px));
+        }
+        .title {
+            padding-left: 0;
+            margin-top: 20px;
+        }
+        .text {
+            max-width: 50%;
+            margin-top: auto;
+        }
+        .link {
+            margin-top: 40px;
+        }
+    }
+}
+
+.distortion-hover__item-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    img {
+        display: none;
     }
 }

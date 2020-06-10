@@ -11,7 +11,8 @@ block scripts
 	script( src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
 	script( src='./assets/scripts/pixi.min.js')
 	script( src='./assets/scripts/canvas_slideshow.js')
-
+	script( src='./assets/scripts/displacment-hover/three.min.js')
+	script( src='./assets/scripts/displacment-hover/hover.js')
 	script( src='./assets/scripts/home.js')
 	script(defer src='./assets/scripts/index.js')
 
@@ -94,10 +95,16 @@ block content
 					a(href="#").link Вибір Квартир
 	section.about.layout
 		.left.advantages
-			+wave-bottom()
-			.subtitle про комплекс
-			.title Твоє <span class="blue">правильне</span> середовище
-			.canvas.hover-js
+			+wave-top()
+			.left__content
+				.subtitle про комплекс
+				.title Твоє <span class="blue">правильне</span> середовище
+				p.text Один день на курорті - це класний краєвид з вікон, ресторани в двох хвилинах, завжди свіже повітря, все необхідне під боком: спорт, концерти, променад, пляж і величезна зелена зона.
+				a(href="#").link Детальніше
+			.distortion-hover__item-img(data-displacement="./assets/images/about-hover-block/displacment.png" data-intensity="-0.65" data-speedIn="1.2" data-speedOut="1.2")
+				+img('about-hover-block/1st.jpg')
+				+img('about-hover-block/2nd.jpg')
+			</div>
 		.right
 block footer
 block header

@@ -57,7 +57,7 @@ var moveSlider = new CanvasSlideshow({
     autoPlaySpeed: [0.3, 0.3],
     displaceScale: [800, 500],
     displaceAutoFit: true,
-    stageWidth: document.documentElement.clientWidth,
+    stageWidth: document.documentElement.clientWidth * 1.1,
     image: document.querySelectorAll('.slide-item__image'),
     stageHeight: document.documentElement.clientWidth * 0.6,
     displacementCenter: true,
@@ -83,3 +83,20 @@ genplanSvgLinkList.forEach(link => {
         });
     })
     /**GENPLAN END */
+
+
+/**Distortion Hover */
+Array.from(document.querySelectorAll('.distortion-hover__item-img')).forEach((el) => {
+    const imgs = Array.from(el.querySelectorAll('img'));
+    new hoverEffect({
+        parent: el,
+        intensity: el.dataset.intensity || undefined,
+        speedIn: el.dataset.speedin || undefined,
+        speedOut: el.dataset.speedout || undefined,
+        easing: el.dataset.easing || undefined,
+        hover: el.dataset.hover || undefined,
+        image1: imgs[0].getAttribute('src'),
+        image2: imgs[1].getAttribute('src'),
+        displacementImage: el.dataset.displacement
+    });
+});

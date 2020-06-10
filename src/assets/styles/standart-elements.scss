@@ -166,3 +166,57 @@
     text-transform: uppercase;
     color: var(--white)
 }
+
+.wave-top {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    svg:not(.wave-logo) {
+        position: absolute;
+        right: var(--side-padding);
+        top: var(--side-padding);
+        stroke: rgba(255, 255, 255, 1);
+    }
+    .wave-logo {
+        position: absolute;
+        right: var(--side-padding);
+        top: var(--side-padding);
+    }
+    .bottom-line {
+        position: absolute;
+        height: 2px;
+        width: calc(100% - (var(--side-padding) * 2));
+        background: rgba(255, 255, 255, 0.5);
+        bottom: var(--side-padding);
+        left: var(--side-padding);
+    }
+    .left-line {
+        position: absolute;
+        width: 2px;
+        height: calc(100% - (var(--side-padding) * 2));
+        background: rgba(255, 255, 255, 0.5);
+        bottom: var(--side-padding);
+        left: var(--side-padding);
+    }
+    .right-line {
+        position: absolute;
+        width: 2px;
+        height: calc(100% - (var(--side-padding) * 2) - 30px);
+        background: rgba(255, 255, 255, 0.5);
+        bottom: var(--side-padding);
+        right: var(--side-padding);
+    }
+}
+
+.text {
+    font-family: Cera Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--white);
+}
