@@ -8,7 +8,7 @@ header.header {
     top: 0;
     left: 0;
     z-index: 5;
-    padding: 20px 30px 20px 30px;
+    padding: 20px var(--side-fields) 20px var(--side-fields);
     background-color: var(--blue);
     font-weight: bold;
     font-size: 18px;
@@ -64,22 +64,6 @@ header.header {
 
 .slide-wrapper {
     display: none;
-}
-
-.scene-nav {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    display: inline-block;
-}
-
-.scene-nav--next {
-    right: 2%;
-}
-
-.scene-nav--prev {
-    left: 2%;
 }
 
 .menu-button {

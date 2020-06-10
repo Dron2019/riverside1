@@ -31,11 +31,74 @@ block content
 			.slide-item
 				h3.slide-item__title Slide 3
 				+img('main4.jpg').slide-item__image
-		.main-screen
-		<a href="#" class="scene-nav scene-nav--prev" data-nav="previous">PREV</a>
-		<a href="#" class="scene-nav scene-nav--next" data-nav="next">NEXT</a>
-		
-
+		.main-screen.wrapper
+			+wave-bottom()
+			.arrows
+				.arrow-prev.scene-nav.scene-nav--prev(data-nav="previous")
+					<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+					<path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+					</svg>
+				.arrow-next.scene-nav.scene-nav--next(data-nav="next")
+					<svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+					<path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+					</svg>
+			.scroll-element 
+				<svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect x="1" y="1" width="14" height="24" rx="7" stroke="white" stroke-width="2"/>
+				<rect x="7" y="5" width="2" height="5" rx="1" fill="white"/>
+				</svg>
+				.slider-counter
+					.current 1
+					.delimiter 
+						<svg width="2" height="12" viewBox="0 0 2 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect opacity="0.5" width="2" height="12" transform="matrix(-1 0 0 1 2 0)" fill="white"/>
+						</svg>
+					.all 4
+			<div class="title"> Твоє <span class="blue">правильне</span> середовище
+			</div>
+	section.genplan.layout
+		.genplan-svg
+			include ../../assets/images/genplan/svg/genplan.svg
+		+wave-bottom()
+		.genplan__content
+			.title <span class="blue">генплан</span> комплексу
+			ul.genplan-list
+				li(data-svgId="football-field").svg-link-js
+					span Стадіон
+				li(data-svgId="skate-park").svg-link-js
+					span Скейтпарк
+				li(data-svgId="tennis-courts").svg-link-js
+					span Теннісний корт
+				li(data-svgId="workout-zone").svg-link-js
+					span Воркаут зона
+				li(data-svgId="").svg-link-js
+					span Парк
+				li(data-svgId="parking").svg-link-js
+					span Паркінг
+				li(data-svgId="").svg-link-js
+					span Пляж
+				li(data-svgId="water-channel").svg-link-js
+					span Канал
+				li(data-svgId="").svg-link-js
+					span Еко-ринок
+				li(data-svgId="").svg-link-js
+					span 1ша черга
+				li(data-svgId="").svg-link-js
+					span 1га черга
+				li(data-svgId="").svg-link-js
+					span 1тя черга
+				li.page-link-group
+					a(href="#").link Життя у комплексі
+					a(href="#").link Вибір Квартир
+	section.about.layout
+		.left.advantages
+			+wave-bottom()
+			.subtitle про комплекс
+			.title Твоє <span class="blue">правильне</span> середовище
+			.canvas.hover-js
+		.right
 block footer
 block header
 	

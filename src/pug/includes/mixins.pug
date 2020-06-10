@@ -41,3 +41,8 @@ mixin SelectBox(name, options)
 			each option, index in options
 				li
 					label.select-box__option(for=index aria-hidden) #{option.name}
+mixin wave-bottom()
+	.wave
+		.top-line
+		.bottom-line
+		include ../../assets/images/common/border-bottom-curve-line.svg

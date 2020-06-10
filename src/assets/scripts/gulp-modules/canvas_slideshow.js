@@ -7,6 +7,7 @@
         //  OPTIONS
         /// ---------------------------      
         options = options || {};
+        options.image = options.image;
         options.selector.hasOwnProperty('selector') ? options.selector : 'body';
         options.stageWidth = options.hasOwnProperty('stageWidth') ? options.stageWidth : 1920;
         options.stageHeight = options.hasOwnProperty('stageHeight') ? options.stageHeight : 1080;
@@ -129,19 +130,16 @@
         //  LOAD SLIDES TO CANVAS
         /// ---------------------------          
         this.loadPixiSprites = function(sprites) {
-
-
             var rSprites = options.sprites;
             var rTexts = options.texts;
 
             for (var i = 0; i < rSprites.length; i++) {
-
                 var texture = new PIXI.Texture.from(sprites[i]);
                 var image = new PIXI.Sprite(texture);
                 console.log(texture);
 
-                image.scale.x = options.stageWidth / 2200;
-                image.scale.y = options.stageHeight / 1213;
+                image.scale.x = options.stageWidth / options.image[i].naturalWidth;
+                image.scale.y = options.stageHeight / options.image[i].naturalHeight;
 
                 if (rTexts) {
                     var richText = new PIXI.Text(rTexts[i], style);
@@ -239,11 +237,12 @@
                 return;
             }
 
+            // DEMO 2
             baseTimeline
-                .to(displacementFilter.scale, 1, { x: options.displaceScale[0], y: options.displaceScale[1] })
-                .to(slideImages[that.currentIndex], 0.5, { alpha: 0 })
-                .to(slideImages[newIndex], 0.5, { alpha: 1 })
-                .to(displacementFilter.scale, 1, { x: options.displaceScaleTo[0], y: options.displaceScaleTo[1] });
+                .to(displacementFilter.scale, 1.5, { x: options.displaceScale[0], y: options.displaceScale[1], ease: Power2.easeOut })
+                .to(slideImages[that.currentIndex], 1.5, { alpha: 0, ease: Power2.easeOut }, 0)
+                .to(slideImages[newIndex], 1, { alpha: 1, ease: Power2.easeOut }, 1)
+                .to(displacementFilter.scale, 1.5, { x: options.displaceScaleTo[0], y: options.displaceScaleTo[1], ease: Expo.easeOut }, 0.8);
 
         };
 
@@ -257,7 +256,9 @@
         for (var i = 0; i < nav.length; i++) {
 
             var navItem = nav[i];
+            var counterBlock = document.querySelector('.main-screen .slider-counter');
 
+            counterBlock.querySelector('.all').innerHTML = spriteImages.length;
             navItem.onclick = function(event) {
 
                 // Make sure the previous transition has ended
@@ -269,16 +270,20 @@
 
                     if (that.currentIndex >= 0 && that.currentIndex < slideImages.length - 1) {
                         that.moveSlider(that.currentIndex + 1);
+                        counterBlock.querySelector('.current').innerHTML = that.currentIndex + 2;
                     } else {
                         that.moveSlider(0);
+                        counterBlock.querySelector('.current').innerHTML = 1;
                     }
 
                 } else {
 
                     if (that.currentIndex > 0 && that.currentIndex < slideImages.length) {
                         that.moveSlider(that.currentIndex - 1);
+                        counterBlock.querySelector('.current').innerHTML = that.currentIndex;
                     } else {
                         that.moveSlider(spriteImages.length - 1);
+                        counterBlock.querySelector('.current').innerHTML = spriteImages.length;
                     }
 
                 }
@@ -293,9 +298,10 @@
 
         /// ---------------------------
         //  INIT FUNCTIONS
-        /// ---------------------------    
-
+        /// ---------------------------     
         this.init = function() {
+
+
             that.initPixi();
             that.loadPixiSprites(options.pixiSprites);
 
@@ -312,11 +318,80 @@
         };
 
 
-
-
         /// ---------------------------
         //  INTERACTIONS
         /// ---------------------------
+
+        if (options.interactive === true) {
+
+            var rafID, mouseX, mouseY;
+
+            // Enable interactions on our slider
+            slidesContainer.interactive = true;
+            slidesContainer.buttonMode = true;
+
+            // HOVER
+            if (options.interactionEvent === 'hover' || options.interactionEvent === 'both') {
+
+                slidesContainer.pointerover = function(mouseData) {
+                    mouseX = mouseData.data.global.x;
+                    mouseY = mouseData.data.global.y;
+                    TweenMax.to(displacementFilter.scale, 1, { x: "+=" + Math.sin(mouseX) * 100 + "", y: "+=" + Math.cos(mouseY) * 100 + "" });
+                    rotateSpite();
+                };
+
+                slidesContainer.pointerout = function(mouseData) {
+                    TweenMax.to(displacementFilter.scale, 1, { x: 0, y: 0 });
+                    cancelAnimationFrame(rafID);
+                };
+
+            }
+
+            // CLICK
+            if (options.interactionEvent === 'click' || options.interactionEvent === 'both') {
+
+                slidesContainer.pointerup = function(mouseData) {
+                    if (options.dispatchPointerOver === true) {
+                        TweenMax.to(displacementFilter.scale, 1, {
+                            x: 0,
+                            y: 0,
+                            onComplete: function() {
+                                TweenMax.to(displacementFilter.scale, 1, { x: 20, y: 20 });
+                            }
+                        });
+                    } else {
+                        TweenMax.to(displacementFilter.scale, 1, { x: 0, y: 0 });
+                        cancelAnimationFrame(rafID);
+                    }
+
+                };
+
+                slidesContainer.pointerdown = function(mouseData) {
+                    mouseX = mouseData.data.global.x;
+                    mouseY = mouseData.data.global.y;
+                    TweenMax.to(displacementFilter.scale, 1, { x: "+=" + Math.sin(mouseX) * 1200 + "", y: "+=" + Math.cos(mouseY) * 200 + "" });
+                };
+
+                slidesContainer.pointerout = function(mouseData) {
+                    if (options.dispatchPointerOver === true) {
+                        TweenMax.to(displacementFilter.scale, 1, {
+                            x: 0,
+                            y: 0,
+                            onComplete: function() {
+                                TweenMax.to(displacementFilter.scale, 1, { x: 20, y: 20 });
+                            }
+                        });
+                    } else {
+                        TweenMax.to(displacementFilter.scale, 1, { x: 0, y: 0 });
+                        cancelAnimationFrame(rafID);
+                    }
+
+                };
+
+            }
+
+        }
+
         function rotateSpite() {
             displacementSprite.rotation += 0.001;
             rafID = requestAnimationFrame(rotateSpite);
@@ -391,6 +466,7 @@
             }
 
         }
+
 
 
         /// ---------------------------
