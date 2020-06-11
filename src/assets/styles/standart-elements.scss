@@ -8,6 +8,8 @@
 * {
     --blue: #0085FF;
     --white: #ffffff;
+    --gray: #40484E;
+    --gray-light: #728596;
     --side-padding: 30px;
     cursor: url('../images/common/cursor.png'), auto;
 }
@@ -90,8 +92,19 @@
     max-width: 350px;
     padding-left: var(--side-padding);
     padding-bottom: var(--side-padding);
+    & .blue.with-waves:after {
+        content: url("data:image/svg+xml,%3Csvg width='87' height='36' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
+        margin-left: 30px;
+        width: 87px;
+        height: 30px;
+    }
     & .blue {
         color: var(--blue);
+        display: flex;
+        justify-content: flex-start;
+    }
+    & .gray {
+        color: var(--gray);
     }
 }
 
@@ -155,6 +168,9 @@
         background-color: var(--white);
         bottom: calc(1em - 8px);
     }
+    &.blue::after {
+        background-color: var(--blue);
+    }
 }
 
 .subtitle {
@@ -164,7 +180,10 @@
     font-size: 18px;
     line-height: 18px;
     text-transform: uppercase;
-    color: var(--white)
+    color: var(--white);
+    &.gray {
+        color: var(--gray);
+    }
 }
 
 .wave-top {
@@ -175,6 +194,7 @@
     left: 0;
     pointer-events: none;
     overflow: hidden;
+    z-index: 1;
     svg:not(.wave-logo) {
         position: absolute;
         right: var(--side-padding);
@@ -219,4 +239,113 @@
     font-size: 14px;
     line-height: 22px;
     color: var(--white);
+    &.gray {
+        color: #728596;
+    }
+    &.gray>p {
+        color: #728596;
+    }
+    &>p {
+        color: var(--white);
+    }
+    &>p:nth-child(n+2) {
+        margin-top: 1.6em;
+    }
+}
+
+.wave-bottom-white {
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    width: 800px;
+    height: 89px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    &>svg {
+        position: absolute;
+        fill: var(--white);
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    &__title,
+    &__subtitle {
+        position: relative;
+        z-index: 2;
+    }
+    &__title {
+        font-family: Cera Pro;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 1em;
+        text-transform: uppercase;
+        color: #40484E;
+        max-width: 160px;
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+    &__title::before {
+        content: url("data:image/svg+xml,%3Csvg width='9' height='36' viewBox='0 0 9 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 36C0.999999 18 8 18 8 1.24374e-06' stroke='%230085FF' stroke-width='2'/%3E%3C/svg%3E ");
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    &__subtitle {
+        font-family: Cera Pro;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: var(--gray-light);
+    }
+}
+
+.wave-top-blue {
+    position: absolute;
+    width: calc(100% - var(--side-padding) * 2);
+    height: calc(100% - var(--side-padding) * 2);
+    pointer-events: none;
+    &>svg {
+        width: 973px;
+        height: 145px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .left-line {
+        position: absolute;
+        left: 0;
+        top: 144px;
+        background-color: #60B3FF;
+        width: 2px;
+        height: calc(100% - 145px);
+    }
+    .bottom-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #60B3FF;
+        bottom: 0;
+        left: 0;
+    }
+    .right-line {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background-color: #60B3FF;
+        right: 0;
+        top: 0;
+    }
+    .top-line {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: calc(100% - 972px);
+        height: 2px;
+        background-color: #60B3FF;
+    }
 }

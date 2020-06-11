@@ -1,13 +1,13 @@
 * {
-    --black: #000000;
-    --blue: #0085FF;
-    --pink: #F8D5D4;
-    --white: #ffffff;
-    --dark-gray: #6C7C84;
-    --gray: #AAC0C9;
-    --red: #B3717B;
-    --hz: #CFDDE4;
-    --shta: #F4F9FB;
+    // --black: #000000;
+    // --blue: #0085FF;
+    // --pink: #F8D5D4;
+    // --white: #ffffff;
+    // --dark-gray: #6C7C84;
+    // --gray: #AAC0C9;
+    // --red: #B3717B;
+    // --hz: #CFDDE4;
+    // --shta: #F4F9FB;
     --side-fields: 30px;
     --transition: .5s;
 }
@@ -149,6 +149,7 @@ a[href] {
     }
     .genplan-svg path {
         fill: none;
+        stroke: transparent;
         transition: .5s;
         stroke-width: 1;
     }
@@ -175,10 +176,13 @@ a[href] {
     .left,
     .right {
         width: 50%;
+        position: relative;
     }
     .left {
         position: relative;
         &__content {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -198,6 +202,56 @@ a[href] {
         .link {
             margin-top: 40px;
         }
+        .text,
+        .link {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: .5s;
+        }
+        .text.visible,
+        .link.visible {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    .right {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding-top: 110px;
+        padding-bottom: 80px;
+        padding-left: calc(100% / 12);
+        padding-right: calc(100% / 12);
+        .bg-image {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            object-fit: cover;
+            left: 0;
+            object-position: right bottom;
+            z-index: -1;
+        }
+        .title {
+            padding: 0;
+            width: 100%;
+            align-self: flex-start;
+        }
+        .subtitle {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .text {
+            margin-top: auto;
+            padding-right: 30%;
+            margin-bottom: 2em;
+        }
+        .text-group {
+            margin-top: auto;
+        }
+        .link {
+            width: max-content;
+        }
     }
 }
 
@@ -209,5 +263,270 @@ a[href] {
     top: 0;
     img {
         display: none;
+    }
+}
+
+.reasons-to-choose {
+    display: flex;
+    padding: 60px var(--side-fields);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .title {
+        padding: 0;
+        margin-bottom: 1.2em;
+    }
+    &__block {
+        position: relative;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    &__block>video {
+        object-fit: cover;
+        width: 100%;
+        margin-top: auto;
+    }
+    &__block:nth-child(1) {
+        @include size(5);
+    }
+    &__block:nth-child(2) {
+        @include size(7);
+    }
+    &__block:nth-child(3) {
+        width: 100%;
+    }
+    &__block:nth-child(4) {
+        @include size(7);
+    }
+    &__block:nth-child(5) {
+        @include size(5);
+    }
+    &__block:nth-child(n+2)>video {
+        height: 100%;
+    }
+}
+
+.gallery {
+    background-color: var(--pink);
+    position: relative;
+    .wave {
+        z-index: 1;
+    }
+    &__content {
+        padding: var(--side-fields);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+    }
+    .title {
+        padding: 0;
+    }
+    .slider-counter {
+        margin-left: auto;
+        margin-right: 40px;
+    }
+    .arrows {
+        margin-bottom: auto;
+        width: 100%;
+    }
+    canvas {
+        position: absolute;
+        width: 100%;
+        z-index: 0;
+        height: calc(100vh);
+    }
+}
+
+.choose-flat {
+    background: url(../images/choose-appartment-bg.jpg) center no-repeat;
+    background-size: cover;
+    &__content {
+        padding: var(--side-fields);
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__content-text {
+        @include size(2);
+        @include shift-right(1);
+        @include shift-left(7);
+        margin-top: auto;
+    }
+    .title {
+        margin-top: auto;
+        margin-right: auto;
+        padding: 0;
+        width: 100%;
+        padding-right: 80%;
+    }
+    .river-logo {
+        width: 164px;
+        height: 29px;
+        margin-bottom: 30px;
+    }
+    .text {
+        color: #BAC8D5;
+        margin-bottom: 40px;
+        line-height: 22px;
+    }
+}
+
+.contact-developer {
+    display: flex;
+    flex-wrap: wrap;
+    .left,
+    .right {
+        width: 50%;
+    }
+    .left {
+        position: relative;
+        canvas {
+            z-index: 0;
+        }
+        &__content {
+            position: relative;
+            z-index: 1;
+            padding: calc(60px + var(--side-fields)) var(--side-fields) var(--side-fields) var(--side-fields);
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            @include shift-left(0.5);
+            max-width: 50%;
+            height: 100%;
+        }
+        .text,
+        .link {
+            opacity: 0;
+            transform: translateX(100%);
+            transition: .5s;
+        }
+        .text.visible,
+        .link.visible {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+    .right {
+        position: relative;
+        padding-top: 95px;
+        padding-bottom: 95px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        @include shift-padding-left(1);
+        @include shift-padding-right(1.5);
+        .bg-image {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            object-fit: cover;
+            left: 0;
+            object-position: right bottom;
+            z-index: -1;
+        }
+        .text {
+            margin-top: auto;
+        }
+        .title {
+            margin-top: 0;
+        }
+        .subtitle {
+            height: max-content;
+        }
+    }
+    .title {
+        padding: 0;
+        width: 100%;
+    }
+    .subtitle {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .text {
+        margin-top: auto;
+    }
+    .link {
+        margin-bottom: auto;
+        margin-top: 40px;
+        width: min-content;
+    }
+}
+
+.contacts {
+    position: relative;
+    padding: var(--side-fields);
+    background: linear-gradient(0deg, #F7F5FB, #F7F5FB);
+    .title {
+        padding: 0;
+        margin-bottom: 1em;
+    }
+    &__content {
+        width: 100%;
+    }
+    &__info-blocks-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 55px;
+    }
+    &__info-block-column-title {
+        font-family: Cera Pro;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 18px;
+        /* identical to box height, or 100% */
+        text-transform: uppercase;
+        /* Text colour */
+        color: var(--gray);
+        padding-left: 25px;
+        margin-bottom: 1.6em;
+    }
+    &__info-block-column {
+        @include size(3);
+        margin-top: 35px;
+    }
+    &__info-block-column.double {
+        @include size(6);
+        // display: flex;
+        // flex-wrap: wrap;
+        column-count: 2;
+    }
+    &__info-block-column.double &__mini-group,
+    &__info-block-column.double &__info-block-column-title {
+        // width: 50%;
+    }
+    &__mini-group {
+        padding-left: calc(25px + 40px + 20px);
+        position: relative;
+        color: var(--gray-light);
+        min-height: 40px;
+        font-size: 18px;
+        line-height: 1em;
+        margin-bottom: 30px;
+    }
+    &__mini-group-title {
+        font-weight: 500;
+        margin-bottom: 1em;
+    }
+    &__mini-group-text {
+        line-height: 1.5em;
+        color: var(--light-gray);
+        display: flex;
+        flex-direction: column;
+    }
+    &__mini-group-text a {
+        color: var(--light-gray);
+    }
+    .decor-icon {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 25px;
+        top: 0;
+    }
+    .link {
+        padding-left: 25px;
     }
 }

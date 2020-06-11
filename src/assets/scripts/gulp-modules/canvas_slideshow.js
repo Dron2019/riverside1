@@ -8,6 +8,7 @@
         /// ---------------------------      
         options = options || {};
         options.image = options.image;
+        options.navSelector.hasOwnProperty('navSelector') ? options.navSelector : '.main-screen';
         options.selector.hasOwnProperty('selector') ? options.selector : 'body';
         options.stageWidth = options.hasOwnProperty('stageWidth') ? options.stageWidth : 1920;
         options.stageHeight = options.hasOwnProperty('stageHeight') ? options.stageHeight : 1080;
@@ -33,7 +34,7 @@
 
         //  PIXI VARIABLES
         /// ---------------------------    
-        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, backgroundColor: '0x0085FF' });
+        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, /*backgroundColor: '0x0085FF' */ });
         var stage = new PIXI.Container();
         var slidesContainer = new PIXI.Container();
         var displacementSprite = new PIXI.Sprite.from(options.displacementImage);
@@ -136,7 +137,7 @@
             for (var i = 0; i < rSprites.length; i++) {
                 var texture = new PIXI.Texture.from(sprites[i]);
                 var image = new PIXI.Sprite(texture);
-                console.log(texture);
+                console.log(options.image[i]);
 
                 image.scale.x = options.stageWidth / options.image[i].naturalWidth;
                 image.scale.y = options.stageHeight / options.image[i].naturalHeight;
@@ -208,6 +209,9 @@
         /// ---------------------------    
         var isPlaying = false;
         var slideImages = slidesContainer.children;
+
+
+
         this.moveSlider = function(newIndex) {
 
             isPlaying = true;
@@ -256,9 +260,11 @@
         for (var i = 0; i < nav.length; i++) {
 
             var navItem = nav[i];
-            var counterBlock = document.querySelector('.main-screen .slider-counter');
+            console.log(options.navSelector);
 
-            counterBlock.querySelector('.all').innerHTML = spriteImages.length;
+            var counterBlock = document.querySelector(options.navSelector);
+
+            counterBlock.querySelector('.all').innerHTML = options.sprites.length;
             navItem.onclick = function(event) {
 
                 // Make sure the previous transition has ended

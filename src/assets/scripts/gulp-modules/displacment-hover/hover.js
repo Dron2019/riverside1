@@ -48,7 +48,7 @@ var hoverEffect = function(opts) {
             // gl_FragColor = disp;
         }
     `;
-
+    var showElements = opts.showElements || undefined;
     var parent = opts.parent || console.warn("no parent");
     var dispImage = opts.displacementImage || console.warn("displacement image missing");
     var image1 = opts.image1 || console.warn("first image missing");
@@ -58,6 +58,7 @@ var hoverEffect = function(opts) {
     var speedOut = opts.speedOut || 1.2;
     var userHover = (opts.hover === undefined) ? true : opts.hover;
     var easing = opts.easing || Expo.easeOut;
+    var otherHoverEl = opts.otherHoverEl || parent;
 
     var mobileAndTabletcheck = function() {
         var check = false;
@@ -135,19 +136,33 @@ var hoverEffect = function(opts) {
             evtIn = "touchstart";
             evtOut = "touchend";
         }
-        parent.addEventListener(evtIn, function(e) {
+        /**Доавление еффекта при наведении на другой елемент */
+
+        otherHoverEl.addEventListener(evtIn, function(e) {
+            if (showElements !== undefined) {
+                showElements.forEach(el => {
+                    el.classList.add('visible');
+                })
+            }
             TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+                duration: 1,
                 value: 1,
                 ease: easing
             });
         });
-
-        parent.addEventListener(evtOut, function(e) {
+        otherHoverEl.addEventListener(evtOut, function(e) {
+            if (showElements !== undefined) {
+                showElements.forEach(el => {
+                    el.classList.remove('visible');
+                })
+            }
             TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+                duration: 1,
                 value: 0,
                 ease: easing
             });
         });
+        /**Доавление еффекта при наведении на другой елемент END */
     };
 
     if (userHover) {
@@ -161,6 +176,7 @@ var hoverEffect = function(opts) {
 
     this.next = function() {
         TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+            duration: 1,
             value: 1,
             ease: easing
         });
@@ -168,6 +184,7 @@ var hoverEffect = function(opts) {
 
     this.previous = function() {
         TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+            duration: 1,
             value: 0,
             ease: easing
         });
