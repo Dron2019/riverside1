@@ -230,6 +230,14 @@
         bottom: var(--side-padding);
         right: var(--side-padding);
     }
+    .top-line {
+        position: absolute;
+        left: var(--side-padding);
+        top: var(--side-padding);
+        height: 2px;
+        width: calc(100% - 680px);
+        background-color: rgba(255, 255, 255, 0.5);
+    }
 }
 
 .text {
@@ -347,5 +355,42 @@
         width: calc(100% - 972px);
         height: 2px;
         background-color: #60B3FF;
+    }
+}
+
+.decor-pin-icon {
+    width: 54px;
+    height: 67px;
+}
+
+.forms {
+    padding-top: 53px;
+    padding-bottom: 77px;
+    @include shift-padding(1);
+}
+
+.tabs {
+    .tab-head-item.active {
+        color: var(--blue);
+    }
+    .tab-head-item {
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        font-family: Cera Pro;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 18px;
+        color: var(--gray);
+        text-transform: uppercase;
+    }
+    .tab-head-item.active:before {
+        margin-right: 10px;
+        content: url("data:image/svg+xml,%3Csvg width='9' height='36' viewBox='0 0 9 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 0C8 18 0.999999 18 0.999998 36' stroke='%230085FF' stroke-width='2'/%3E%3C/svg%3E%0A");
+    }
+    .tab-head-item.active:after {
+        margin-left: 10px;
+        content: url("data:image/svg+xml,%3Csvg width='9' height='36' viewBox='0 0 9 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 0C8 18 0.999999 18 0.999998 36' stroke='%230085FF' stroke-width='2'/%3E%3C/svg%3E%0A");
     }
 }
