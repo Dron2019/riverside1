@@ -267,13 +267,13 @@ block content
 	section.forms
 		.forms.tabs
 			.tab-head
-				.tab-head-item.active Надіслати повідомлення
-				.tab-head-item Замовити зворотній дзвінок
-				.tab-head-item Хочете отримувати наші акції
+				.tab-head-item.active(data-link=".tab-message") Надіслати повідомлення
+				.tab-head-item(data-link=".tab-callback") Замовити зворотній дзвінок
+				.tab-head-item(data-link=".tab-promotions") Хочете отримувати наші акції
 			.tab-body 
-				.tab-message
-				.tab-callback
-				.tab-promotions
+				.tab.tab-message.active .tab-message
+				.tab.tab-callback .tab-callback
+				.tab.tab-promotions .tab-promotions
 
 block footer
 block header
