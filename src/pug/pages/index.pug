@@ -48,7 +48,7 @@ block content
 			.scroll-element 
 				<svg width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<rect x="1" y="1" width="14" height="24" rx="7" stroke="white" stroke-width="2"/>
-				<rect x="7" y="5" width="2" height="5" rx="1" fill="white"/>
+				<rect x="7" y="12" width="2" height="5" rx="1" fill="white" class="bounce-infinite"/>
 				</svg>
 				.slider-counter
 					.current 1
@@ -118,19 +118,28 @@ block content
 			.title <span class="blue with-waves">Ріверсайд</span> 
 				span.gray тому що...
 			//- +img('reasons-to-choose/1.jpg')
-			video(poster="./assets/images/reasons-to-choose/1.jpg")
+			video(poster="./assets/images/reasons-to-choose/1.jpg" autoplay="true" loop="true" muted="muted" )
+				source(src="./static/video/SPORT.mp4" type="video/mp4")
 			+wave-bottom-white('Місце, де панує спорт','Твоє правильне середовище')
 		.reasons-to-choose__block
-			+img('reasons-to-choose/2.jpg')
+			//- +img('reasons-to-choose/2.jpg')
+			video(poster="./assets/images/reasons-to-choose/2.jpg" autoplay="true" loop="true" muted="muted" )
+				source(src="./static/video/rest.mp4" type="video/mp4")
 			+wave-bottom-white('простір для дозвілля','Твоє правильне середовище')
 		.reasons-to-choose__block
-			+img('reasons-to-choose/3.jpg')
+			//- +img('reasons-to-choose/3.jpg')
+			video(poster="./assets/images/reasons-to-choose/3.jpg" autoplay="true" loop="true" muted="muted" )
+				source(src="./static/video/water.mp4" type="video/mp4")
 			+wave-bottom-white('Водний простір','Твоє правильне середовище')
 		.reasons-to-choose__block
-			+img('reasons-to-choose/4.jpg')
+			//- +img('reasons-to-choose/4.jpg')
+			video(poster="./assets/images/reasons-to-choose/4.jpg" autoplay="true" loop="true" muted="muted" )
+				source(src="./static/video/life.mp4" type="video/mp4")
 			+wave-bottom-white('досконалий у дрібницях','Твоє правильне середовище')
 		.reasons-to-choose__block
-			+img('reasons-to-choose/5.jpg')
+			//- +img('reasons-to-choose/5.jpg')
+			video(poster="./assets/images/reasons-to-choose/5.jpg" autoplay="true" loop="true" muted="muted" )
+				source(src="./static/video/KIDS.mp4" type="video/mp4")
 			+wave-bottom-white('Зростай і розвивайся','Твоє правильне середовище')
 	section.gallery.layout
 		.slide-wrapper
@@ -189,7 +198,7 @@ block content
 					p Для того, щоб життя було комфортним і спокійним, необхідно мати власний будинок - надійну фортецю. 
 					p C 2010 року ми створюємо комплекси, які виправдовують очікування, відповідаючи вашим уявленням про комфорт і безпеку.
 				a(href="#").link Детальніше
-			.distortion-hover__item-img(data-displacement="./assets/images/about-hover-block/displacment.png" data-intensity="-0.65" )
+			.distortion-hover__item-img(data-displacement="./assets/images/contact-hover-block/6.jpg" data-intensity="-0.65" )
 				+img('contact-hover-block/1.jpg')
 				+img('contact-hover-block/2.jpg')
 		.right

@@ -24,7 +24,7 @@ a[href] {
 }
 
 .main-screen {
-    min-height: calc(100vw * 0.6);
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;

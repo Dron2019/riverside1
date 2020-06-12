@@ -9,12 +9,14 @@ header.header {
     left: 0;
     z-index: 5;
     padding: 20px var(--side-fields) 20px var(--side-fields);
-    background-color: var(--blue);
+    // background-color: var(--blue);
+    background-color: transparent;
     font-weight: bold;
     font-size: 18px;
     line-height: 1em;
     text-transform: uppercase;
     justify-content: space-between;
+    transition: .5s;
 }
 
 .header-telephone {

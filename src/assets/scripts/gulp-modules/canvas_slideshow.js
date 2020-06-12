@@ -245,8 +245,8 @@
             baseTimeline
                 .to(displacementFilter.scale, 1.5, { x: options.displaceScale[0], y: options.displaceScale[1], ease: Power2.easeOut })
                 .to(slideImages[that.currentIndex], 1.5, { alpha: 0, ease: Power2.easeOut }, 0)
-                .to(slideImages[newIndex], 1, { alpha: 1, ease: Power2.easeOut }, 1)
-                .to(displacementFilter.scale, 1.5, { x: options.displaceScaleTo[0], y: options.displaceScaleTo[1], ease: Expo.easeOut }, 0.8);
+                .to(slideImages[newIndex], 1, { alpha: 1, ease: Power2.easeOut }, '<')
+                .to(displacementFilter.scale, 1.5, { x: options.displaceScaleTo[0], y: options.displaceScaleTo[1], ease: Expo.easeOut }, 0.4);
 
         };
 

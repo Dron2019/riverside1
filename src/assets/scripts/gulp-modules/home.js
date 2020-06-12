@@ -258,4 +258,16 @@ $.mask.definitions['#'] = '[0-9]';
 $.mask.definitions['9'] = '';
 $('input[name=tel]').mask("+(38) ### ###-##-##", {
     placeholder: "_"
-}); /*Form handler END */
+});
+/*Form handler END */
+let mainScreen = document.querySelector('.main-screen-layout');
+window.addEventListener('scroll', () => {
+    console.log(mainScreen.getBoundingClientRect());
+
+    if (mainScreen.getBoundingClientRect().y < -100) {
+        document.querySelector('header').style.backgroundColor = `var(--blue)`;
+    } else {
+        document.querySelector('header').style.backgroundColor = `transparent`;
+    }
+
+})
