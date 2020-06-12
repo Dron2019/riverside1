@@ -10,6 +10,9 @@
     // --shta: #F4F9FB;
     --side-fields: 30px;
     --transition: .5s;
+    @include to(768px) {
+        --side-fields: 22px;
+    }
 }
 
 a[href] {
@@ -281,6 +284,12 @@ a[href] {
             width: max-content;
         }
     }
+    @include to(768px) {
+        .left,
+        .right {
+            width: 100%;
+        }
+    }
 }
 
 .distortion-hover__item-img {
@@ -487,6 +496,12 @@ a[href] {
             }
         }
     }
+    @include to(768px) {
+        .left,
+        .right {
+            width: 100%;
+        }
+    }
 }
 
 .contacts {
@@ -657,6 +672,12 @@ form.promotions {
         align-self: flex-end;
         margin-right: auto;
         margin-left: 3%;
+    }
+    @include to(768px) {
+        .link {
+            margin-right: 0;
+            margin-left: auto;
+        }
     }
 }
 

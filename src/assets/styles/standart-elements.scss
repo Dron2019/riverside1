@@ -12,6 +12,9 @@
     --gray-light: #728596;
     --side-padding: 30px;
     cursor: url('../images/common/cursor.png'), auto;
+    @include to(768px) {
+        --side-padding: 22px;
+    }
 }
 
 .wrapper {
@@ -119,6 +122,9 @@
             transform: scale(0.7) translateX(-30%);
         }
     }
+    @include to(768px) {
+        font-size: 36px;
+    }
 }
 
 .arrows {
@@ -196,6 +202,9 @@
     color: var(--white);
     &.gray {
         color: var(--gray);
+    }
+    @include to(768px) {
+        font-size: 16px;
     }
 }
 
@@ -323,6 +332,11 @@
         line-height: 22px;
         text-transform: uppercase;
         color: var(--gray-light);
+    }
+    @include to(768px) {
+        &__title {
+            font-size: 16px;
+        }
     }
 }
 
