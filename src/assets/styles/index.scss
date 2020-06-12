@@ -27,10 +27,14 @@ a[href] {
     min-height: calc(100vw * 0.6);
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 1;
     .title {
         // margin-top: auto;
+        pointer-events: none;
     }
     .scroll-element {
+        pointer-events: none;
         margin-top: auto;
         margin-bottom: -70px;
         margin-left: auto;
@@ -45,6 +49,18 @@ a[href] {
     .wave {
         height: calc(100% - 70px);
         margin-top: 70px;
+        z-index: 1;
+    }
+    .arrows,
+    .title,
+    .scroll-element {
+        position: relative;
+        z-index: 1;
+    }
+    @include to(950px) {
+        .title {
+            font-size: 36px;
+        }
     }
 }
 
@@ -56,7 +72,8 @@ a[href] {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 0;
+        pointer-events: initial;
     }
 }
 
@@ -167,6 +184,17 @@ a[href] {
         }
         .genplan-list li:not(.page-link-group) {
             margin-bottom: 15px;
+        }
+    }
+    @include to(1050px) {
+        .page-link-group {
+            margin-top: 1.5em;
+        }
+        .genplan-list li:not(.page-link-group) {
+            margin-bottom: 10px;
+        }
+        .genplan-list {
+            padding-right: 30px;
         }
     }
 }
@@ -348,7 +376,7 @@ a[href] {
         flex-wrap: wrap;
     }
     &__content-text {
-        @include size(2);
+        @include size(3);
         @include shift-right(1);
         @include shift-left(7);
         margin-top: auto;
@@ -452,6 +480,13 @@ a[href] {
         margin-top: 40px;
         width: min-content;
     }
+    @include to(1024px) {
+        .left {
+            &__content {
+                max-width: 75%;
+            }
+        }
+    }
 }
 
 .contacts {
@@ -534,6 +569,14 @@ a[href] {
     .link {
         padding-left: 25px;
     }
+    @include to(1100px) {
+        &__mini-group {
+            padding-left: calc(25px + 25px + 0px);
+        }
+        .decor-icon {
+            left: 5px;
+        }
+    }
 }
 
 .map-link-block {
@@ -562,4 +605,71 @@ a[href] {
     .link {
         max-width: 160px;
     }
+}
+
+.forms {
+    .tab-head {
+        margin-bottom: 70px;
+    }
+}
+
+.input-group {
+    border-bottom: 2px solid #C1D7EB;
+    padding-bottom: 22px;
+    display: flex;
+    align-items: center;
+    .decor-icon {
+        margin-right: 20px;
+    }
+    input {
+        border: none;
+        color: var(--blue);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 18px;
+        width: calc(100% - 40px);
+    }
+    input::placeholder {
+        color: var(--blue);
+    }
+}
+
+form.message,
+form.callback,
+form.promotions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .input-group {
+        // padding-right: 3em;
+    }
+    .input-group:nth-child(-n+3) {
+        @include size(4);
+        margin-bottom: 30px;
+    }
+    .input-group:nth-child(4) {
+        @include size(8);
+    }
+    .link {
+        display: flex;
+        align-items: center;
+        height: 1em;
+        align-self: flex-end;
+        margin-right: auto;
+        margin-left: 3%;
+    }
+}
+
+form.promotions {
+    .link {
+        margin-bottom: 30px;
+    }
+    .input-group {
+        margin-right: auto;
+    }
+}
+
+button[type=submit] {
+    background: none;
+    border: none;
 }

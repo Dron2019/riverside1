@@ -25,20 +25,16 @@
     width: 100%;
     pointer-events: none;
     // --side-padding: 30px;
+    overflow: hidden;
     padding: var(--side-padding);
     .bottom-line {
-        display: none;
-    }
-    @include from(1426px) {
-        .bottom-line {
-            display: block;
-            position: absolute;
-            bottom: calc(var(--side-padding) + 7.4px);
-            right: var(--side-padding);
-            width: calc(100vw - (var(--side-padding) * 2) - 1368px);
-            height: 2px;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
+        display: block;
+        position: absolute;
+        bottom: calc(var(--side-padding) - 3px);
+        right: var(--side-padding);
+        width: calc(100% - 940px);
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.5);
     }
     .top-line {
         position: absolute;
@@ -53,31 +49,43 @@
         position: absolute;
         top: var(--side-padding);
         left: var(--side-padding);
-        height: calc(100% - (var(--side-padding) * 2) - 170px);
+        height: calc(100% - (var(--side-padding) * 2) - 162px);
         width: 2px;
         background-color: rgba(255, 255, 255, 0.5);
     }
     &:before {
         content: '';
         position: absolute;
-        top: calc(var(--side-padding));
+        top: calc(var(--side-padding) + 2px);
         right: var(--side-padding);
-        height: calc(100% - (var(--side-padding) * 2) - 8px);
+        height: calc(100% - (var(--side-padding) * 2) - 1px);
         width: 2px;
         background-color: rgba(255, 255, 255, 0.5);
     }
     svg {
         position: absolute;
         bottom: var(--side-padding);
-        width: 1360px;
+        width: 880px;
         left: var(--side-padding);
         bottom: calc(var(--side-padding) - 3px);
-        height: 201.3px;
+        height: 166px;
     }
     svg path {
         fill: none;
         stroke: rgba(255, 255, 255, 0.5);
         stroke-width: 2;
+    }
+    @include to(950px) {
+        svg {
+            width: 650px;
+            height: 124px;
+        }
+        .bottom-line {
+            width: calc(100% - 710px);
+        }
+        &::after {
+            height: calc(100% - (var(--side-padding) * 2) - 120px);
+        }
     }
 }
 
@@ -105,6 +113,11 @@
     }
     & .gray {
         color: var(--gray);
+    }
+    @include to(1024px) {
+        & .blue.with-waves:after {
+            transform: scale(0.7) translateX(-30%);
+        }
     }
 }
 
@@ -235,7 +248,7 @@
         left: var(--side-padding);
         top: var(--side-padding);
         height: 2px;
-        width: calc(100% - 680px);
+        width: calc(100% - 217px);
         background-color: rgba(255, 255, 255, 0.5);
     }
 }
@@ -270,6 +283,7 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+    overflow: hidden;
     &>svg {
         position: absolute;
         fill: var(--white);
@@ -317,6 +331,7 @@
     width: calc(100% - var(--side-padding) * 2);
     height: calc(100% - var(--side-padding) * 2);
     pointer-events: none;
+    overflow: hidden;
     &>svg {
         width: 973px;
         height: 145px;
@@ -367,6 +382,9 @@
     padding-top: 53px;
     padding-bottom: 77px;
     @include shift-padding(1);
+    @include to(1024px) {
+        padding: var(--side-padding);
+    }
 }
 
 .tabs {
@@ -411,4 +429,29 @@
     .tab.active {
         display: block;
     }
+}
+
+.decor-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.input-group {
+    transition: .5s;
+}
+
+.input-group.unfilled {
+    border-color: red;
+}
+
+.mouse-popup {
+    font-family: Cera Pro;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8px;
+    line-height: 10px;
+    position: fixed;
+    width: 60px;
+    color: var(--white);
+    height: 30px;
 }

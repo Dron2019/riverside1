@@ -66,7 +66,24 @@ var moveSlider = new CanvasSlideshow({
     interactive: true,
     interactionEvent: 'click', // 'click', 'hover', 'both' 
 });
+/**Всплывающая подсказка на первом экране */
+const mousePopup = document.createElement('div');
+mousePopup.classList.add('mouse-popup');
+mousePopup.innerHTML = 'Натисніть та утримуйте на зображенні';
+document.querySelector('.main-screen').append(mousePopup);
+document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
+    console.log(evt);
+    mousePopup.style.top = evt.screenY - 60 + 'px';
+    mousePopup.style.left = evt.screenX + 30 + 'px';
 
+});
+document.querySelector('.main-screen canvas').addEventListener('mouseenter', function(evt) {
+    document.querySelector('.main-screen').append(mousePopup);
+});
+document.querySelector('.main-screen canvas').addEventListener('mouseleave', function(evt) {
+    mousePopup.remove();
+});
+/**Всплывающая подсказка на первом экране END */
 /**GENPLAN */
 let svg = document.querySelector('.genplan-svg svg'),
     genplanSvgLinkList = document.querySelectorAll('.svg-link-js');
@@ -175,3 +192,70 @@ tabNavList.forEach(el => {
         });
     })
     /**TABS END */
+
+/*Form handler */
+let submitList = document.querySelectorAll('.submit-js');
+const SEND_URL = '';
+submitList.forEach(el => {
+    el.addEventListener('click', function(evt) {
+        evt.preventDefault();
+        let status = checkRequiredFields(el.closest('form'));
+        if (typeof status === 'object') {
+            send(status, SEND_URL, el.closest('form'));
+        }
+
+        console.log(el.closest('form'));
+    });
+});
+
+function checkRequiredFields(form) {
+    const inputs = form.querySelectorAll('input');
+    let sendObject = {};
+    inputs.forEach(input => {
+        let inputGroup = input.closest('.input-group');
+        if (input.dataset.required === 'true' && input.value.length === 0) {
+            inputGroup.classList.add('unfilled')
+        } else {
+            inputGroup.classList.remove('unfilled');
+        }
+        sendObject[input.name] = input.value;
+    });
+    if (form.querySelector('.unfilled') === null) {
+        console.log(sendObject);
+        return sendObject;
+    } else {
+        return false;
+    }
+    // console.log(form.querySelector('.unfilled'));
+
+};
+
+function send(object, url, form) {
+    let data = new FormData();
+    form.querySelector('button[type="submit"]').setAttribute('disabled', '');
+    for (const key in object) {
+        data.append(key, object[key]);
+    }
+    fetch(url, {
+        method: 'POST',
+        body: data,
+    }).catch(res => {
+        console.log(res);
+        console.log(data);
+    }).then(res => {
+        return res.text();
+    }).then(res => {
+        // if (res.match(/success/)) form.querySelector('button[type=submit]').disabled = false;
+        setTimeout(() => {
+            form.querySelector('button[type=submit]').removeAttribute('disabled');
+        }, 5000);
+    })
+
+}
+
+/** Маска телефонного номера */
+$.mask.definitions['#'] = '[0-9]';
+$.mask.definitions['9'] = '';
+$('input[name=tel]').mask("+(38) ### ###-##-##", {
+    placeholder: "_"
+}); /*Form handler END */

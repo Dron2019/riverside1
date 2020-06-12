@@ -13,7 +13,7 @@ block scripts
 	script( src='./assets/scripts/canvas_slideshow.js')
 	script( src='./assets/scripts/displacment-hover/three.min.js')
 	script( src='./assets/scripts/displacment-hover/hover.js')
-	script( src='./assets/scripts/home.js')
+	script( defer src='./assets/scripts/home.js')
 	script(defer src='./assets/scripts/index.js')
 
 	
@@ -271,10 +271,45 @@ block content
 				.tab-head-item(data-link=".tab-callback") Замовити зворотній дзвінок
 				.tab-head-item(data-link=".tab-promotions") Хочете отримувати наші акції
 			.tab-body 
-				.tab.tab-message.active .tab-message
-				.tab.tab-callback .tab-callback
-				.tab.tab-promotions .tab-promotions
-
+				.tab.tab-message.active
+					form.message
+						.input-group
+							+svg('circle-blue-man').decor-icon
+							input(type="text" name="name" placeholder="Ім'я:" data-required="true")
+						.input-group
+							+svg('circle-blue-tel-tube').decor-icon
+							input(type="text" name="tel" placeholder="Телефон:" data-required="true")
+						.input-group
+							+svg('circle-blue-letter').decor-icon
+							input(type="text" name="email" placeholder="E-mail:" data-required="true")
+						.input-group
+							+svg('circle-blue-dialog-cloud').decor-icon
+							input(type="text" name="message" placeholder="Повідомлення:")
+						button(type="submit" class="submit-js").link.blue Надіслати
+				.tab.tab-callback
+					form.callback
+						.input-group
+							+svg('circle-blue-man').decor-icon
+							input(type="text" name="name" placeholder="Ім'я:" data-required="true")
+						.input-group
+							+svg('circle-blue-tel-tube').decor-icon
+							input(type="text" name="tel" placeholder="Телефон:" data-required="true")
+						.input-group
+							+svg('circle-blue-letter').decor-icon
+							input(type="text" name="email" placeholder="E-mail:" data-required="true")
+						.input-group
+							+svg('circle-blue-dialog-cloud').decor-icon
+							input(type="text" name="message" placeholder="Повідомлення:")
+						button(type="submit" class="submit-js").link.blue Надіслати
+				.tab.tab-promotions
+					form.promotions
+						.input-group
+							+svg('circle-blue-tel-tube').decor-icon
+							input(type="text" name="tel" placeholder="Телефон:" data-required="true")
+						.input-group
+							+svg('circle-blue-letter').decor-icon
+							input(type="text" name="email" placeholder="E-mail:" data-required="true")
+						button(type="submit" class="submit-js").link.blue Підписатися
 block footer
 block header
 	

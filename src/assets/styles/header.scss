@@ -129,3 +129,31 @@ header.header {
 .menu-button {
     margin-right: 60px;
 }
+
+@include to(1100px) {
+    .header-telephone,
+    .form-call-button,
+    .menu-button {
+        margin-right: 30px;
+    }
+}
+
+@include to(980px) {
+    .header-telephone,
+    .form-call-button,
+    .menu-button {
+        margin-right: 15px;
+    }
+    .form-call-button {
+        padding-right: 0;
+    }
+    .form-call-button:after {
+        display: none;
+    }
+}
+
+@include to(980px) {
+    .form-call-button {
+        display: none;
+    }
+}
