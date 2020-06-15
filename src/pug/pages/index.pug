@@ -93,6 +93,35 @@ block content
 				li.page-link-group
 					a(href="#").link Життя у комплексі
 					a(href="#").link Вибір Квартир
+	section.genplan-legend-mobile
+		ul.genplan-list
+				li(data-svgId="football-field").svg-link-js
+					span Стадіон
+				li(data-svgId="skate-park").svg-link-js
+					span Скейтпарк
+				li(data-svgId="tennis-courts").svg-link-js
+					span Теннісний корт
+				li(data-svgId="workout-zone").svg-link-js
+					span Воркаут зона
+				li(data-svgId="").svg-link-js
+					span Парк
+				li(data-svgId="parking").svg-link-js
+					span Паркінг
+				li(data-svgId="").svg-link-js
+					span Пляж
+				li(data-svgId="water-channel").svg-link-js
+					span Канал
+				li(data-svgId="").svg-link-js
+					span Еко-ринок
+				li(data-svgId="").svg-link-js
+					span 1ша черга
+				li(data-svgId="").svg-link-js
+					span 1га черга
+				li(data-svgId="").svg-link-js
+					span 1тя черга
+				li.page-link-group
+					a(href="#").link Життя у комплексі
+					a(href="#").link Вибір Квартир
 	section.about.layout
 		.left.advantages
 			+wave-top()
@@ -111,7 +140,7 @@ block content
 					.title <span class="gray">Бути</span> в моменті
 				.text-group
 					.text.gray Один день на курорті - це класний краєвид з вікон, ресторани в двох хвилинах, завжди свіже повітря, все необхідне під боком: спорт, концерти, променад, пляж і величезна зелена зона.
-					.link.blue Детальніше
+					a(href="#").link.blue Детальніше
 				+img('about-hover-block/about-right-block.jpg').bg-image
 	section.reasons-to-choose
 		.reasons-to-choose__block
@@ -236,15 +265,29 @@ block content
 						.contacts__mini-group-title Відділ продажу
 						a(href="").contacts__mini-group-text с. Погреби вул. Кутузова 1 
 						+svg('circle-blue-riverside').decor-icon
-				.contacts__info-block-column
+				.contacts__info-block-column.half-mobile
 					.contacts__info-block-column-title Інвесторам
 					.contacts__mini-group  
 						.contacts__mini-group-title Офіційний форум ЖК «Riverside»
 						.contacts__mini-group-text Для входу в групу вам необхідна реєстрація на Facebook
 						+svg('circle-blue-dialog').decor-icon
-					a.link.blue(href="#" target='_blank') Увійти в группу 
+						a.link.mobile.blue(href="#" target='_blank') Увійти в группу
+					a.link.desktop.blue(href="#" target='_blank') Увійти в группу
+				.contacts__info-block-column.mobile-shown.half-mobile
+					.contacts__info-block-column-title Комерційна нерухомість
+					.contacts__mini-group  
+						.contacts__mini-group-title Відділ продажу
+						a(href="").contacts__mini-group-text с. Погреби вул. Кутузова 1 
+						+svg('circle-blue-riverside').decor-icon
+					.contacts__mini-group 
+						.contacts__mini-group-title Телефон
+						.contacts__mini-group-text
+							a(href="tel:") +38 (096) 165-30-30 
+							a(href="tel:") +38 (096) 165-30-30 
+							a(href="tel:") +38 (096) 165-30-30 
+						+svg('circle-blue-tel-tube').decor-icon
 				.contacts__info-block-column.double
-					.col-1
+					.col-1.desktop-shown 
 						.contacts__info-block-column-title Комерційна нерухомість
 						.contacts__mini-group  
 							.contacts__mini-group-title Відділ продажу

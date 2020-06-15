@@ -52,7 +52,7 @@ for (var i = 0; i < spriteImages.length; i++) {
 var moveSlider = new CanvasSlideshow({
     sprites: spriteImagesSrc,
     displacementImage: './assets/images/main-screen-filter.jpg',
-    autoPlay: true,
+    autoPlay: false,
     selector: '.main-screen',
     autoPlaySpeed: [0.3, 0.3],
     displaceScale: [800, 500],
@@ -72,7 +72,6 @@ mousePopup.classList.add('mouse-popup');
 mousePopup.innerHTML = 'Натисніть та утримуйте на зображенні';
 document.querySelector('.main-screen').append(mousePopup);
 document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
-    console.log(evt);
     mousePopup.style.top = evt.screenY - 60 + 'px';
     mousePopup.style.left = evt.screenX + 30 + 'px';
 
