@@ -246,7 +246,7 @@ a[href] {
 }
 
 .genplan-legend-mobile {
-    background: linear-gradient(-90deg, #2F80ED 0%, rgba(47, 128, 237, 0) 100%), url(../images/common/wave-pattern.jpg) center no-repeat;
+    background: url(../images/common/wave-pattern-bg.png) center no-repeat, linear-gradient(0deg, rgba(47, 128, 237, 1) 0%, rgba(47, 128, 237, 1) 100%);
     background-size: cover;
     line-height: 1em;
     .genplan-list {
@@ -255,6 +255,10 @@ a[href] {
         flex-direction: column;
         max-height: calc(1.6em * 17);
         flex-wrap: wrap;
+    }
+    .title {
+        padding-top: 20px;
+        line-height: 1.2em;
     }
     .genplan-list li {
         width: 32%;
@@ -328,6 +332,7 @@ a[href] {
             width: 45%;
             display: flex;
             align-items: flex-end;
+            margin-right: 20%;
         }
         .genplan-list li:not(.page-link-group):before {
             content: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='1' x2='2' y2='2' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
@@ -376,6 +381,9 @@ a[href] {
             transform: translateX(100%);
             transition: .5s;
             pointer-events: none;
+        }
+        .link {
+            margin-right: 45%;
         }
         .text.visible,
         .link.visible {
@@ -459,8 +467,11 @@ a[href] {
             align-items: flex-start;
             padding-top: 40px;
             padding-bottom: 40px;
-            padding-left: calc(100% / 12);
-            padding-right: calc(100% / 12);
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+            .bg-image {
+                object-position: 70%;
+            }
         }
     }
 }
@@ -728,6 +739,10 @@ a[href] {
         }
         .right {
             @include shift-padding-right(2);
+            padding-left: var(--side-fields);
+            .bg-image {
+                object-position: 67%;
+            }
         }
         .left,
         .right {

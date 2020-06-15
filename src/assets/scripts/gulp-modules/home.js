@@ -94,10 +94,12 @@ genplanSvgLinkList.forEach(link => {
 
             if (link.dataset.svgid.length == 0) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `#ffffff`;
+            document.querySelector(`#${link.dataset.svgid}`).style.fill = `rgba(255,255,255,0.5)`;
         });
         link.addEventListener('mouseout', function(evt) {
             if (link.dataset.svgid.length == 0) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `none`;
+            document.querySelector(`#${link.dataset.svgid}`).style.fill = `none`;
         });
     })
     /**GENPLAN END */
