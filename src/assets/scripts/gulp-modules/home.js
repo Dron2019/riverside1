@@ -103,7 +103,41 @@ genplanSvgLinkList.forEach(link => {
         });
     })
     /**GENPLAN END */
+    /**Gallery distortion slider */
+    // Select all your images
+var galleryImages = document.querySelectorAll('.gallery .slide-item__image');
+var galleryImagesSrc = [];
 
+var imgDIR = `/dist/`
+console.log(galleryImagesSrc);
+
+for (var i = 0; i < galleryImages.length; i++) {
+    var galleryImg = galleryImages[i];
+    // Set the texts you want to display to each slide 
+    // in a sibling element of your image and edit accordingly
+    galleryImagesSrc.push(galleryImg.getAttribute('src').replace('./', imgDIR));
+};
+setTimeout(() => {
+
+    var gallerySlider = new CanvasSlideshow({
+        sprites: galleryImagesSrc,
+        displacementImage: './assets/images/gallery-screen-filter.jpg',
+        autoPlay: true,
+        selector: '.gallery',
+        autoPlaySpeed: [0.3, 0.3],
+        displaceScale: [800, 500],
+        navSelector: '.gallery',
+        displaceAutoFit: true,
+        stageWidth: document.documentElement.clientWidth * 1.1,
+        image: document.querySelectorAll('.gallery .slide-item__image'),
+        navElement: document.querySelectorAll('.gallery .scene-nav'),
+        stageHeight: document.documentElement.clientWidth * 0.6,
+        displacementCenter: true,
+        interactive: true,
+        interactionEvent: 'click', // 'click', 'hover', 'both' 
+    });
+}, 5000);
+/**Gallery distortion slider END*/
 
 /**Distortion Hover */
 Array.from(document.querySelectorAll('.about .distortion-hover__item-img')).forEach((el) => {
@@ -140,44 +174,7 @@ Array.from(document.querySelectorAll('.contact-developer .distortion-hover__item
     });
 });
 /**Distortion Hover END*/
-/**Gallery distortion slider */
-// Select all your images
-var galleryImages = document.querySelectorAll('.gallery .slide-item__image');
-var galleryImagesSrc = [];
 
-var imgDIR = `/dist/`
-console.log(galleryImagesSrc);
-
-for (var i = 0; i < galleryImages.length; i++) {
-
-    var galleryImg = galleryImages[i];
-
-    // Set the texts you want to display to each slide 
-    // in a sibling element of your image and edit accordingly
-
-
-    galleryImagesSrc.push(galleryImg.getAttribute('src').replace('./', imgDIR));
-}
-
-
-var gallerySlider = new CanvasSlideshow({
-    sprites: galleryImagesSrc,
-    displacementImage: './assets/images/main-screen-filter.jpg',
-    autoPlay: true,
-    selector: '.gallery',
-    autoPlaySpeed: [0.3, 0.3],
-    displaceScale: [800, 500],
-    navSelector: '.gallery',
-    displaceAutoFit: true,
-    stageWidth: document.documentElement.clientWidth * 1.1,
-    image: document.querySelectorAll('.gallery .slide-item__image'),
-    navElement: document.querySelectorAll('.gallery .scene-nav'),
-    stageHeight: document.documentElement.clientWidth * 0.6,
-    displacementCenter: true,
-    interactive: true,
-    interactionEvent: 'click', // 'click', 'hover', 'both' 
-});
-/**Gallery distortion slider END*/
 
 /**TABS */
 let tabNavList = document.querySelectorAll('.forms .tab-head-item');
@@ -261,14 +258,22 @@ $('input[name=tel]').mask("+(38) ### ###-##-##", {
     placeholder: "_"
 });
 /*Form handler END */
-let mainScreen = document.querySelector('.main-screen-layout');
-window.addEventListener('scroll', () => {
-    console.log(mainScreen.getBoundingClientRect());
 
-    if (mainScreen.getBoundingClientRect().y < -100) {
-        document.querySelector('header').style.backgroundColor = `var(--blue)`;
-    } else {
-        document.querySelector('header').style.backgroundColor = `transparent`;
-    }
 
-})
+if (window.screen.width > 481) {
+
+    let mainScreen = document.querySelector('.main-screen-layout');
+    window.addEventListener('scroll', () => {
+        console.log(mainScreen.getBoundingClientRect());
+
+        if (mainScreen.getBoundingClientRect().y < -100) {
+            document.querySelector('header').style.backgroundColor = `var(--blue)`;
+            document.querySelector('header').classList.add('fixed');
+        } else {
+            document.querySelector('header').style.backgroundColor = `transparent`;
+            document.querySelector('header').classList.remove('fixed');
+        }
+
+    });
+    document.querySelector('.main-screen').prepend(document.querySelector('header'));
+}

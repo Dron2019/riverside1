@@ -61,8 +61,9 @@ a[href] {
         margin-left: auto;
     }
     .wave {
-        height: calc(100% - 70px);
-        margin-top: 70px;
+        // height: calc(100% - 70px);
+        height: calc(100%);
+        // margin-top: 70px;
         z-index: 1;
     }
     .arrows,
@@ -70,6 +71,25 @@ a[href] {
     .scroll-element {
         position: relative;
         z-index: 1;
+    }
+    @include from(481px) {
+        header {
+            width: calc(100% - var(--side-fields) * 2);
+            margin: 0 auto;
+            margin-top: 40px;
+            position: static;
+        }
+        header.fixed {
+            width: 100%;
+            margin-top: 0px;
+            position: fixed;
+        }
+        .wave {
+            // height: calc(100% - 70px);
+            height: calc(100%);
+            // margin-top: 70px;
+            z-index: 1;
+        }
     }
     @include to(950px) {
         .title {
@@ -306,7 +326,7 @@ a[href] {
     .page-link-group>a {
         margin-bottom: 25px;
     }
-    @include from(769px) {
+    @include from(767px) {
         display: none;
     }
     @include to(480px) {
@@ -612,7 +632,8 @@ a[href] {
             margin: 0;
             @include size(7);
             margin-left: auto;
-            @include shift-right(1);
+            // @include shift-right(1);
+            padding-right: 0;
             align-self: center;
         }
         .title {
@@ -1037,8 +1058,8 @@ button[type=submit] {
     border: none;
 }
 
-@include to(480px) {
-    canvas {
-        transform: scaleX(2.5);
-    }
-}
+// @include to(480px) {
+//     canvas {
+//         transform: scaleX(2.5);
+//     }
+// }

@@ -8,11 +8,11 @@ block head
 block scripts
 	
 	script(defer src='./assets/scripts/libs.js')
-	script( src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
-	script( src='./assets/scripts/pixi.min.js')
-	script( src='./assets/scripts/canvas_slideshow.js')
-	script( src='./assets/scripts/displacment-hover/three.min.js')
-	script( src='./assets/scripts/displacment-hover/hover.js')
+	script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+	script(defer src='./assets/scripts/pixi.min.js')
+	script(defer src='./assets/scripts/canvas_slideshow.js')
+	script(defer src='./assets/scripts/displacment-hover/three.min.js')
+	script(defer src='./assets/scripts/displacment-hover/hover.js')
 	script( defer src='./assets/scripts/home.js')
 	script(defer src='./assets/scripts/index.js')
 
@@ -148,27 +148,27 @@ block content
 			.title <span class="blue with-waves">Ріверсайд</span> 
 				span.gray тому що...
 			//- +img('reasons-to-choose/1.jpg')
-			video(poster="./assets/images/reasons-to-choose/1.jpg" autoplay="true" loop="true" muted="muted" )
+			video(poster="./assets/images/reasons-to-choose/1.jpg" autoplay loop="true" muted playsinline )
 				source(src="./static/video/SPORT.mp4" type="video/mp4")
 			+wave-bottom-white('Місце, де панує спорт','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/2.jpg')
-			video(poster="./assets/images/reasons-to-choose/2.jpg" autoplay="true" loop="true" muted="muted" )
+			video(poster="./assets/images/reasons-to-choose/2.jpg" autoplay loop="true" muted playsinline )
 				source(src="./static/video/rest.mp4" type="video/mp4")
 			+wave-bottom-white('простір для дозвілля','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/3.jpg')
-			video(poster="./assets/images/reasons-to-choose/3.jpg" autoplay="true" loop="true" muted="muted" )
+			video(poster="./assets/images/reasons-to-choose/3.jpg" autoplay loop="true" muted playsinline )
 				source(src="./static/video/water.mp4" type="video/mp4")
 			+wave-bottom-white('Водний простір','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/4.jpg')
-			video(poster="./assets/images/reasons-to-choose/4.jpg" autoplay="true" loop="true" muted="muted" )
+			video(poster="./assets/images/reasons-to-choose/4.jpg" autoplay loop="true" muted playsinline )
 				source(src="./static/video/life.mp4" type="video/mp4")
 			+wave-bottom-white('досконалий у дрібницях','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/5.jpg')
-			video(poster="./assets/images/reasons-to-choose/5.jpg" autoplay="true" loop="true" muted="muted" )
+			video(poster="./assets/images/reasons-to-choose/5.jpg" autoplay loop="true" muted playsinline )
 				source(src="./static/video/KIDS.mp4" type="video/mp4")
 			+wave-bottom-white('Зростай і розвивайся','Твоє правильне середовище')
 	section.gallery.layout

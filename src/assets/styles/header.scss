@@ -7,7 +7,7 @@ header.header {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 50;
     padding: 20px var(--side-fields) 20px var(--side-fields);
     // background-color: var(--blue);
     background-color: transparent;
@@ -24,6 +24,7 @@ header.header {
         padding: 10px var(--side-fields) 10px var(--side-fields);
         flex-wrap: wrap;
         width: 100vw;
+        background-color: var(--blue);
     }
 }
 
@@ -103,6 +104,7 @@ header.header {
         &>svg {
             width: 26px;
             height: 9px;
+            transform: translateY(3px);
         }
     }
 }
@@ -217,11 +219,23 @@ header.header {
     }
 }
 
+@include to(768px) {
+    .header-telephone,
+    .form-call-button,
+    .menu-button {
+        margin-right: 40px;
+    }
+}
+
 @include to(480px) {
     .header-telephone,
     .form-call-button,
     .menu-button {
         margin-right: 20px;
+    }
+    .header-telephone,
+    .form-call-button {
+        margin-left: auto;
     }
     .menu-button {
         margin-right: 0;

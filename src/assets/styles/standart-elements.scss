@@ -90,16 +90,23 @@
             width: 650px;
             height: 124px;
         }
+        svg.desktop path {
+            stroke-width: 3.5;
+            transform: translateY(1px);
+        }
         .bottom-line {
-            width: calc(100% - 710px);
+            width: calc(100% - 694px);
+        }
+        &:after {
+            height: calc(100% - (var(--side-padding) * 2) - 119px);
         }
     }
-    @include from(769px) {
+    @include from(768px) {
         .mobile {
             display: none;
         }
     }
-    @include to(768px) {
+    @include to(767px) {
         .desktop {
             display: none;
         }
