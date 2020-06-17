@@ -128,39 +128,50 @@ var hoverEffect = function(opts) {
     );
     var object = new THREE.Mesh(geometry, mat);
     scene.add(object);
-
+    var switchFirst = function() {
+        if (showElements !== undefined) {
+            showElements.forEach(el => {
+                el.classList.remove('visible');
+            })
+        }
+        TweenMax.to(mat.uniforms.dispFactor, speedOut, {
+            duration: 1,
+            value: 0,
+            ease: easing
+        });
+    };
+    var switchSecond = function() {
+        if (showElements !== undefined) {
+            showElements.forEach(el => {
+                el.classList.add('visible');
+            })
+        }
+        TweenMax.to(mat.uniforms.dispFactor, speedIn, {
+            duration: 1,
+            value: 1,
+            ease: easing
+        });
+    };
     var addEvents = function() {
         var evtIn = "mouseenter";
         var evtOut = "mouseleave";
         if (mobileAndTabletcheck()) {
             evtIn = "touchstart";
             evtOut = "touchend";
+            var touchClicker = 0;
         }
         /**Доавление еффекта при наведении на другой елемент */
 
         otherHoverEl.addEventListener(evtIn, function(e) {
-            if (showElements !== undefined) {
-                showElements.forEach(el => {
-                    el.classList.add('visible');
-                })
-            }
-            TweenMax.to(mat.uniforms.dispFactor, speedIn, {
-                duration: 1,
-                value: 1,
-                ease: easing
-            });
+            touchClicker += 1;
+            if (touchClicker > 1) touchClicker = 0;
+            console.log(touchClicker);
+            switchSecond();
         });
         otherHoverEl.addEventListener(evtOut, function(e) {
-            if (showElements !== undefined) {
-                showElements.forEach(el => {
-                    el.classList.remove('visible');
-                })
-            }
-            TweenMax.to(mat.uniforms.dispFactor, speedOut, {
-                duration: 1,
-                value: 0,
-                ease: easing
-            });
+            if (touchClicker === 1) return false;
+            if (e.target.tagName === 'A') return false;
+            switchFirst();
         });
         /**Доавление еффекта при наведении на другой елемент END */
     };

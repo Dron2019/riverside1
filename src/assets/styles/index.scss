@@ -116,6 +116,7 @@ a[href] {
 
 .main-screen-layout {
     position: relative;
+    z-index: 3;
     canvas {
         position: absolute;
         top: 0;
@@ -224,6 +225,12 @@ a[href] {
         stroke: transparent;
         transition: .5s;
         stroke-width: 1;
+    }
+    @include from(1720px) {
+        .genplan-list li:not(.page-link-group) {
+            font-size: 18px;
+            line-height: 18px;
+        }
     }
     @include to(1320px) {
         .page-link-group {
@@ -451,6 +458,11 @@ a[href] {
             width: max-content;
         }
     }
+    @include from(1720px) {
+        .right .bg-image {
+            object-position: 40% bottom;
+        }
+    }
     @include to(768px) {
         .left,
         .right {
@@ -492,6 +504,11 @@ a[href] {
             .bg-image {
                 object-position: 70%;
             }
+        }
+    }
+    @media screen and (min-height:650px) and (orientation:portrait) {
+        .title {
+            font-size: 32px;
         }
     }
 }
@@ -621,6 +638,11 @@ a[href] {
         margin-bottom: 40px;
         line-height: 22px;
     }
+    @include from(1720px) {
+        .text {
+            line-height: 30px;
+        }
+    }
     @include to(768px) {
         &__content-text {
             margin-right: 0;
@@ -630,7 +652,7 @@ a[href] {
     @include to(480px) {
         &__content-text {
             margin: 0;
-            @include size(7);
+            @include size(8);
             margin-left: auto;
             // @include shift-right(1);
             padding-right: 0;
@@ -770,6 +792,11 @@ a[href] {
             height: 100vh;
         }
     }
+    @media screen and (min-height:650px) and (orientation:portrait) {
+        .title {
+            font-size: 32px;
+        }
+    }
 }
 
 .contacts {
@@ -852,6 +879,16 @@ a[href] {
     }
     .link {
         padding-left: 25px;
+    }
+    @include from(1720px) {
+        &__info-block-column-title {
+            font-size: 24px;
+            line-height: 30px;
+        }
+        &__mini-group {
+            font-size: 24px;
+            line-height: 1em;
+        }
     }
     @include to(1100px) {
         &__mini-group {
@@ -972,6 +1009,11 @@ a[href] {
     .link {
         max-width: 160px;
     }
+    @include from(1720px) {
+        .link {
+            max-width: 250px;
+        }
+    }
 }
 
 .forms {
@@ -998,6 +1040,12 @@ a[href] {
     }
     input::placeholder {
         color: var(--blue);
+    }
+    @include from(1720px) {
+        input {
+            font-size: 24px;
+            line-height: 24px;
+        }
     }
     @include to(480px) {
         margin-bottom: 18px;

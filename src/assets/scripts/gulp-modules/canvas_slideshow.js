@@ -137,10 +137,17 @@
             for (var i = 0; i < rSprites.length; i++) {
                 var texture = new PIXI.Texture.from(sprites[i]);
                 var image = new PIXI.Sprite(texture);
-                console.log(options.image[i]);
+                var mobileScaleCoef = 1;
+                var mobileTransformCoef = 0;
+                if (window.screen.width < 769) {
+                    mobileScaleCoef = 3;
+                    mobileTransformCoef = 0.7;
+                }
+                console.log(image);
 
-                image.scale.x = options.stageWidth / options.image[i].naturalWidth;
+                image.scale.x = options.stageWidth / options.image[i].naturalWidth * mobileScaleCoef;
                 image.scale.y = options.stageHeight / options.image[i].naturalHeight;
+                image.x = (-options.stageWidth) * mobileTransformCoef;
 
                 if (rTexts) {
                     var richText = new PIXI.Text(rTexts[i], style);

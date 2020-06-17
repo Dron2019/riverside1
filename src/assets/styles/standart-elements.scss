@@ -85,6 +85,26 @@
         width: 283px;
         height: 93px;
     }
+    @include to(1719px) {
+        .three-rows-wave {
+            display: none;
+        }
+    }
+    @include from(1720px) {
+        .three-rows-wave {
+            width: 1161px;
+            height: 218px;
+        }
+        .bottom-line {
+            width: calc(100% - 1221px);
+        }
+        svg:not(.three-rows-wave) {
+            display: none;
+        }
+        &:after {
+            height: calc(100% - (var(--side-padding) * 2) - 214px);
+        }
+    }
     @include to(950px) {
         svg {
             width: 650px;
@@ -153,6 +173,9 @@
     }
     & .gray {
         color: var(--gray);
+    }
+    @include from(1720px) {
+        font-size: 64px;
     }
     @include to(1024px) {
         & .blue.with-waves:after {
@@ -249,6 +272,10 @@
     &.blue::after {
         background-color: var(--blue);
     }
+    @include from(1720px) {
+        font-size: 24px;
+        line-height: 30px;
+    }
     @include from(769px) {
         &.mobile {
             display: none;
@@ -266,6 +293,9 @@
             width: 20px;
         }
     }
+    @media screen and (min-height:650px) and (orientation:portrait) {
+        font-size: 20px;
+    }
 }
 
 .subtitle {
@@ -273,11 +303,14 @@
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 1em;
     text-transform: uppercase;
     color: var(--white);
     &.gray {
         color: var(--gray);
+    }
+    @include from(1720px) {
+        font-size: 24px;
     }
     @include to(768px) {
         font-size: 16px;
@@ -353,7 +386,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
-    line-height: 22px;
+    line-height: 1.6em;
     color: var(--white);
     &.gray {
         color: #728596;
@@ -367,8 +400,14 @@
     &>p:nth-child(n+2) {
         margin-top: 1.6em;
     }
+    @include from(1720px) {
+        font-size: 18px;
+    }
     @include to(480px) {
         font-size: 12px;
+    }
+    @media screen and (min-height:650px) and (orientation:portrait) {
+        font-size: 16px;
     }
 }
 
@@ -421,6 +460,24 @@
         line-height: 22px;
         text-transform: uppercase;
         color: var(--gray-light);
+    }
+    @include from(1720px) {
+        width: 1150px;
+        height: 128px;
+        &__title {
+            font-size: 30px;
+            max-width: 270px;
+        }
+        &__title::before {
+            content: url("data:image/svg+xml,%3Csvg width='10' height='50' viewBox='0 0 9 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 36C0.999999 18 8 18 8 1.24374e-06' stroke='%230085FF' stroke-width='2'/%3E%3C/svg%3E ");
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        &__subtitle {
+            font-size: 24px;
+            line-height: 1em;
+        }
     }
     @include from(769px) {
         .white-wave-mobile {
@@ -495,6 +552,27 @@
     .mobile-320 {
         width: 292px;
         height: 66px;
+    }
+    @include from(1720px) {
+        .blue-line-desktop {
+            display: none;
+        }
+        svg {
+            width: 1110px;
+            height: 165px;
+        }
+        .top-line {
+            width: calc(100% - 1110px);
+        }
+        .left-line {
+            top: 164px;
+            height: calc(100% - 164px);
+        }
+    }
+    @include to(1719px) {
+        .full-hd-svg {
+            display: none;
+        }
     }
     @include from(769px) {
         .blue-top-top-line-mobile {
@@ -599,6 +677,12 @@
     }
     .tab.active {
         display: block;
+    }
+    @include from(1720px) {
+        .tab-head-item {
+            font-size: 24px;
+            line-height: 30px;
+        }
     }
     @include to(768px) {
         .tab-head-item {

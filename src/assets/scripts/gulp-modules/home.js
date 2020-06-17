@@ -122,7 +122,7 @@ setTimeout(() => {
     var gallerySlider = new CanvasSlideshow({
         sprites: galleryImagesSrc,
         displacementImage: './assets/images/gallery-screen-filter.jpg',
-        autoPlay: true,
+        autoPlay: false,
         selector: '.gallery',
         autoPlaySpeed: [0.3, 0.3],
         displaceScale: [800, 500],
@@ -131,12 +131,12 @@ setTimeout(() => {
         stageWidth: document.documentElement.clientWidth * 1.1,
         image: document.querySelectorAll('.gallery .slide-item__image'),
         navElement: document.querySelectorAll('.gallery .scene-nav'),
-        stageHeight: document.documentElement.clientWidth * 0.6,
+        stageHeight: document.documentElement.clientHeight,
         displacementCenter: true,
-        interactive: true,
+        interactive: false,
         interactionEvent: 'click', // 'click', 'hover', 'both' 
     });
-}, 5000);
+}, 3000);
 /**Gallery distortion slider END*/
 
 /**Distortion Hover */
