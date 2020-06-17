@@ -485,10 +485,6 @@
         }
 
 
-        /// ---------------------------
-        //  START 
-        /// ---------------------------           
-        this.init();
 
 
         /// ---------------------------
@@ -570,7 +566,13 @@
             //5. Return the `scale` value. This is important, because you'll nee this value 
             //for correct hit testing between the pointer and sprites
             return scale;
-        } // http://bit.ly/2y1Yk2k      
+        } // http://bit.ly/2y1Yk2k    
+
+        /// ---------------------------
+        //  START 
+        /// ---------------------------           
+        this.init();
+
 
 
     };

@@ -19,8 +19,9 @@ mixin svg(icon)
 mixin link-blank(href)
 	a(herf=href rel="nofollow" target="_blank")
 mixin img(src)
-	img(src='./assets/images/'+src+'' title="foto" alt="foto")&attributes(attributes)
-
+	img(src='./assets/images/'+src+''  alt="foto")&attributes(attributes)
+mixin lazyImg(src)
+	img(data-src='./assets/images/'+src+'' alt="foto")&attributes(attributes)
 - var phoneNumber = `+38 (044) 499-00-70`;
 - var phoneNumberHref = phoneNumber.replace(/\D/g,'');
 

@@ -9,12 +9,15 @@ block scripts
 	
 	script(defer src='./assets/scripts/libs.js')
 	script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
 	script(defer src='./assets/scripts/pixi.min.js')
 	script(defer src='./assets/scripts/canvas_slideshow.js')
 	script(defer src='./assets/scripts/displacment-hover/three.min.js')
 	script(defer src='./assets/scripts/displacment-hover/hover.js')
 	script( defer src='./assets/scripts/home.js')
 	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/gallery.js')
+
 
 	
 block content
@@ -22,16 +25,20 @@ block content
 		.slide-wrapper
 			.slide-item
 				h3.slide-item__title Slide 1
-				+img('main1.jpg').slide-item__image
+				//- +img('main1.jpg').slide-item__image
+				img( src="./assets/images/main1.jpg" data-src="./assets/images/main1.jpg").slide-item__image
 			.slide-item
 				h3.slide-item__title Slide 2
-				+img('main2.jpg').slide-item__image
+				//- +img('main2.jpg').slide-item__image
+				img(src="./assets/images/main2.jpg" data-src="./assets/images/main2.jpg").slide-item__image
 			.slide-item
 				h3.slide-item__title Slide 3
-				+img('main3.jpg').slide-item__image
+				//- +img('main3.jpg').slide-item__image
+				img(src="./assets/images/main3.jpg" data-src="./assets/images/main3.jpg").slide-item__image
 			.slide-item
 				h3.slide-item__title Slide 3
-				+img('main4.jpg').slide-item__image
+				//- +img('main4.jpg').slide-item__image
+				img(src="./assets/images/main4.jpg" data-src="./assets/images/main4.jpg").slide-item__image
 		.main-screen.wrapper
 			+wave-bottom()
 			.arrows
@@ -148,47 +155,47 @@ block content
 			.title <span class="blue with-waves">Ріверсайд</span> 
 				span.gray тому що...
 			//- +img('reasons-to-choose/1.jpg')
-			video(poster="./assets/images/reasons-to-choose/1.jpg" autoplay loop="true" muted playsinline )
+			video(poster="./assets/images/reasons-to-choose/1.jpg"  loop="true" muted playsinline )
 				source(src="./static/video/SPORT.mp4" type="video/mp4")
 			+wave-bottom-white('Місце, де панує спорт','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/2.jpg')
-			video(poster="./assets/images/reasons-to-choose/2.jpg" autoplay loop="true" muted playsinline )
+			video(poster="./assets/images/reasons-to-choose/2.jpg" loop="true" muted playsinline )
 				source(src="./static/video/rest.mp4" type="video/mp4")
 			+wave-bottom-white('простір для дозвілля','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/3.jpg')
-			video(poster="./assets/images/reasons-to-choose/3.jpg" autoplay loop="true" muted playsinline )
+			video(poster="./assets/images/reasons-to-choose/3.jpg"  loop="true" muted playsinline )
 				source(src="./static/video/water.mp4" type="video/mp4")
 			+wave-bottom-white('Водний простір','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/4.jpg')
-			video(poster="./assets/images/reasons-to-choose/4.jpg" autoplay loop="true" muted playsinline )
+			video(poster="./assets/images/reasons-to-choose/4.jpg"  loop="true" muted playsinline )
 				source(src="./static/video/life.mp4" type="video/mp4")
 			+wave-bottom-white('досконалий у дрібницях','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/5.jpg')
-			video(poster="./assets/images/reasons-to-choose/5.jpg" autoplay loop="true" muted playsinline )
+			video(poster="./assets/images/reasons-to-choose/5.jpg" loop="true" muted playsinline )
 				source(src="./static/video/KIDS.mp4" type="video/mp4")
 			+wave-bottom-white('Зростай і розвивайся','Твоє правильне середовище')
 	section.gallery.layout
 		.slide-wrapper
 			.slide-item
-				+img('gallery/v1/1.jpg').slide-item__image
+				+lazyImg('gallery/v1/1.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/2.jpg').slide-item__image
+				+lazyImg('gallery/v1/2.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/3.jpg').slide-item__image
+				+lazyImg('gallery/v1/3.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/4.jpg').slide-item__image
+				+lazyImg('gallery/v1/4.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/5.jpg').slide-item__image
+				+lazyImg('gallery/v1/5.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/6.jpg').slide-item__image
+				+lazyImg('gallery/v1/6.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/7.jpg').slide-item__image
+				+lazyImg('gallery/v1/7.jpg').slide-item__image
 			.slide-item
-				+img('gallery/v1/8.jpg').slide-item__image
+				+lazyImg('gallery/v1/8.jpg').slide-item__image
 		+wave-bottom()
 		.gallery__content
 			.arrows
@@ -335,7 +342,7 @@ block content
 				.tab-head-item(data-link=".tab-promotions") Хочете отримувати наші акції
 			.tab-body 
 				.tab.tab-message.active
-					form.message
+					form.message(data-name="send-message")
 						.input-group
 							+svg('circle-blue-man').decor-icon
 							input(type="text" name="name" placeholder="Ім'я:" data-required="true")
@@ -350,7 +357,7 @@ block content
 							input(type="text" name="message" placeholder="Повідомлення:")
 						button(type="submit" class="submit-js").link.blue Надіслати
 				.tab.tab-callback
-					form.callback
+					form.callback(data-name="callback")
 						.input-group
 							+svg('circle-blue-man').decor-icon
 							input(type="text" name="name" placeholder="Ім'я:" data-required="true")
@@ -365,7 +372,7 @@ block content
 							input(type="text" name="message" placeholder="Повідомлення:")
 						button(type="submit" class="submit-js").link.blue Надіслати
 				.tab.tab-promotions
-					form.promotions
+					form.promotions(data-name="promotions")
 						.input-group
 							+svg('circle-blue-tel-tube').decor-icon
 							input(type="text" name="tel" placeholder="Телефон:" data-required="true")

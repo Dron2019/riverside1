@@ -2,7 +2,8 @@
 var spriteImages = document.querySelectorAll('.main-screen-layout .slide-item__image');
 var spriteImagesSrc = [];
 var texts = [];
-var imgDIR = `/dist/`
+var imgDIR = ``;
+if (window.location.href.match(/\/dist\//)) imgDIR = `/dist/`;
 
 for (var i = 0; i < spriteImages.length; i++) {
 
@@ -66,6 +67,7 @@ var moveSlider = new CanvasSlideshow({
     interactive: true,
     interactionEvent: 'click', // 'click', 'hover', 'both' 
 });
+moveSlider.init();
 /**Всплывающая подсказка на первом экране */
 const mousePopup = document.createElement('div');
 mousePopup.classList.add('mouse-popup');
@@ -74,13 +76,14 @@ document.querySelector('.main-screen').append(mousePopup);
 document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
     mousePopup.style.top = evt.screenY - 60 + 'px';
     mousePopup.style.left = evt.screenX + 30 + 'px';
-
 });
 document.querySelector('.main-screen canvas').addEventListener('mouseenter', function(evt) {
     document.querySelector('.main-screen').append(mousePopup);
+    mousePopup.classList.add('visible');
 });
 document.querySelector('.main-screen canvas').addEventListener('mouseleave', function(evt) {
     mousePopup.remove();
+    mousePopup.classList.remove('visible');
 });
 /**Всплывающая подсказка на первом экране END */
 /**GENPLAN */
@@ -90,7 +93,7 @@ let svg = document.querySelector('.genplan-svg svg'),
 genplanSvgLinkList.forEach(link => {
         link.addEventListener('mouseover', function(evt) {
             // link.dataset.svgID;
-            console.log(typeof link.dataset.svgid);
+            // //console.log(typeof link.dataset.svgid);
 
             if (link.dataset.svgid.length == 0) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `#ffffff`;
@@ -103,41 +106,7 @@ genplanSvgLinkList.forEach(link => {
         });
     })
     /**GENPLAN END */
-    /**Gallery distortion slider */
-    // Select all your images
-var galleryImages = document.querySelectorAll('.gallery .slide-item__image');
-var galleryImagesSrc = [];
 
-var imgDIR = `/dist/`
-console.log(galleryImagesSrc);
-
-for (var i = 0; i < galleryImages.length; i++) {
-    var galleryImg = galleryImages[i];
-    // Set the texts you want to display to each slide 
-    // in a sibling element of your image and edit accordingly
-    galleryImagesSrc.push(galleryImg.getAttribute('src').replace('./', imgDIR));
-};
-setTimeout(() => {
-
-    var gallerySlider = new CanvasSlideshow({
-        sprites: galleryImagesSrc,
-        displacementImage: './assets/images/gallery-screen-filter.jpg',
-        autoPlay: false,
-        selector: '.gallery',
-        autoPlaySpeed: [0.3, 0.3],
-        displaceScale: [800, 500],
-        navSelector: '.gallery',
-        displaceAutoFit: true,
-        stageWidth: document.documentElement.clientWidth * 1.1,
-        image: document.querySelectorAll('.gallery .slide-item__image'),
-        navElement: document.querySelectorAll('.gallery .scene-nav'),
-        stageHeight: document.documentElement.clientHeight,
-        displacementCenter: true,
-        interactive: false,
-        interactionEvent: 'click', // 'click', 'hover', 'both' 
-    });
-}, 3000);
-/**Gallery distortion slider END*/
 
 /**Distortion Hover */
 Array.from(document.querySelectorAll('.about .distortion-hover__item-img')).forEach((el) => {
@@ -193,7 +162,7 @@ tabNavList.forEach(el => {
 
 /*Form handler */
 let submitList = document.querySelectorAll('.submit-js');
-const SEND_URL = '';
+const SEND_URL = './static/application.php';
 submitList.forEach(el => {
     el.addEventListener('click', function(evt) {
         evt.preventDefault();
@@ -202,13 +171,15 @@ submitList.forEach(el => {
             send(status, SEND_URL, el.closest('form'));
         }
 
-        console.log(el.closest('form'));
+        //console.log(el.closest('form'));
     });
 });
 
 function checkRequiredFields(form) {
     const inputs = form.querySelectorAll('input');
     let sendObject = {};
+    sendObject.form_name = form.dataset.name || '';
+    sendObject.metka = window.location.href || '';
     inputs.forEach(input => {
         let inputGroup = input.closest('.input-group');
         if (input.dataset.required === 'true' && input.value.length === 0) {
@@ -219,12 +190,12 @@ function checkRequiredFields(form) {
         sendObject[input.name] = input.value;
     });
     if (form.querySelector('.unfilled') === null) {
-        console.log(sendObject);
+        //console.log(sendObject);
         return sendObject;
     } else {
         return false;
     }
-    // console.log(form.querySelector('.unfilled'));
+    // //console.log(form.querySelector('.unfilled'));
 
 };
 
@@ -238,16 +209,42 @@ function send(object, url, form) {
         method: 'POST',
         body: data,
     }).catch(res => {
-        console.log(res);
-        console.log(data);
+        //console.log(res);
+        //console.log(data);
     }).then(res => {
         return res.text();
     }).then(res => {
-        // if (res.match(/success/)) form.querySelector('button[type=submit]').disabled = false;
+        if (res.match(/11/)) {
+            sendMessageStatus(form, 'Ваше повідомлення відправлено');
+        } else {
+
+            if (res.match(/fail/)) sendMessageStatus(form, 'Помилка відправки');
+        }
         setTimeout(() => {
             form.querySelector('button[type=submit]').removeAttribute('disabled');
-        }, 5000);
+        }, 2000);
     })
+};
+
+function sendMessageStatus(form, status) {
+    form.style.position = 'relative';
+    form.innerHTML += `
+    <span class="send-message" 
+    style="animation: fadeInLeft 1s 1 ease-in-out ; 
+        color:#fff; position:absolute; 
+        padding:10px 20px; 
+        background:var(--blue);
+        left:50%; 
+        transform:translateX(-50%)">
+    ${status};
+    </span>`;
+    setTimeout(() => {
+        form.querySelector('.send-message').style.animation = 'fadeOutRight 1s 1 ease-in-out';
+        form.querySelector('.send-message').addEventListener('animationend', function(evt) {
+            form.querySelector('.send-message').remove();
+        });
+    }, 2000);
+
 
 }
 
@@ -264,7 +261,7 @@ if (window.screen.width > 481) {
 
     let mainScreen = document.querySelector('.main-screen-layout');
     window.addEventListener('scroll', () => {
-        console.log(mainScreen.getBoundingClientRect());
+        //console.log(mainScreen.getBoundingClientRect());
 
         if (mainScreen.getBoundingClientRect().y < -100) {
             document.querySelector('header').style.backgroundColor = `var(--blue)`;

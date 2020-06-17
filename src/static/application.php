@@ -1,24 +1,54 @@
 <?
 
     $name  =  $_POST['name'];   
-	$email =  $_POST['email'];
-    $messager = $_POST['message'];
-    // $admin_email = 'sergeykhistovoy@gmail.com';
-    $admin_email = 'mr.andrey@bigmir.net';
-	
-	$subject = 'Нова заявка';
+	$telephone =  $_POST['telephone'];
+    // $messager = $_POST['message'];
+    $form_name = $_POST['form_name'];
+    if (empty($form_name)) 
+    {
+        $form_name = 'undefined';
+        echo 'fail';
+        return;
+    }    
+    $admin_email = 'dron_2019@ukr.net';
+    // $admin_email = 'viralitvinenko@gmail.com';
+	switch ($form_name) {
+        case 'undefined':
+            $message = '';
+            echo 'fail';
+            break;
+        case 'send-message':
+            $message .= "<h1>Передзвоніть мені";
+            $message .= "<p>Ім'я: ".$_POST['name']."</p>";
+            $message .= "<p>Телефон: ".$_POST['tel']."</p>";
+            $message .= "<p>e-mail: ".$_POST['email']."</p>";
+            $message .= "<p>Повідомлення: ".$_POST['message']."</p>";
+            break;
+        case 'callback':
+            $message  .= "<h1>Передзвоніть мені";
+            $message .= "<p>Ім'я: ".$_POST['name']."</p>";
+            $message .= "<p>Телефон: ".$_POST['tel']."</p>";
+            $message .= "<p>e-mail: ".$_POST['email']."</p>";
+            $message .= "<p>Повідомлення: ".$_POST['message']."</p>";
+        break;
+        case 'promotions':
+            $message  .= "<h1>Акції";
+            $message .= "<p>Телефон: ".$_POST['tel']."</p>";
+            $message .= "<p>e-mail: ".$_POST['email']."</p>";
+        break;
+        default:
+            # code...
+            break;
+    }
+    
+    $subject = 'Заявка з сайту: '.$_POST['metka'];
 	$headers= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-type: text/html; charset=utf-8; boundary='first'\r\n";
-    $message .= "<h1>Нова заявка</h1>";
-    $message .= "<p>Ім'я: ".$name."</p>";
-	$message .= '<p>Електрона пошта: '.$email;
-    $message.= '<p>Повідомлення: '.$messager.'</p>';
 	if (mail($admin_email, $subject, $message, $headers)) {
         echo '11';
     } else {
         echo 'fail';
         echo $message;
     }
-
-
 ?>
+

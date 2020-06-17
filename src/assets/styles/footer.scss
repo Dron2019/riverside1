@@ -1,7 +1,40 @@
 .smarto-logo {
+    white-space: nowrap;
+    display: flex;
+    padding-top: 54px;
+    padding-bottom: 42px;
     &>img {
         width: 70px;
+        margin-left: 10px;
         height: 28px;
+    }
+}
+
+.footer {
+    background-color: var(--blue);
+    width: 100%;
+    font-family: Cera Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 29px;
+    /* identical to box height, or 160% */
+    text-align: right;
+    color: #A3D3FF;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-left: var(--side-fields);
+    padding-right: var(--side-fields);
+    .social-links {
+        padding-top: 34px;
+        padding-bottom: 34px;
+        border-top: 1px solid #2195FF;
+        border-bottom: 1px solid #2195FF;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -15,13 +48,13 @@
     }
 }
 
-.page__footer-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding-left: var(--side-fields);
-    padding-right: var(--side-fields);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: relative;
-    z-index: 2;
-}
+// .page__footer-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     padding-left: var(--side-fields);
+//     padding-right: var(--side-fields);
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//     position: relative;
+//     z-index: 2;
+// }

@@ -31,6 +31,9 @@ a[href] {
     width: var(--logo-width);
     height: calc(var(--logo-width * 0.39));
     margin-right: auto;
+    @include from(1720px) {
+        --logo-width: 336px;
+    }
     @include to(480px) {
         --logo-width: 100px;
         margin-right: 15px;
@@ -39,6 +42,8 @@ a[href] {
 
 .main-screen {
     min-height: 100vh;
+    background: url(../images/main1.jpg) center no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -72,6 +77,17 @@ a[href] {
         position: relative;
         z-index: 1;
     }
+    @include from(1720px) {
+        .scroll-element {
+            margin-bottom: -120px;
+        }
+    }
+    @include from(481px) {
+        .scroll-element {
+            margin-bottom: -90px;
+        }
+    }
+    @include to(480px) {}
     @include from(481px) {
         header {
             width: calc(100% - var(--side-fields) * 2);
@@ -102,7 +118,7 @@ a[href] {
         }
     }
     @include from(768px) {
-        min-height: calc(100vh - 70px);
+        // min-height: calc(100vh - 70px);
     }
     @include to(480px) {
         .title {
@@ -227,6 +243,11 @@ a[href] {
         stroke-width: 1;
     }
     @include from(1720px) {
+        .genplan-list {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 66px;
+        }
         .genplan-list li:not(.page-link-group) {
             font-size: 18px;
             line-height: 18px;
@@ -417,6 +438,10 @@ a[href] {
             opacity: 1;
             transform: translateX(0%);
             pointer-events: initial;
+            width: max-content;
+        }
+        .link.visible::after {
+            bottom: calc(1em - 10px);
         }
     }
     .right {
@@ -459,6 +484,9 @@ a[href] {
         }
     }
     @include from(1720px) {
+        .right .text {
+            padding-right: 43%;
+        }
         .right .bg-image {
             object-position: 40% bottom;
         }
@@ -562,6 +590,11 @@ a[href] {
     &__block:nth-child(n+2)>video {
         height: 100%;
     }
+    @include from(1720px) {
+        .title {
+            max-width: 400px;
+        }
+    }
     @include to(480px) {
         padding: 20px var(--side-fields);
         &__block:nth-child(n) {
@@ -586,6 +619,7 @@ a[href] {
         width: 100%;
         position: relative;
         z-index: 2;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0) 60.29%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(-90deg, rgba(0, 0, 0, 0) 60.29%, rgba(0, 0, 0, 0.5) 100%);
     }
     .title {
         padding: 0;
@@ -639,8 +673,18 @@ a[href] {
         line-height: 22px;
     }
     @include from(1720px) {
+        &__content-text {
+            @include size(3);
+            @include shift-right(0);
+            @include shift-left(9);
+        }
         .text {
             line-height: 30px;
+        }
+        .river-logo {
+            width: 211px;
+            height: 40px;
+            margin-bottom: 30px;
         }
     }
     @include to(768px) {
@@ -743,6 +787,11 @@ a[href] {
         margin-bottom: auto;
         margin-top: 40px;
         width: min-content;
+    }
+    @include from(1720px) {
+        .text {
+            margin-top: 65%;
+        }
     }
     @include to(1024px) {
         .left {
@@ -860,6 +909,7 @@ a[href] {
     &__mini-group-title {
         font-weight: 500;
         margin-bottom: 1em;
+        line-height: 1.6em;
     }
     &__mini-group-text {
         line-height: 1.5em;
@@ -1078,6 +1128,11 @@ form.promotions {
         align-self: flex-end;
         margin-right: auto;
         margin-left: 3%;
+    }
+    @include from(1720px) {
+        .link {
+            margin-bottom: -0.4em;
+        }
     }
     @include to(768px) {
         .link {
