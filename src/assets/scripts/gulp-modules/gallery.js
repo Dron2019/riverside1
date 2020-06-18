@@ -9,11 +9,16 @@
          if (cur_pos >= top && cur_pos <= bottom) {
              let currentMenuPoint = $(this)[0].classList[0];
              console.log(currentMenuPoint);
-             if (currentMenuPoint === 'reasons-to-choose') {
-                 gallerySliderLoader();
-             }
-             if (currentMenuPoint === 'about') {
-                 videosLoader();
+             switch (currentMenuPoint) {
+                 case 'reasons-to-choose':
+                     gallerySliderLoader();
+                     break;
+                 case 'about':
+                     videosLoader();
+                     break;
+
+                 default:
+                     break;
              }
          }
      });
@@ -74,5 +79,13 @@
          });
          gallerySlider.init();
      });
+     setTimeout(() => {
+         let preloader = document.querySelector('.gallery .preload-block') || null;
+         preloader.style.animation = `fadeOut 1s 1 linear`;
+         preloader.addEventListener('animationend', function(evt) {
+
+             preloader.remove();
+         });
+     }, 500);
      window.galleryLoadingStatus = true;
  }

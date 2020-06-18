@@ -3,6 +3,9 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    @include to(480px) {
+        min-height: calc(100vh - 42px);
+    }
 }
 
 * {
@@ -36,7 +39,7 @@
     .bottom-line {
         display: block;
         position: absolute;
-        bottom: calc(var(--side-padding) - 3px);
+        bottom: calc(var(--side-padding));
         right: var(--side-padding);
         width: calc(100% - 940px);
         height: 2px;
@@ -55,7 +58,7 @@
         position: absolute;
         top: var(--side-padding);
         left: var(--side-padding);
-        height: calc(100% - (var(--side-padding) * 2) - 162px);
+        height: calc(100% - (var(--side-padding) * 2) - 165px);
         width: 2px;
         background-color: rgba(255, 255, 255, 0.5);
     }
@@ -64,7 +67,7 @@
         position: absolute;
         top: calc(var(--side-padding) + 2px);
         right: var(--side-padding);
-        height: calc(100% - (var(--side-padding) * 2) - 1px);
+        height: calc(100% - (var(--side-padding) * 2) - 3px);
         width: 2px;
         background-color: rgba(255, 255, 255, 0.5);
     }
@@ -73,7 +76,7 @@
         bottom: var(--side-padding);
         width: 880px;
         left: var(--side-padding);
-        bottom: calc(var(--side-padding) - 3px);
+        bottom: calc(var(--side-padding));
         height: 166px;
     }
     svg path {
@@ -186,6 +189,14 @@
         font-size: 36px;
     }
     @include to(480px) {
+        & .blue.with-waves:after {
+            content: url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
+            margin-left: 6px;
+            width: 60px;
+            height: 20px;
+            position: relative;
+            top: 3px;
+        }
         font-size: 24px;
     }
 }

@@ -231,6 +231,9 @@ header.header {
     .menu-button {
         margin-right: 40px;
     }
+    .menu-button {
+        margin-right: 0;
+    }
 }
 
 @include to(480px) {
@@ -238,6 +241,9 @@ header.header {
     .form-call-button,
     .menu-button {
         margin-right: 20px;
+    }
+    .menu-button {
+        margin-right: 0;
     }
     .header-telephone,
     .form-call-button {

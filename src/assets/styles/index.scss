@@ -87,7 +87,10 @@ a[href] {
             margin-bottom: -90px;
         }
     }
-    @include to(480px) {}
+    @include to(480px) {
+        min-height: calc(100vh - 42px);
+        margin-top: 42px;
+    }
     @include from(481px) {
         header {
             width: calc(100% - var(--side-fields) * 2);
@@ -166,6 +169,7 @@ a[href] {
         flex-wrap: wrap;
         width: 100%;
         height: calc(100vw * var(--svg-side-coeficient));
+        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
         .title {
             padding-left: 0;
             padding-bottom: 0;
@@ -354,12 +358,19 @@ a[href] {
     .page-link-group>a {
         margin-bottom: 25px;
     }
-    @include from(767px) {
+    @include from(769px) {
         display: none;
+    }
+    @include from-to(481px,
+    768px) {
+        .title {
+            display: none;
+        }
     }
     @include to(480px) {
         .genplan-list {
             padding: 20px var(--side-fields);
+            padding-top: 0;
             max-height: none;
             flex-direction: row;
         }
@@ -375,6 +386,7 @@ a[href] {
             flex-direction: row;
             justify-content: space-between;
             font-size: 14px;
+            padding-top: var(--side-fields);
         }
         li.page-link-group .link {
             width: 45%;
@@ -475,6 +487,7 @@ a[href] {
             margin-top: auto;
             padding-right: 30%;
             margin-bottom: 2em;
+            margin-top: 2em;
         }
         .text-group {
             margin-top: auto;
@@ -563,7 +576,7 @@ a[href] {
     }
     &__block {
         position: relative;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         display: flex;
         flex-direction: column;
     }
@@ -638,6 +651,19 @@ a[href] {
         z-index: 0;
         height: calc(100vh);
     }
+    .preload-block {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: var(--white);
+        z-index: 10;
+        svg {
+            width: 10%;
+        }
+    }
 }
 
 .choose-flat {
@@ -650,10 +676,11 @@ a[href] {
     }
     &__content-text {
         @include size(3);
-        @include size-sm(4);
+        @include size-sm(5);
         @include shift-right(1);
         @include shift-left(7);
         margin-top: auto;
+        line-height: 1.6em;
     }
     .title {
         margin-top: auto;
@@ -670,7 +697,6 @@ a[href] {
     .text {
         color: #BAC8D5;
         margin-bottom: 40px;
-        line-height: 22px;
     }
     @include from(1720px) {
         &__content-text {
@@ -679,7 +705,7 @@ a[href] {
             @include shift-left(9);
         }
         .text {
-            line-height: 30px;
+            // line-height: 30px;
         }
         .river-logo {
             width: 211px;
@@ -689,17 +715,18 @@ a[href] {
     }
     @include to(768px) {
         &__content-text {
-            margin-right: 0;
+            // margin-right: 0;
+            margin-right: 8%;
             margin-left: auto;
         }
     }
     @include to(480px) {
         &__content-text {
             margin: 0;
-            @include size(8);
+            @include size(10);
             margin-left: auto;
             // @include shift-right(1);
-            padding-right: 0;
+            padding-right: 15px;
             align-self: center;
         }
         .title {
@@ -767,6 +794,7 @@ a[href] {
         }
         .title {
             margin-top: 0;
+            margin-bottom: 40px;
         }
         .subtitle {
             height: max-content;
@@ -788,6 +816,13 @@ a[href] {
         margin-top: 40px;
         width: min-content;
     }
+    .comfort-life-logo {
+        position: absolute;
+        right: 30px;
+        top: 30px;
+        width: 90px;
+        height: 60px;
+    }
     @include from(1720px) {
         .text {
             margin-top: 65%;
@@ -804,9 +839,23 @@ a[href] {
         .left,
         .right {
             width: 100%;
+            height: 50vh;
+        }
+        .left {
+            &__content {
+                max-width: 50%;
+            }
         }
         .right {
             @include shift-padding-right(5);
+            .title {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    @include from(481px) {
+        .comfort-life-logo {
+            display: none;
         }
     }
     @include to(480px) {
@@ -823,13 +872,15 @@ a[href] {
                 height: 100%;
             }
             .link {
-                margin-bottom: 15px;
+                margin-bottom: 25px;
             }
         }
         .title {
             margin-bottom: 55px;
         }
         .right {
+            padding-top: 65px;
+            padding-bottom: 65px;
             @include shift-padding-right(2);
             padding-left: var(--side-fields);
             .bg-image {
@@ -1006,10 +1057,10 @@ a[href] {
             @include size(6);
         }
         .map-link-block {
-            align-self: center;
+            align-self: flex-start;
         }
         .map-link-block .link {
-            max-width: 185px;
+            max-width: 195px;
         }
     }
     @include to(480px) {
