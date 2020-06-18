@@ -44,11 +44,17 @@
     $subject = 'Заявка з сайту: '.$_POST['metka'];
 	$headers= "MIME-Version: 1.0\r\n";
 	$headers .= "Content-type: text/html; charset=utf-8; boundary='first'\r\n";
-	if (mail($admin_email, $subject, $message, $headers)) {
-        echo '11';
-    } else {
-        echo 'fail';
-        echo $message;
-    }
+	// if (mail($admin_email, $subject, $message, $headers)) {
+    //     echo '11';
+    // } else {
+    //     echo 'fail';
+    //     echo $message;
+    // }
+
+    $inc_ad = 'https://o2.smarto.com.ua/riverside1/static/amo/script.php';	
+    $res_amo = file_get_contents($inc_ad, false, $context);
+
+    print_r($res_amo);
+    echo 'ddd';
 ?>
 
