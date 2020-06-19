@@ -138,6 +138,7 @@ a[href] {
 .main-screen-layout {
     position: relative;
     z-index: 3;
+    overflow: hidden;
     canvas {
         position: absolute;
         top: 0;
@@ -146,6 +147,8 @@ a[href] {
         height: 100%;
         z-index: 0;
         pointer-events: initial;
+        cursor: url('../images/common/cursor-gray.png'), auto !important;
+        object-fit: cover;
     }
     @include to(768px) {
         canvas {
@@ -157,6 +160,33 @@ a[href] {
 .genplan {
     // background: url(../images/genplan/bg.jpg) center no-repeat;
     background-size: cover;
+    @include from(1720px) {
+        .wave svg {
+            width: 986px;
+            height: 185px;
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 185px);
+        }
+        .wave .bottom-line {
+            width: calc(100% - 1046px);
+        }
+    }
+    @include from-to(951px,
+    1719px) {
+        .wave svg {
+            width: 740px;
+            left: var(--side-padding);
+            bottom: calc(var(--side-padding));
+            height: 140px;
+        }
+        .wave .bottom-line {
+            width: calc(100% - 800px);
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 139px);
+        }
+    }
     &.layout {
         min-height: initial;
     }
@@ -336,14 +366,15 @@ a[href] {
         position: absolute;
         left: 0;
         content: '◼';
+        content: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='1' x2='2' y2='2' stroke='%23ffffff' fill='%23ffffff' stroke-width='0'/%3E%3C/svg%3E%0A");
         margin-right: 5px;
-        color: var(--white);
+        color: #fff;
         font-size: 9px;
         line-height: 1.1vw;
         max-height: 1vw;
         padding-right: 10px;
     }
-    genplan-list li:not(.page-link-group):hover:before {
+    .genplan-list li:not(.page-link-group):hover:before {
         content: url("data:image/svg+xml,%3Csvg width='22' height='20' viewBox='0 0 22 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='11' width='20' height='2' transform='rotate(-180 20 11)' fill='white'/%3E%3Cpath d='M11 19L20 10L11 0.999998' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
         max-width: 20px;
     }
@@ -388,7 +419,7 @@ a[href] {
             flex-direction: row;
             justify-content: space-between;
             font-size: 14px;
-            padding-top: var(--side-fields);
+            padding-top: 0;
         }
         li.page-link-group .link {
             width: 45%;
@@ -396,11 +427,11 @@ a[href] {
             align-items: flex-end;
             margin-right: 20%;
         }
-        .genplan-list li:not(.page-link-group):before {
-            content: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='1' x2='2' y2='2' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+        .genplan-list li:not(.page-link-group)::before {
+            content: url("data:image/svg+xml,%3Csvg width='2' height='2' viewBox='0 0 2 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline y1='1' x2='2' y2='2' stroke='%23ffffff' fill='%23ffffff' stroke-width='0'/%3E%3C/svg%3E%0A");
         }
-        genplan-list li:not(.page-link-group):hover:before {
-            content: url("data:image/svg+xml,%3Csvg width='22' height='20' viewBox='0 0 22 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='11' width='20' height='2' transform='rotate(-180 20 11)' fill='white'/%3E%3Cpath d='M11 19L20 10L11 0.999998' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+        .genplan-list li:not(.page-link-group):hover::before {
+            content: url("data:image/svg+xml,%3Csvg width='22' height='20' viewBox='0 0 22 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='20' y='11' width='20' height='2' transform='rotate(-180 20 11)' fill='white'/%3E%3Cpath d='M11 19L20 10L11 0.999998' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E%0A");
             max-width: 20px;
         }
     }
@@ -507,6 +538,22 @@ a[href] {
         }
     }
     @include to(768px) {
+        .left {
+            &__content {
+                padding-top: calc(var(--side-fields) + 42px);
+                padding-bottom: calc(var(--side-fields) + 42px);
+            }
+        }
+        .right {
+            .text {
+                padding-right: 50%;
+            }
+        }
+        .left {
+            .text {
+                // padding-right: 50%;
+            }
+        }
         .left,
         .right {
             width: 100%;
@@ -549,7 +596,7 @@ a[href] {
             }
         }
     }
-    @media screen and (min-height:650px) and (orientation:portrait) {
+    @media screen and (min-height:600px) and (orientation:portrait) {
         .title {
             font-size: 32px;
         }
@@ -624,6 +671,34 @@ a[href] {
 .gallery {
     background-color: var(--pink);
     position: relative;
+    overflow: hidden;
+    @include from(1720px) {
+        .wave svg {
+            width: 984px;
+            height: 185px;
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 185px);
+        }
+        .wave .bottom-line {
+            width: calc(100% - 1046px);
+        }
+    }
+    @include from-to(951px,
+    1719px) {
+        .wave svg {
+            width: 740px;
+            left: var(--side-padding);
+            bottom: calc(var(--side-padding));
+            height: 140px;
+        }
+        .wave .bottom-line {
+            width: calc(100% - 800px);
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 139px);
+        }
+    }
     .wave {
         z-index: 1;
     }
@@ -666,11 +741,42 @@ a[href] {
             width: 10%;
         }
     }
+    @include to(768px) {
+        canvas {
+            transform: translate(-50%, -50%) scale(1.15) !important;
+        }
+    }
 }
 
 .choose-flat {
     background: url(../images/choose-appartment-bg.jpg) center no-repeat;
     background-size: cover;
+    @include from(1720px) {
+        .wave svg {
+            width: 986px;
+            height: 185px;
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 185px);
+        }
+        .wave .bottom-line {
+            width: calc(100% - 1046px);
+        }
+    }
+    @include from(951px) {
+        .wave svg {
+            width: 740px;
+            left: var(--side-padding);
+            bottom: calc(var(--side-padding));
+            height: 140px;
+        }
+        .wave .bottom-line {
+            width: calc(100% - 800px);
+        }
+        .wave:after {
+            height: calc(100% - (var(--side-padding) * 2) - 139px);
+        }
+    }
     &__content {
         padding: var(--side-fields);
         display: flex;
@@ -702,9 +808,9 @@ a[href] {
     }
     @include from(1720px) {
         &__content-text {
-            @include size(3);
+            @include size(2.5);
             @include shift-right(0);
-            @include shift-left(9);
+            @include shift-left(9.3);
         }
         .text {
             // line-height: 30px;
@@ -829,6 +935,15 @@ a[href] {
         .text {
             margin-top: 65%;
         }
+        .right {
+            .text {
+                max-width: 66%;
+            }
+            .title {
+                max-width: none;
+                margin-bottom: 2em;
+            }
+        }
     }
     @include to(1024px) {
         .left {
@@ -838,6 +953,13 @@ a[href] {
         }
     }
     @include to(768px) {
+        .right {
+            padding-top: 65px;
+            padding-bottom: 65px;
+            .bg-image {
+                height: 108%;
+            }
+        }
         .left,
         .right {
             width: 100%;
@@ -845,6 +967,7 @@ a[href] {
         }
         .left {
             &__content {
+                padding-top: calc(25px + var(--side-fields));
                 max-width: 50%;
             }
         }
@@ -855,7 +978,7 @@ a[href] {
             }
         }
     }
-    @include from(481px) {
+    @include from(769px) {
         .comfort-life-logo {
             display: none;
         }
@@ -886,6 +1009,7 @@ a[href] {
             @include shift-padding-right(2);
             padding-left: var(--side-fields);
             .bg-image {
+                height: 100%;
                 object-position: 67%;
             }
         }
@@ -894,7 +1018,7 @@ a[href] {
             height: 100vh;
         }
     }
-    @media screen and (min-height:650px) and (orientation:portrait) {
+    @media screen and (min-height:600px) and (orientation:portrait) {
         .title {
             font-size: 32px;
         }
@@ -1059,7 +1183,7 @@ a[href] {
             @include size(6);
         }
         .map-link-block {
-            align-self: flex-start;
+            align-self: center;
         }
         .map-link-block .link {
             max-width: 195px;
@@ -1110,7 +1234,7 @@ a[href] {
         margin-right: 30px;
     }
     .link {
-        max-width: 160px;
+        max-width: 180px;
     }
     @include from(1720px) {
         .link {

@@ -34,7 +34,7 @@
 
         //  PIXI VARIABLES
         /// ---------------------------    
-        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, /*backgroundColor: '0x0085FF' */ });
+        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, /*backgroundColor: '0xFFFFFF'*/ });
         var stage = new PIXI.Container();
         var slidesContainer = new PIXI.Container();
         var displacementSprite = new PIXI.Sprite.from(options.displacementImage);
@@ -81,19 +81,19 @@
 
             // Fit renderer to the screen
             if (options.fullScreen === true) {
-                // renderer.view.style.objectFit = 'cover';
-                // renderer.view.style.width = '100%';
-                // renderer.view.style.height = '100%';
-                // renderer.view.style.top = '50%';
-                // renderer.view.style.left = '50%';
-                // renderer.view.style.webkitTransform = 'translate( -50%, -50% ) scale(1.2)';
-                // renderer.view.style.transform = 'translate( -50%, -50% ) scale(1.2)';
+                renderer.view.style.objectFit = 'cover';
+                renderer.view.style.width = '100%';
+                renderer.view.style.height = '100%';
+                renderer.view.style.top = '50%';
+                renderer.view.style.left = '50%';
+                renderer.view.style.webkitTransform = 'translate( -50%, -50% ) scale(1.05)';
+                renderer.view.style.transform = 'translate( -50%, -50% ) scale(1.05)';
             } else {
-                // renderer.view.style.maxWidth = '100%';
-                // renderer.view.style.top = '50%';
-                // renderer.view.style.left = '50%';
-                // renderer.view.style.webkitTransform = 'translate( -50%, -50% )';
-                // renderer.view.style.transform = 'translate( -50%, -50% )';
+                renderer.view.style.maxWidth = '100%';
+                renderer.view.style.top = '50%';
+                renderer.view.style.left = '50%';
+                renderer.view.style.webkitTransform = 'translate( -50%, -50% )';
+                renderer.view.style.transform = 'translate( -50%, -50% )';
             }
 
 
@@ -147,9 +147,9 @@
                 }
 
 
-                image.scale.x = options.stageWidth / options.image[i].naturalWidth * mobileScaleCoef;
-                image.scale.y = options.stageHeight / options.image[i].naturalHeight;
-                image.x = (-options.stageWidth) * mobileTransformCoef;
+                // image.scale.x = options.stageWidth / options.image[i].naturalWidth * mobileScaleCoef;
+                // image.scale.y = options.stageHeight / options.image[i].naturalHeight;
+                // image.x = (-options.stageWidth) * mobileTransformCoef;
 
                 if (rTexts) {
                     var richText = new PIXI.Text(rTexts[i], style);
@@ -297,8 +297,10 @@
                         that.moveSlider(that.currentIndex - 1);
                         counterBlock.querySelector('.current').innerHTML = that.currentIndex;
                     } else {
-                        that.moveSlider(spriteImages.length - 1);
-                        counterBlock.querySelector('.current').innerHTML = spriteImages.length;
+                        that.moveSlider(slideImages.length - 1);
+                        console.log('e');
+
+                        counterBlock.querySelector('.current').innerHTML = slideImages.length;
                     }
 
                 }

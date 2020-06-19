@@ -65,7 +65,7 @@ else{
                                     'leads_id' => [$mod_1['_embedded']['items'][0]['id']],
                                     'custom_fields' => array(array('id' => $fieldTelContact,
                                                                    'values' => array(array('value' => $user_phone,
-                                                                                           'enum' => 'WORK'))),
+'enum' => 'WORK'))),
 //                                                             array('id' => $fieldMailContact,
 //                                                                   'values' => array(array('value' => $user_mail,
 //                                                                                           'enum' => 'WORK'))),

@@ -1,6 +1,31 @@
  /**Gallery distortion slider */
 
  let sections = $('section');
+ window.scrollsCounter = new Number(0);
+ window.currentSection = '.main-screen';
+ /**Докрутка скролла */
+ function debounce(f, t) {
+     return function(args) {
+         let previousCall = this.lastCall;
+         this.lastCall = Date.now();
+         if (previousCall && ((this.lastCall  -  previousCall) <= t)) {
+             clearTimeout(this.lastCallTimer);
+         }
+         this.lastCallTimer = setTimeout(() => f(args), t);
+     }
+ }
+
+ let alignSectionToScreen = (args) => {
+         console.log(window.currentSection);
+         document.querySelector(`.${window.currentSection}`).scrollIntoView({ behavior: "smooth" });
+     }
+     // debounce: call the logger when two seconds have elapsed since the last call
+ let debouncedLogger = debounce(alignSectionToScreen, 2000);
+ //  debouncedLogger();
+ //  window.addEventListener('scroll', () => {
+ //      debouncedLogger();
+ //  });
+ /**Докрутка скролла END*/
  $(window).on('scroll', function() {
      var cur_pos = $(this).scrollTop();
      sections.each(function() {
@@ -8,6 +33,7 @@
              bottom = top + $(this).outerHeight();
          if (cur_pos >= top && cur_pos <= bottom) {
              let currentMenuPoint = $(this)[0].classList[0];
+             window.currentSection = currentMenuPoint;
              console.log(currentMenuPoint);
              switch (currentMenuPoint) {
                  case 'reasons-to-choose':
@@ -67,12 +93,13 @@
              selector: '.gallery',
              autoPlaySpeed: [0.3, 0.3],
              displaceScale: [800, 500],
+             fullScreen: true,
              navSelector: '.gallery',
              displaceAutoFit: true,
-             stageWidth: document.documentElement.clientWidth * 1.1,
+             //  stageWidth: document.documentElement.clientWidth * 1.1,
              image: document.querySelectorAll('.gallery .slide-item__image'),
              navElement: document.querySelectorAll('.gallery .scene-nav'),
-             stageHeight: document.documentElement.clientHeight,
+             //  stageHeight: document.documentElement.clientHeight,
              displacementCenter: true,
              interactive: false,
              interactionEvent: 'click', // 'click', 'hover', 'both' 

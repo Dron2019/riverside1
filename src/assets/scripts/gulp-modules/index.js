@@ -14,3 +14,9 @@ menuButton.addEventListener('mouseout', function(evt) {
     })
 });
 /**Menu hover Effect  END*/
+
+
+
+function moveToElement(selector) {
+    document.querySelector(selector).scrollIntoView({ behavior: "smooth" });
+}

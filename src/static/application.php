@@ -50,7 +50,16 @@
     //     echo 'fail';
     //     echo $message;
     // }
-
+    $request["name"] = $_POST['name'];
+    $request["tel"] = $_POST['tel'];
+    
+    $context = stream_context_create(array(
+            'http' => array(
+                    'method' => 'POST',
+                    'header' => 'Content-Type: application/x-www-form-urlencoded',
+                    'content' => http_build_query($request)
+            )
+        ));
     $inc_ad = 'https://o2.smarto.com.ua/riverside1/static/amo/script.php';	
     $res_amo = file_get_contents($inc_ad, false, $context);
 

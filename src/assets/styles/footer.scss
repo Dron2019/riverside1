@@ -44,7 +44,7 @@
     }
     @include to(768px) {
         .copyright-span {
-            margin: 0 auto;
+            margin-right: auto;
         }
         .social-links {
             display: grid;
@@ -63,6 +63,17 @@
             text-align: left;
             width: 70%;
             align-self: baseline;
+        }
+        .smarto-logo {
+            margin-right: 0;
+            margin-left: auto;
+        }
+    }
+    @include to(480px) {
+        .copyright-span,
+        .smarto-logo {
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
