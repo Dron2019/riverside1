@@ -1,8 +1,9 @@
 header.header
+    - var lang = {zvorot:{ua:'Зворотній звязок',ru:'Обратная связь'},send:{ua:'Надіслати',ru:'Отправить'},rightsReserved:{ua:'Всі права захищено Riverside',ru:'Все права защищены Riverside'},siteDevelop:{ua:'Розробка сайту',ru:'Разработка сайта'}}
     +img('logo.svg').logo
     a(href="tel:"+phoneNumberHref+"").header-telephone
         span #{phoneNumber}
-    .form-call-button.form-call-button-js Зворотній дзвінок
+    .form-call-button.form-call-button-js #{lang.zvorot[version]}
     .menu-button 
         span МЕНЮ
         <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,11 +11,16 @@ header.header
             <path d="M0 1C18 1 18 8 36 8" stroke="white" stroke-width="2"/>
             </svg>
     .lang-block 
-        a(href="").active EN
-        .innactive-langs
-            a(href="") UK
-            a(href="") RU
+        - if (version === 'ua')
+            a(href='index.html').active UA
+            .innactive-langs
+                a(href="index-ru.html") RU
+        -else if (version === 'ru')
+            a(href='index-ru.html').active RU
+            .innactive-langs
+                a(href="index.html") UA
 
+        
 
 
 

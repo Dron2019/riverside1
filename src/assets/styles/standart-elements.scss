@@ -459,7 +459,7 @@
     @include to(480px) {
         font-size: 12px;
     }
-    @media screen and (min-height:600px) and (orientation:portrait) {
+    @media screen and (min-height:500px) and (orientation:portrait) {
         font-size: 16px;
     }
 }

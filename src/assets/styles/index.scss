@@ -81,6 +81,13 @@ a[href] {
         position: relative;
         z-index: 1;
     }
+    .arrows {
+        pointer-events: none;
+    }
+    .arrow-prev,
+    .arrow-next {
+        pointer-events: initial;
+    }
     @include from(1720px) {
         .scroll-element {
             margin-bottom: -120px;

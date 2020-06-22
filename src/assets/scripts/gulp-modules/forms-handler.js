@@ -78,7 +78,7 @@ function sendMessageStatus(form, status) {
     ${status}
     </span>`;
     setTimeout(() => {
-        form.querySelector('.send-message').style.animation = 'fadeOutRight 1s 1 ease-in-out';
+        form.querySelector('.send-message').style.animation = 'fadeOutRight 1s 1 ease-in';
         form.querySelector('.send-message').addEventListener('animationend', function(evt) {
             form.querySelector('.send-message').remove();
         });
@@ -98,7 +98,6 @@ $('input[name=tel]').mask("+(38) ### ###-##-##", {
 
 $('.form-call-button-js').magnificPopup({
     items: {
-
         type: 'inline',
         src: putCallbackFormInPopup('.callback-form'),
     },

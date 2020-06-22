@@ -156,6 +156,13 @@
             color: var(--white);
         }
     }
+    @include to(480px) {
+        width: 100%;
+        padding: 85px 40px;
+        .input-group {
+            width: 100%;
+        }
+    }
 }
 
 .callback-anim {}
@@ -198,7 +205,8 @@
 /* content animate it */
 
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-    animation: zoomInDown 1s 1 ease-in-out;
+    animation-delay: 0.15s;
+    animation: zoomInDown 0.75s 1 ease-in;
     opacity: 1;
 }
 
@@ -206,7 +214,7 @@
 /* content animate out */
 
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-    animation: zoomOutDown .5s 1 ease-in-out;
+    animation: zoomOutDown .5s 1 ease-in;
     opacity: 1;
 }
 
