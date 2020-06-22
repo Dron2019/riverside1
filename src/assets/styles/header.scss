@@ -16,7 +16,7 @@ header.header {
     line-height: 1em;
     text-transform: uppercase;
     justify-content: space-between;
-    transition: .5s;
+    transition: background-color .5s;
     @include from(1720px) {
         font-size: 24px;
     }

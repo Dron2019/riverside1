@@ -69,6 +69,9 @@
             margin-left: auto;
         }
     }
+    .form-call-button:after {
+        // display:none;
+    }
     @include to(480px) {
         .copyright-span,
         .smarto-logo {
@@ -98,3 +101,166 @@
 //     position: relative;
 //     z-index: 2;
 // }
+.mfp-close-btn-in .mfp-close {
+    color: #333;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0;
+}
+
+.callback-form {
+    width: 490px;
+    height: 560px;
+    background: url(../images/common/callback-form-bg.png) bottom no-repeat, linear-gradient(0deg, #0085ff 100%, #0085ff 100%);
+    background-size: 100%, cover;
+    position: relative;
+    // position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    padding: 85px 65px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    .close-button {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 38px;
+        top: 38px;
+        transition: .5s;
+    }
+    legend {
+        font-family: Cera Pro;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 30px;
+        line-height: 30px;
+        text-transform: uppercase;
+        color: var(--white);
+        max-width: 75%;
+        margin: 0 auto;
+        text-align: center;
+    }
+    button[type=submit] {
+        margin-left: auto;
+    }
+    .input-group {
+        border-bottom: 2px solid #fff;
+        padding-bottom: 0;
+        margin: 0 auto;
+        input,
+        input::placeholder {
+            background: none;
+            color: var(--white);
+        }
+    }
+}
+
+.callback-anim {}
+
+
+/* overlay at start */
+
+.mfp-fade.mfp-bg {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+
+/* overlay animate in */
+
+.mfp-fade.mfp-bg.mfp-ready {
+    opacity: 0.8;
+}
+
+
+/* overlay animate out */
+
+.mfp-fade.mfp-bg.mfp-removing {
+    opacity: 0;
+}
+
+
+/* content at start */
+
+.mfp-fade.mfp-wrap .mfp-content {
+    opacity: 0;
+    -webkit-transition: all 0.15s ease-out;
+    -moz-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+}
+
+
+/* content animate it */
+
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+    animation: zoomInDown 1s 1 ease-in-out;
+    opacity: 1;
+}
+
+
+/* content animate out */
+
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+    animation: zoomOutDown .5s 1 ease-in-out;
+    opacity: 1;
+}
+
+.wave-callback {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    top: 20px;
+    left: 20px;
+    padding: 20px;
+    pointer-events: none;
+    .top-line,
+    .left-line,
+    .right-line,
+    .bottom-line {
+        background-color: #60B3FF;
+        position: absolute;
+    }
+    .river-small-logo {
+        width: 52px;
+        height: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .callback-wave {
+        width: 153px;
+        height: 29px;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .top-line {
+        top: 0;
+        height: 2px;
+        width: calc(100% - 147px);
+        right: 0;
+    }
+    .bottom-line {
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        left: 0px;
+    }
+    .left-line {
+        width: 2px;
+        height: calc(100% - 27px);
+        bottom: 0;
+        left: 0;
+    }
+    .right-line {
+        width: 2px;
+        height: 100%;
+        top: 0;
+        right: 0;
+    }
+}

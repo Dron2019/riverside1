@@ -63,6 +63,9 @@ a[href] {
         width: 54%;
         padding: 0 calc(var(--side-fields) + 40px) 0 var(--side-fields);
     }
+    .scroll-element svg {
+        pointer-events: initial;
+    }
     .slider-counter {
         margin-left: auto;
     }
@@ -137,7 +140,7 @@ a[href] {
 
 .main-screen-layout {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     overflow: hidden;
     canvas {
         position: absolute;
@@ -700,7 +703,7 @@ a[href] {
         }
     }
     .wave {
-        z-index: 1;
+        z-index: 3;
     }
     &__content {
         padding: var(--side-fields);
@@ -980,7 +983,7 @@ a[href] {
     }
     @include from(769px) {
         .comfort-life-logo {
-            display: none;
+            // display: none;
         }
     }
     @include to(480px) {
@@ -1234,7 +1237,7 @@ a[href] {
         margin-right: 30px;
     }
     .link {
-        max-width: 180px;
+        max-width: 230px;
     }
     @include from(1720px) {
         .link {

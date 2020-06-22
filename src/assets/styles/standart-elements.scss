@@ -49,8 +49,10 @@
     .top-line {
         position: absolute;
         top: var(--side-padding);
-        left: var(--side-padding);
-        width: calc(100% - (var(--side-padding) * 2));
+        // left: var(--side-padding);
+        left: calc(var(--side-padding) + 2px);
+        width: calc(100% - (var(--side-padding) * 2) - 2px);
+        // width: calc(100% - (var(--side-padding) * 2));
         height: 2px;
         background-color: rgba(255, 255, 255, 0.5);
     }
@@ -798,4 +800,8 @@
     @include to(769px) {
         display: none;
     }
+}
+
+.unvisible-block {
+    display: none;
 }

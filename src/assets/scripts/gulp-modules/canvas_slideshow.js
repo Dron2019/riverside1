@@ -34,7 +34,7 @@
 
         //  PIXI VARIABLES
         /// ---------------------------    
-        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, /*backgroundColor: '0xFFFFFF'*/ });
+        var renderer = new PIXI.autoDetectRenderer(options.stageWidth, options.stageHeight, { transparent: false, backgroundColor: '0xFFFFFF' });
         var stage = new PIXI.Container();
         var slidesContainer = new PIXI.Container();
         var displacementSprite = new PIXI.Sprite.from(options.displacementImage);

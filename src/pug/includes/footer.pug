@@ -1,13 +1,25 @@
 .footer 
     .social-links
-        a.link(target='_blank' href="#") YOUTUBE
-        a.link(target='_blank' href="#") INSTAGRAM
-        a.link(target='_blank' href="#") FACEBOOK
-        a.link(target='_blank' onclick="moveToElement('.forms')") Зворотній зв'язок
+        a.link(target='_blank' href="https://www.youtube.com/channel/UC6nEeqoZuW7doWz9514u-6g") YOUTUBE
+        a.link(target='_blank' href="https://www.instagram.com/comfort_life_development/") INSTAGRAM
+        a.link(target='_blank' href="https://www.facebook.com/ComfortLifeDevelopment") FACEBOOK
+        a.link(target='_blank' class="form-call-button-js") Зворотній зв'язок
     span.copyright-span © Усі права захищено Riverside
     span.smarto-logo Розробка сайту
         +img('smarto.svg')
 <!-- этот код вставляется перед закрывающим тегом </BODY> -->
 <script type="text/javascript" charset="utf-8" src="//istat24.com/js/replace.js"></script>
 <script type="text/javascript">replaceIstatDynamic(1,1369);</script>
-<!-- конец кода который вставляется перед закрывающим тегом </BODY> --> 
+<!-- конец кода который вставляется перед закрывающим тегом </BODY> -->
+.unvisible-block
+    form.callback-form 
+        +callback-border()
+        +svg('close-white-button').close-button
+        legend Зворотній зв'язок
+        .input-group
+            +svg('circle-white-tel-tube').decor-icon
+            input(type='text' name='name' placeholder="Ім'я" data-required="true") 
+        .input-group
+            +svg('circle-white-man').decor-icon
+            input(type='text' name="tel" placeholder="Телефон:" data-required="true")
+        button(type="submit").link.white.submit-js Надіслати
