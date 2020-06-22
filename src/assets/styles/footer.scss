@@ -123,6 +123,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    opacity: 1;
     .close-button {
         width: 20px;
         height: 20px;
@@ -204,10 +205,19 @@
 
 /* content animate it */
 
+.mfp-bg {
+    z-index: 10;
+}
+
+.mfp-container::before,
+.mfp-fade.mfp-wrap .mfp-content::before {
+    display: none !important;
+}
+
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
     animation-delay: 0.15s;
     animation: zoomInDown 0.75s 1 ease-in;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 

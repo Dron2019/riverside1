@@ -101,6 +101,13 @@ $('.form-call-button-js').magnificPopup({
         type: 'inline',
         src: putCallbackFormInPopup('.callback-form'),
     },
+    callbacks: {
+        open: function() {
+            document.querySelector('.mfp-content').style.opacity = 1;
+            console.log('!');
+
+        },
+    },
     mainClass: 'mfp-fade',
     removalDelay: 500,
 
