@@ -172,7 +172,7 @@
 /* overlay at start */
 
 .mfp-fade.mfp-bg {
-    opacity: 0;
+    // opacity: 0;
     -webkit-transition: all 0.15s ease-out;
     -moz-transition: all 0.15s ease-out;
     transition: all 0.15s ease-out;
@@ -182,7 +182,7 @@
 /* overlay animate in */
 
 .mfp-fade.mfp-bg.mfp-ready {
-    opacity: 0.8;
+    // opacity: 0.8;
 }
 
 
@@ -196,7 +196,7 @@
 /* content at start */
 
 .mfp-fade.mfp-wrap .mfp-content {
-    opacity: 0;
+    // opacity: 0;
     -webkit-transition: all 0.15s ease-out;
     -moz-transition: all 0.15s ease-out;
     transition: all 0.15s ease-out;

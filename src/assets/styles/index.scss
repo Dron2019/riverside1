@@ -1292,8 +1292,18 @@ a[href] {
     }
 }
 
+form.callback {
+    display: flex;
+    .input-group {
+        @include size(8);
+    }
+    button {
+        margin-left: auto;
+    }
+}
+
 form.message,
-form.callback,
+// form.callback,
 form.promotions {
     display: flex;
     flex-wrap: wrap;

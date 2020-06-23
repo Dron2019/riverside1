@@ -25,6 +25,7 @@
             $message .= "<p>Повідомлення: ".$_POST['message']."</p>";
             break;
         case 'callback':
+            return;
             $message  .= "<h1>Передзвоніть мені";
             $message .= "<p>Ім'я: ".$_POST['name']."</p>";
             $message .= "<p>Телефон: ".$_POST['tel']."</p>";
