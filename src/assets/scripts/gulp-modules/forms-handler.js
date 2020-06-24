@@ -116,10 +116,15 @@ $('.form-call-button-js').magnificPopup({
     },
     callbacks: {
         open: function() {
-            document.querySelector('.mfp-content').style.opacity = 1;
-            console.log('!');
-
+            // document.querySelector('.mfp-content .callback-form').classList.add('s') = 1;
+            setTimeout(() => {
+                document.querySelector('.mfp-content .callback-form').style.opacity = 1;
+            }, 100);
         },
+        close: function() {
+            document.querySelector('.callback-form').style.opacity = '0';
+
+        }
     },
     mainClass: 'mfp-fade',
     removalDelay: 500,

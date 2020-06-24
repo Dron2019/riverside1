@@ -351,21 +351,6 @@ block content
 			.tab-body 
 				.tab.tab-message.active
 					form.message(data-name="send-message")
-						//- .input-group
-						//- 	+svg('circle-blue-man').decor-icon
-						//- 	input(type="text" name="name" placeholder="Имя:" data-required="true")
-						.input-group
-							+svg('circle-blue-tel-tube').decor-icon
-							input(type="text" name="tel" placeholder="Телефон:" data-required="true")
-						//- .input-group
-						//- 	+svg('circle-blue-letter').decor-icon
-						//- 	input(type="text" name="email" placeholder="E-mail:" data-required="true")
-						//- .input-group
-						//- 	+svg('circle-blue-dialog-cloud').decor-icon
-						//- 	input(type="text" name="message" placeholder="Сообщение:")
-						button(type="submit" id="btnRecall" class="callback-js").link.blue Отправить
-				.tab.tab-callback
-					form.callback(data-name="callback")
 						.input-group
 							+svg('circle-blue-man').decor-icon
 							input(type="text" name="name" placeholder="Имя:" data-required="true")
@@ -379,6 +364,21 @@ block content
 							+svg('circle-blue-dialog-cloud').decor-icon
 							input(type="text" name="message" placeholder="Сообщение:")
 						button(type="submit" class="submit-js").link.blue Отправить
+				.tab.tab-callback
+					form.callback(data-name="callback")
+						//- .input-group
+						//- 	+svg('circle-blue-man').decor-icon
+						//- 	input(type="text" name="name" placeholder="Ім'я:" data-required="true")
+						.input-group
+							+svg('circle-blue-tel-tube').decor-icon
+							input(type="text" name="tel" placeholder="Телефон:" data-required="true")
+						//- .input-group
+						//- 	+svg('circle-blue-letter').decor-icon
+						//- 	input(type="text" name="email" placeholder="E-mail:" data-required="true")
+						//- .input-group
+						//- 	+svg('circle-blue-dialog-cloud').decor-icon
+						//- 	input(type="text" name="message" placeholder="Повідомлення:")
+						button(type="submit" id="btnRecall" class="callback-js").link.blue Отправить
 				.tab.tab-promotions
 					form.promotions(data-name="promotions")
 						.input-group
