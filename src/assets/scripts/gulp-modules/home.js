@@ -75,8 +75,10 @@ mousePopup.classList.add('mouse-popup');
 mousePopup.innerHTML = 'Натисніть та утримуйте на зображенні';
 document.querySelector('.main-screen').append(mousePopup);
 document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
-    mousePopup.style.top = evt.screenY - 60 + 'px';
-    mousePopup.style.left = evt.screenX + 30 + 'px';
+    console.log(evt);
+
+    mousePopup.style.top = evt.clientY + 'px';
+    mousePopup.style.left = evt.clientX + 30 + 'px';
 });
 document.querySelector('.main-screen canvas').addEventListener('mouseenter', function(evt) {
     document.querySelector('.main-screen').append(mousePopup);
@@ -87,6 +89,9 @@ document.querySelector('.main-screen canvas').addEventListener('mouseleave', fun
     mousePopup.classList.remove('visible');
 });
 /**Всплывающая подсказка на первом экране END */
+
+
+
 /**GENPLAN */
 let svg = document.querySelector('.genplan-svg svg'),
     genplanSvgLinkList = document.querySelectorAll('.svg-link-js');
@@ -98,7 +103,7 @@ genplanSvgLinkList.forEach(link => {
 
             if (link.dataset.svgid.length == 0) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `#ffffff`;
-            document.querySelector(`#${link.dataset.svgid}`).style.fill = `rgba(255,255,255,0.5)`;
+            document.querySelector(`#${link.dataset.svgid}`).style.fill = `rgba(0, 133, 255, 0.7)`;
         });
         link.addEventListener('mouseout', function(evt) {
             if (link.dataset.svgid.length == 0) return;
@@ -178,10 +183,49 @@ if (window.screen.width > 481) {
         }
 
     });
-    document.querySelector('.main-screen').prepend(document.querySelector('header'));
+    document.querySelector('.safari-wrap').prepend(document.querySelector('header'));
 }
-
-
 document.querySelector('.scroll-element svg').onclick = () => {
     document.querySelector('.genplan').scrollIntoView({ behavior: 'smooth' });
 };
+
+/**Отключение прелоадера */
+let mainScreenEvent = new Event('mainscreenload');
+let preloader = document.querySelector('.preloader-js');
+document.querySelector('.preloader-js').addEventListener('mainscreenload', function(evt) {
+    // evt.stopPropagation();
+    // document.querySelector('.preloader-js').remove();
+    evt.target.classList.add('closing');
+    // console.log(evt.target);
+
+});
+setTimeout(() => {
+    preloader.dispatchEvent(mainScreenEvent);
+}, 2000);
+/**Отключение прелоадера */
+
+(function($) {
+    $.fn.animateNumbers = function(stop, commas, duration, ease) {
+        return this.each(function() {
+            var $this = $(this);
+            var start = parseInt($this.text().replace(/,/g, ""));
+            commas = (commas === undefined) ? true : commas;
+            $({ value: start }).animate({ value: stop }, {
+                duration: duration == undefined ? 1000 : duration,
+                easing: ease == undefined ? "swing" : ease,
+                step: function() {
+                    $this.text(Math.floor(this.value));
+                    if (commas) { $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); }
+                },
+                complete: function() {
+                    if (parseInt($this.text()) !== stop) {
+                        $this.text(stop);
+                        if (commas) { $this.text($this.text().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,")); }
+                    }
+                }
+            });
+        });
+    };
+})(jQuery);
+
+$('.preload-num').animateNumbers(100);

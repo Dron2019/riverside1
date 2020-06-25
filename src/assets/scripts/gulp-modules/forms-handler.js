@@ -56,7 +56,6 @@ function send(object, url, form) {
         if (res.match(/11/)) {
             sendMessageStatus(form, 'Ваше повідомлення відправлено');
         } else {
-
             sendMessageStatus(form, 'Помилка відправки');
         }
         setTimeout(() => {
