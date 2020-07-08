@@ -59,7 +59,7 @@
          return;
      }
      document.querySelectorAll('video').forEach(video => {
-         video.play();
+         //  video.play();
      });
      window.videoLoadingStatus = true;
  }

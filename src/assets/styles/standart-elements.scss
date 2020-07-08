@@ -805,3 +805,75 @@
 .unvisible-block {
     display: none;
 }
+
+.wave-for-menu {
+    position: absolute;
+    width: calc(100% - var(--side-fields) * 2);
+    height: calc(100% - var(--side-fields) * 2);
+    --border-width: 2px;
+    margin: var(--side-fields);
+    pointer-events: none;
+    &>div {
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .top-line {
+        top: 0;
+        left: 0;
+        height: var(--border-width);
+        width: 100%;
+    }
+    .bottom-line {
+        width: calc(100% - 591px);
+        height: var(--border-width);
+        right: 0;
+        bottom: 0;
+    }
+    .left-line {
+        height: calc(100% - 86px);
+        width: var(--border-width);
+        left: 0;
+        top: 1px;
+    }
+    .right-line {
+        width: var(--border-width);
+        height: calc(100% - 2px);
+        top: 1px;
+        right: 0;
+    }
+    & svg {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    & svg path {
+        stroke: rgba(255, 255, 255, 0.5);
+    }
+    @include from(1720px) {
+        .bottom-line {
+            width: calc(100% - 591px);
+        }
+        .left-line {
+            height: calc(100% - 112px);
+        }
+        .line-desktop {
+            display: none;
+        }
+    }
+    @include to(1719px) {
+        .bottom-line {
+            width: calc(100% - 448px);
+        }
+        & svg {
+            bottom: -1px;
+        }
+        .line1920 {
+            display: none;
+        }
+    }
+    @include to(768px) {
+        .line-desktop {
+            display: none;
+        }
+    }
+}

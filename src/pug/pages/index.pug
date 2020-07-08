@@ -20,6 +20,7 @@ block scripts
 	script( defer src='./assets/scripts/forms-handler.js')
 	script(defer src='./assets/scripts/index.js')
 	script(defer src='./assets/scripts/gallery.js')
+	script(defer src="./assets/scripts/menu.js")
 
 
 	
@@ -161,28 +162,28 @@ block content
 			.title <span class="blue with-waves">Ріверсайд</span> 
 				span.gray тому що...
 			//- +img('reasons-to-choose/1.jpg')
-			video(poster="./assets/images/reasons-to-choose/1.jpg"  loop="true" muted playsinline )
-				source(src="./static/video/sport.mp4" type="video/mp4")
+			video(poster="./assets/images/reasons-to-choose/1.jpg"  loop="true" muted autostart="false" preload="none"  playsinline )
+				source(src="./static/video/sport.mp4" type="video/mp4" autostart="false")
 			+wave-bottom-white('Місце, де панує спорт','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/2.jpg')
-			video(poster="./assets/images/reasons-to-choose/2.jpg" loop="true" muted playsinline )
-				source(src="./static/video/rest.mp4" type="video/mp4")
+			video(poster="./assets/images/reasons-to-choose/2.jpg" loop="true" muted autostart="false" preload="none"  playsinline )
+				source(src="./static/video/rest.mp4" type="video/mp4" autostart="false")
 			+wave-bottom-white('простір для дозвілля','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/3.jpg')
-			video(poster="./assets/images/reasons-to-choose/3.jpg"  loop="true" muted playsinline )
-				source(src="./static/video/water.mp4" type="video/mp4")
+			video(poster="./assets/images/reasons-to-choose/3.jpg"  loop="true" muted autostart="false" preload="none"  playsinline )
+				source(src="./static/video/water.mp4" type="video/mp4" autostart="false")
 			+wave-bottom-white('Водний простір','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/4.jpg')
-			video(poster="./assets/images/reasons-to-choose/4.jpg"  loop="true" muted playsinline )
-				source(src="./static/video/life.mp4" type="video/mp4")
+			video(poster="./assets/images/reasons-to-choose/4.jpg"  loop="true" muted autostart="false" preload="none"  playsinline )
+				source(src="./static/video/life.mp4" type="video/mp4" autostart="false")
 			+wave-bottom-white('досконалий у дрібницях','Твоє правильне середовище')
 		.reasons-to-choose__block
 			//- +img('reasons-to-choose/5.jpg')
-			video(poster="./assets/images/reasons-to-choose/5.jpg" loop="true" muted playsinline )
-				source(src="./static/video/kids.mp4" type="video/mp4")
+			video(poster="./assets/images/reasons-to-choose/5.jpg" loop="true" muted autostart="false" preload="none"  playsinline )
+				source(src="./static/video/kids.mp4" type="video/mp4" autostart="false")
 			+wave-bottom-white('Зростай і розвивайся','Твоє правильне середовище')
 	section.gallery.layout
 		.preload-block 
@@ -323,7 +324,7 @@ block content
 						+svg('circle-blue-marker').decor-icon
 					.contacts__mini-group 
 						.contacts__mini-group-title Телефон
-						.contacts__mini-group-text
+						.contacts__mini-group-text.istat_1
 							a(href="tel:") +38 (096) 165-30-30 
 							a(href="tel:") +38 (063) 165-30-30 
 							a(href="tel:") +38 (099) 165-30-30 
@@ -348,7 +349,7 @@ block content
 						+svg('circle-blue-riverside').decor-icon
 					.contacts__mini-group 
 						.contacts__mini-group-title Телефон
-						.contacts__mini-group-text
+						.contacts__mini-group-text.istat_1
 							a(href="tel:") +38 (096) 165-30-30 
 							a(href="tel:") +38 (063) 165-30-30 
 							a(href="tel:") +38 (099) 165-30-30 
@@ -362,7 +363,7 @@ block content
 							+svg('circle-blue-riverside').decor-icon
 						.contacts__mini-group 
 							.contacts__mini-group-title Телефон
-							.contacts__mini-group-text
+							.contacts__mini-group-text.istat_1
 								a(href="tel:") +38 (096) 165-30-30 
 								a(href="tel:") +38 (063) 165-30-30 
 								a(href="tel:") +38 (099) 165-30-30 

@@ -4,12 +4,15 @@ header.header
     a(href="tel:"+phoneNumberHref+"").header-telephone
         span #{phoneNumber}
     .form-call-button.form-call-button-js #{lang.zvorot[version]}
-    .menu-button 
+    .menu-button.menu-button-js
         span МЕНЮ
-        <svg width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="open-svg" width="36" height="14" viewBox="0 0 36 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 6C18 6 18 13 36 13" stroke="white" stroke-width="2"/>
             <path d="M0 1C18 1 18 8 36 8" stroke="white" stroke-width="2"/>
             </svg>
+        <svg class="close-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 21L1 1M1 21L21 1L1 21Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
     .lang-block 
         - if (version === 'ua')
             a(href='index.html').active UA

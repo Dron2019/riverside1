@@ -21,6 +21,9 @@ header.header {
     text-transform: uppercase;
     justify-content: space-between;
     transition: background-color .5s;
+    .close-svg {
+        display: none;
+    }
     @include from(1720px) {
         font-size: 24px;
     }
@@ -137,10 +140,11 @@ header.header {
 }
 
 .menu-button {
+    cursor: pointer;
     & path {
         transition: .5s;
     }
-    &:hover path {
+    &:hover .open-svg path {
         transform: matrix(1, -0.2, 0, 1, 0, 2);
     }
     @include to(768px) {
