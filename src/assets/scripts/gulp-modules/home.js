@@ -169,6 +169,7 @@ tabNavList.forEach(el => {
 
 
 
+document.querySelector('header').style.backgroundColor = `transparent`;
 if (window.screen.width > 481) {
     let mainScreen = document.querySelector('.main-screen-layout');
     window.addEventListener('scroll', () => {

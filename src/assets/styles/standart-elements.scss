@@ -841,6 +841,12 @@
         top: 1px;
         right: 0;
     }
+    .line-mobile {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        stroke-width: 2;
+    }
     & svg {
         position: absolute;
         bottom: 0;
@@ -871,9 +877,40 @@
             display: none;
         }
     }
+    @include from(576px) {
+        .line-mobile {
+            display: none;
+        }
+    }
     @include to(768px) {
         .line-desktop {
             display: none;
         }
+    }
+    @include to(575px) {
+        .bottom-line {
+            width: calc(100% - 233px);
+            right: 1px;
+        }
+        .left-line {
+            height: calc(100% - 46px);
+        }
+    }
+}
+
+.breadcrumbs-block {
+    &__item {
+        color: var(--white);
+        font-size: 14px;
+        line-height: 22px;
+        text-decoration: none;
+    }
+    &__item[href]:not(&__item-current) span {
+        text-decoration: underline;
+    }
+    &__item[href]:not(&__item-current):after {
+        content: '•';
+        margin: 0 10px;
+        text-decoration: none;
     }
 }

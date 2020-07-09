@@ -1,6 +1,7 @@
 extends ../layout/main
 block variable
     -pageName = 'gallery';
+    - var version = "ua";
 block meta
     title= 'Rusaniv Residence'
     meta(name='description', content='')
@@ -8,25 +9,58 @@ block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
     script(defer src='./assets/scripts/libs.js')
+    script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+    script(defer src='./assets/scripts/pixi.min.js')
+    script(defer src='./assets/scripts/canvas_slideshow.js')
+    script(defer src='./assets/scripts/forms-handler.js')
     script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/menu.js')
     script(defer src='./assets/scripts/gallery.js')
 block content
-        .gallery-slider.gallery-slider-js
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-            +img('gallery/img.jpg')
-        .wrapper.first.gallery-page
-            .breadcrumbs-wrapper
-                h1.page-title Галерея
-                .breadcrumbs-block
-                    a(href="/").link Головна
-                    a(href="/news.html").link.current-link Галерея
-            .slider-numbers
-                .current 2
-                .total 10
-            .circle-red-arrow.gallery-arrow-js
+    section.main-screen-layout.section.main-screen-layout.gallery-layout
+        .slide-wrapper
+            .slide-item
+                h3.slide-item__title Slide 1
+                //- +img('main1.jpg').slide-item__image
+                img( src="./assets/images/main1.jpg" data-src="./assets/images/main1.jpg").slide-item__image
+            .slide-item
+                h3.slide-item__title Slide 2
+                //- +img('main2.jpg').slide-item__image
+                img(src="./assets/images/main2.jpg" data-src="./assets/images/main2.jpg").slide-item__image
+            .slide-item
+                h3.slide-item__title Slide 3
+                //- +img('main3.jpg').slide-item__image
+                img(src="./assets/images/main3.jpg" data-src="./assets/images/main3.jpg").slide-item__image
+            .slide-item
+                h3.slide-item__title Slide 3
+                //- +img('main4.jpg').slide-item__image
+                img(src="./assets/images/main4.jpg" data-src="./assets/images/main4.jpg").slide-item__image
+        .safari-wrap
+        .main-screen.wrapper
+            +wave-bottom()
+            .breadcrumbs-block
+                a(href="/").breadcrumbs-block__item 
+                    span Головна
+                a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Галерея
+            .arrows
+                .arrow-prev.scene-nav.scene-nav--prev(data-nav="previous")
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+                    <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+                    </svg>
+                .arrow-next.scene-nav.scene-nav--next(data-nav="next")
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+                    <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+                    </svg>
+            .scroll-element 
+                .slider-counter
+                    .current 1
+                    .delimiter 
+                        <svg width="2" height="12" viewBox="0 0 2 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect opacity="0.5" width="2" height="12" transform="matrix(-1 0 0 1 2 0)" fill="white"/>
+                        </svg>
+                    .all 4
+            <div class="title"> <span class="blue">Галерея</span> комплексу
+            </div>

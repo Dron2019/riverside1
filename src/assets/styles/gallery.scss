@@ -1,0 +1,13 @@
+.gallery-layout {
+    header.header {
+        background-color: transparent;
+    }
+    .breadcrumbs-block {
+        margin-top: 150px;
+        position: relative;
+        z-index: 5;
+        width: calc(100% - var(--side-fields) * 2);
+        margin: 150px auto 30px auto;
+        padding: 0 var(--side-fields);
+    }
+}

@@ -1,118 +1,69 @@
- /**Gallery distortion slider */
+// Select all your images
+var spriteImages = document.querySelectorAll('.main-screen-layout .slide-item__image');
+var spriteImagesSrc = [];
+var texts = [];
+var imgDIR = ``;
+if (window.location.href.match(/\/dist\//)) imgDIR = `/dist/`;
 
- let sections = $('section');
- window.scrollsCounter = new Number(0);
- window.currentSection = '.main-screen';
- /**Докрутка скролла */
- function debounce(f, t) {
-     return function(args) {
-         let previousCall = this.lastCall;
-         this.lastCall = Date.now();
-         if (previousCall && ((this.lastCall  -  previousCall) <= t)) {
-             clearTimeout(this.lastCallTimer);
-         }
-         this.lastCallTimer = setTimeout(() => f(args), t);
-     }
- }
-
- let alignSectionToScreen = (args) => {
-         console.log(window.currentSection);
-         document.querySelector(`.${window.currentSection}`).scrollIntoView({ behavior: "smooth" });
-     }
-     // debounce: call the logger when two seconds have elapsed since the last call
- let debouncedLogger = debounce(alignSectionToScreen, 2000);
- //  debouncedLogger();
- //  window.addEventListener('scroll', () => {
- //      debouncedLogger();
- //  });
- /**Докрутка скролла END*/
- $(window).on('scroll', function() {
-     var cur_pos = $(this).scrollTop();
-     sections.each(function() {
-         var top = $(this).offset().top,
-             bottom = top + $(this).outerHeight();
-         if (cur_pos >= top && cur_pos <= bottom) {
-             let currentMenuPoint = $(this)[0].classList[0];
-             window.currentSection = currentMenuPoint;
-             console.log(currentMenuPoint);
-             switch (currentMenuPoint) {
-                 case 'reasons-to-choose':
-                     gallerySliderLoader();
-                     break;
-                 case 'about':
-                     videosLoader();
-                     break;
-
-                 default:
-                     break;
-             }
-         }
-     });
- });
+let
+    galleryHEaderWrapper = document.querySelector('.safari-wrap');
+galleryHEaderWrapper.append($header);
 
 
 
- let videosLoader = () => {
+for (var i = 0; i < spriteImages.length; i++) {
 
-     if (window.videoLoadingStatus === true) {
-         videosLoader = () => {};
-         return;
-     }
-     document.querySelectorAll('video').forEach(video => {
-         //  video.play();
-     });
-     window.videoLoadingStatus = true;
- }
- let gallerySliderLoader = () => {
-     if (window.galleryLoadingStatus === true) {
-         gallerySliderLoader = () => {};
-         return;
-     }
-     document.querySelectorAll('.gallery .slide-item__image').forEach(galleryImage => {
-         galleryImage.src = galleryImage.dataset.src;
-     });
+    var img = spriteImages[i];
 
-     var galleryImages = document.querySelectorAll('.gallery .slide-item__image');
-     var galleryImagesSrc = [];
+    // Set the texts you want to display to each slide 
+    // in a sibling element of your image and edit accordingly
+    if (img.nextElementSibling) {
+        texts.push(img.nextElementSibling.innerHTML);
+    } else {
+        texts.push('');
+    }
 
-     var imgDIR = ``;
-     if (window.location.href.match(/\/dist\//)) imgDIR = `/dist/`;
-     for (var i = 0; i < galleryImages.length; i++) {
-         var galleryImg = galleryImages[i];
-         // Set the texts you want to display to each slide 
-         // in a sibling element of your image and edit accordingly
-         galleryImagesSrc.push(galleryImg.getAttribute('src').replace('./', imgDIR));
-     };
-     /**Gallery distortion slider END*/
+    spriteImagesSrc.push(img.getAttribute('src').replace('./', imgDIR));
+}
 
-     $('.gallery').imagesLoaded(function() {
-         var gallerySlider = new CanvasSlideshow({
-             sprites: galleryImagesSrc,
-             displacementImage: './assets/images/gallery-screen-filter.jpg',
-             autoPlay: false,
-             selector: '.gallery',
-             autoPlaySpeed: [0.3, 0.3],
-             displaceScale: [800, 500],
-             fullScreen: true,
-             navSelector: '.gallery',
-             displaceAutoFit: true,
-             //  stageWidth: document.documentElement.clientWidth * 1.1,
-             image: document.querySelectorAll('.gallery .slide-item__image'),
-             navElement: document.querySelectorAll('.gallery .scene-nav'),
-             //  stageHeight: document.documentElement.clientHeight,
-             displacementCenter: true,
-             interactive: false,
-             interactionEvent: 'click', // 'click', 'hover', 'both' 
-         });
-         gallerySlider.init();
-     });
-     setTimeout(() => {
-         let preloader = document.querySelector('.gallery .preload-block') || null;
-         preloader.style.animation = `fadeOut 1s 1 linear`;
-         preloader.addEventListener('animationend', function(evt) {
 
-             preloader.remove();
-         });
-     }, 500);
-     window.galleryLoadingStatus = true;
- }
+var moveSlider = new CanvasSlideshow({
+    sprites: spriteImagesSrc,
+    displacementImage: './assets/images/main-screen-filter.jpg',
+    autoPlay: false,
+    selector: '.main-screen',
+    autoPlaySpeed: [0.3, 0.3],
+    displaceScale: [800, 500],
+    fullScreen: true,
+    navSelector: '.main-screen',
+    navElement: document.querySelectorAll('.main-screen .scene-nav'),
+    displaceAutoFit: true,
+    // stageWidth: document.documentElement.clientWidth,
+    image: document.querySelectorAll('.main-screen-layout .slide-item__image'),
+    // stageHeight: document.documentElement.clientHeight,
+    displacementCenter: true,
+    interactive: true,
+    interactionEvent: 'click', // 'click', 'hover', 'both' 
+});
+moveSlider.init();
+
+/**Всплывающая подсказка на первом экране */
+const mousePopup = document.createElement('div');
+mousePopup.classList.add('mouse-popup');
+mousePopup.innerHTML = 'Натисніть та утримуйте на зображенні';
+document.querySelector('.main-screen').append(mousePopup);
+document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
+    console.log(evt);
+
+    mousePopup.style.top = evt.clientY + 'px';
+    mousePopup.style.left = evt.clientX + 30 + 'px';
+});
+document.querySelector('.main-screen canvas').addEventListener('mouseenter', function(evt) {
+    document.querySelector('.main-screen').append(mousePopup);
+    mousePopup.classList.add('visible');
+});
+document.querySelector('.main-screen canvas').addEventListener('mouseleave', function(evt) {
+    mousePopup.remove();
+    mousePopup.classList.remove('visible');
+});
+/**Всплывающая подсказка на первом экране END */
