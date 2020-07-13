@@ -1,0 +1,117 @@
+#contact {
+    padding-top: 71px;
+    section.contacts {
+        background: url(../images/common/wave-pattern1.png) right no-repeat, #F7F5FB;
+    }
+    .title {
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    @include from(1720px) {
+        padding-top: 110px;
+    }
+    @include to(480px) {
+        padding-top: 42px;
+    }
+    .forms {
+        position: relative;
+        padding: var(--side-fields);
+    }
+    .tabs {
+        @include shift-padding(1);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    @include from(1720px) {
+        .forms .tab-head {
+            margin-bottom: 80px;
+        }
+        .input-group {
+            margin-bottom: 0;
+        }
+        .input-group:last-of-type {
+            margin-top: 50px;
+        }
+        .forms {
+            padding: 60px 107px;
+        }
+        .tabs {
+            padding-right: 80px;
+            padding-left: 80px;
+        }
+    }
+    @include from-to(481px, 768px) {
+        .forms {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+    }
+    @include to(768px) {
+        section.contacts {
+            background-size: auto 100vh;
+            background-position-x: 35vh;
+            background-position-y: 0;
+        }
+        .contacts__info-blocks-wrapper {
+            padding-left: 0;
+            padding-top: 0;
+        }
+        .tabs {
+            padding: 30px 20px;
+        }
+        .tab-head-item {
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
+    @include to(480px) {
+        section.contacts {
+            background-size: auto 100vh;
+            background-position-y: top;
+            background-position-x: 34vw;
+        }
+        .tabs {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .tab-head-item {
+            width: 100%;
+            text-align: center;
+        }
+        .tab-head-item:after {
+            margin-left: auto;
+        }
+        .tab-head-item:before {
+            margin-right: auto;
+        }
+        form.callback {
+            flex-wrap: wrap;
+            .input-group {
+                width: 100%;
+            }
+        }
+        .contacts__info-block-column-title {
+            margin-top: 20px;
+        }
+        .contacts__mini-group {
+            margin-bottom: 20px;
+        }
+        .link.mobile {
+            margin-top: 20px;
+        }
+        .map-link-block {
+            padding: 0 25px;
+            .link {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .contacts__info-block-column.double {
+            width: 100%;
+        }
+    }
+}

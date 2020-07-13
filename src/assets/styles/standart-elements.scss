@@ -14,13 +14,19 @@
     --gray: #40484E;
     --gray-light: #728596;
     --side-padding: 30px;
+    --title-size: 48px;
     // cursor: url('../images/common/cursor.png'), auto;
     cursor: url('../images/cursor.png'), auto;
+    @include from(1720px) {
+        --title-size: 64px;
+    }
     @include to(768px) {
         --side-padding: 22px;
+        --title-size: 36px;
     }
     @include to(480px) {
         --side-padding: 14px;
+        --title-size: 24px;
     }
 }
 
@@ -166,6 +172,9 @@
     max-width: 350px;
     padding-left: var(--side-padding);
     padding-bottom: var(--side-padding);
+    &.blue {
+        color: var(--blue);
+    }
     & .blue.with-waves:after {
         content: url("data:image/svg+xml,%3Csvg width='87' height='36' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
         margin-left: 30px;
@@ -304,6 +313,7 @@
         position: relative;
         transition: .5s;
         top: -5px;
+        transform-origin: left;
     }
     &:hover::after {
         transform: scaleX(1.5);
@@ -899,18 +909,154 @@
 }
 
 .breadcrumbs-block {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    --underline-gap: 4px;
+    padding-bottom: var(--underline-gap);
+    min-height: var(--title-size);
+    position: relative;
     &__item {
-        color: var(--white);
+        color: var(--blue);
         font-size: 14px;
         line-height: 22px;
         text-decoration: none;
+        margin-bottom: var(--underline-gap);
+    }
+    &__item span {
+        position: relative;
+    }
+    &__item span:before {
+        position: absolute;
+        bottom: 0;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        background: var(--blue);
+        content: '';
+    }
+    &__item--white span:before {
+        background: var(--white);
+    }
+    &__item-current {
+        color: var(--gray-light);
+    }
+    &__item--white {
+        color: var(--white);
     }
     &__item[href]:not(&__item-current) span {
-        text-decoration: underline;
+        // text-decoration: underline;
     }
     &__item[href]:not(&__item-current):after {
         content: '•';
         margin: 0 10px;
         text-decoration: none;
+    }
+    .title {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 0;
+    }
+    @include from(1720px) {
+        &__item {
+            font-size: 18px;
+        }
+    }
+    @include to(480px) {
+        .title {
+            position: static;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            text-align: center;
+            transform: none;
+            margin-top: 20px;
+        }
+    }
+}
+
+.contact-form-wave {
+    position: absolute;
+    width: calc(100% - var(--side-padding) * 2);
+    height: calc(100% - var(--side-padding) * 2);
+    pointer-events: none;
+    overflow: hidden;
+    left: var(--side-padding);
+    top: var(--side-padding);
+    & .river-wave-logo {
+        width: 52px;
+        height: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    & .desktop {
+        stroke-width: 2;
+        stroke: #60B3FF;
+        position: absolute;
+        width: 158px;
+        height: 32px;
+        right: 0;
+        top: 0;
+    }
+    .left-line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #60B3FF;
+        width: 2px;
+        height: 100%;
+    }
+    .bottom-line {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #60B3FF;
+        bottom: 0;
+        left: 0;
+    }
+    .right-line {
+        position: absolute;
+        width: 2px;
+        height: calc(100% - 31px);
+        background-color: #60B3FF;
+        right: 0;
+        top: 31px;
+    }
+    .top-line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calc(100% - 157px);
+        height: 2px;
+        background-color: #60B3FF;
+    }
+    .mobile-320 {
+        width: 292px;
+        height: 66px;
+    }
+    @include from(1720px) {
+        width: calc(100% - 107px * 2);
+        left: 107px;
+        height: calc(100% - 60px * 2);
+        top: 60px;
+        .top-line {
+            width: calc(100% - 157px);
+        }
+    }
+    @include from(769px) {
+        .blue-top-top-line-mobile {
+            display: none;
+        }
+    }
+    @include to(768px) {}
+    @include from(480px) {
+        .mobile-320 {
+            display: none;
+        }
+    }
+    @include to(480px) {
+        display: none;
     }
 }

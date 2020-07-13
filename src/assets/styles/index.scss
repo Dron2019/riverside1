@@ -100,8 +100,8 @@ a[href] {
         }
     }
     @include to(480px) {
+        // min-height: -webkit-fill-available;
         min-height: calc(100vh - 42px);
-        min-height: -webkit-fill-available;
         // margin-top: 42px;
     }
     @include from(481px) {
