@@ -139,41 +139,41 @@ menu {
             display: none;
         }
     }
-    @include from-to(576px, 769px) {
-        // display: block;
-        .menu__content {
-            display: block;
-            width: calc(100% - 4px - var(--side-fields) * 2);
-            padding-left: 62px;
-            padding-right: 62px;
-            margin-top: 0;
-            &:after {
-                height: 13px;
-                bottom: -2px;
-            }
-        }
-        .menu__content-text-links {
-            width: 100%;
-        }
-        .menu-content-image-links {
-            width: 100%;
-        }
-        .menu__content-text-links {
-            width: 100%;
-            padding-left: 0;
-            padding-top: 0em;
-            columns: 2;
-            .link {
-                margin-top: 0;
-            }
-        }
-        .menu-content-image-links {
-            grid-template-columns: repeat(19, 111px);
-        }
-        .menu-scroll-element {
-            display: none;
-        }
-    }
+    // @include from-to(576px, 769px) {
+    //     // display: block;
+    //     .menu__content {
+    //         display: block;
+    //         width: calc(100% - 4px - var(--side-fields) * 2);
+    //         padding-left: 62px;
+    //         padding-right: 62px;
+    //         margin-top: 0;
+    //         &:after {
+    //             height: 13px;
+    //             bottom: -2px;
+    //         }
+    //     }
+    //     .menu__content-text-links {
+    //         width: 100%;
+    //     }
+    //     .menu-content-image-links {
+    //         width: 100%;
+    //     }
+    //     .menu__content-text-links {
+    //         width: 100%;
+    //         padding-left: 0;
+    //         padding-top: 0em;
+    //         columns: 2;
+    //         .link {
+    //             margin-top: 0;
+    //         }
+    //     }
+    //     .menu-content-image-links {
+    //         grid-template-columns: repeat(19, 111px);
+    //     }
+    //     .menu-scroll-element {
+    //         display: none;
+    //     }
+    // }
     @include to(575px) {
         overflow: hidden;
         flex-direction: row;
@@ -258,10 +258,18 @@ menu {
 .menu__content-image-link {
     position: relative;
     display: block;
+    overflow: hidden;
     &>img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: .5s;
+    }
+    @include from(769px) {
+        &:hover img {
+            transition: 10s;
+            transform: scale(1.2);
+        }
     }
     .img-gradient {
         width: 100%;

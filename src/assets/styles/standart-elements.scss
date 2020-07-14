@@ -892,7 +892,7 @@
             display: none;
         }
     }
-    @include to(768px) {
+    @include to(575px) {
         .line-desktop {
             display: none;
         }
@@ -915,6 +915,7 @@
     --underline-gap: 4px;
     padding-bottom: var(--underline-gap);
     min-height: var(--title-size);
+    box-sizing: content-box;
     position: relative;
     &__item {
         color: var(--blue);

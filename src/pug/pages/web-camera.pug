@@ -1,0 +1,39 @@
+extends ../layout/main
+block variable
+    -pageName = 'web-camera';
+    - var version = "ua";
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    //- script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+    //- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+    //- script(defer src='./assets/scripts/pixi.min.js')
+    //- script(defer src='./assets/scripts/canvas_slideshow.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    //- script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/contact.js')
+block content
+    section.web-camera
+        .breadcrumbs-block
+            a(href="index.html").breadcrumbs-block__item 
+                span Головна
+            a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Веб камера
+            h1.title.blue Веб камера
+        .cameras-wrapper
+            .sngl-camera
+                iframe(src="https://www.youtube.com/embed/WHq77t34ZPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                .sngl-camera__title 1ша черга будинок 2
+            .sngl-camera
+                iframe(src="https://www.youtube.com/embed/WHq77t34ZPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                .sngl-camera__title 2га черга будинок 1
+            .sngl-camera
+                iframe(src="https://www.youtube.com/embed/WHq77t34ZPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                .sngl-camera__title 3тя черга будинок 5
+            .sngl-camera
+                iframe(src="https://www.youtube.com/embed/WHq77t34ZPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+                .sngl-camera__title 4та черга будинок 3

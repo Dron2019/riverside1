@@ -10,7 +10,7 @@
         text-align: center;
     }
     @include from(1720px) {
-        padding-top: 110px;
+        padding-top: 100px;
     }
     @include to(480px) {
         padding-top: 42px;
@@ -40,6 +40,9 @@
         .tabs {
             padding-right: 80px;
             padding-left: 80px;
+        }
+        .contacts__info-blocks-wrapper {
+            margin-top: 40px;
         }
     }
     @include from-to(481px, 768px) {
