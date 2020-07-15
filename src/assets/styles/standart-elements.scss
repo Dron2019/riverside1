@@ -15,10 +15,11 @@
     --gray-light: #728596;
     --side-padding: 30px;
     --title-size: 48px;
-    // cursor: url('../images/common/cursor.png'), auto;
+    --header-height: 71px;
     cursor: url('../images/cursor.png'), auto;
     @include from(1720px) {
         --title-size: 64px;
+        --header-height: 105px;
     }
     @include to(768px) {
         --side-padding: 22px;
@@ -27,6 +28,7 @@
     @include to(480px) {
         --side-padding: 14px;
         --title-size: 24px;
+        --header-height: 42px;
     }
 }
 
@@ -913,10 +915,11 @@
     flex-wrap: wrap;
     align-items: flex-end;
     --underline-gap: 4px;
-    padding-bottom: var(--underline-gap);
+    // padding-bottom: var(--underline-gap);
     min-height: var(--title-size);
     box-sizing: content-box;
     position: relative;
+    margin-top: 25px;
     &__item {
         color: var(--blue);
         font-size: 14px;
@@ -960,9 +963,13 @@
         bottom: 0;
     }
     @include from(1720px) {
+        margin-top: 30px;
         &__item {
             font-size: 18px;
         }
+    }
+    @include to(768px) {
+        margin-top: 20px;
     }
     @include to(480px) {
         .title {
@@ -1059,5 +1066,53 @@
     }
     @include to(480px) {
         display: none;
+    }
+}
+
+.vert-wave-blue-line {
+    stroke: var(--blue);
+    fill: transparent;
+    width: 13px;
+    height: 50px;
+    stroke-width: 3;
+    @include to(575px) {
+        width: 7px;
+        height: 36px;
+    }
+}
+
+.news-article-wave {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 260px;
+    height: 48px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    @include from(1720px) {
+        width: 360px;
+        height: 67px;
+    }
+    .link {
+        position: relative;
+        z-index: 1;
+        padding-right: 0;
+    }
+    svg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        fill: var(--white);
+    }
+    @include to(575px) {
+        width: 172px;
+        height: 33px;
+        svg {
+            bottom: 1.6em;
+        }
     }
 }

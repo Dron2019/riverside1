@@ -1,5 +1,7 @@
 extends ../layout/main
 block variable
+    -pageName = 'single-news';
+    - var version = "ua";
 block meta
     title= 'Rusaniv Residence'
     meta(name='description', content='')
@@ -7,41 +9,57 @@ block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
     script(defer src='./assets/scripts/libs.js')
-    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/news.js')
 block content
-    .single-news-page
-        .wrapper.first
-            .breadcrumbs-wrapper
-                h1.page-title Графік роботи відділу продажу на День захисника України
-                .breadcrumbs-block
-                    a(href="/").link Головна
-                    a(href="/news.html").link Новини
-                    a(href="/").link.current-link Графік роботи відділу продажу на День захисника України
-            .article-wrapper
-                +img('news/article-img-large.jpg').article-image
-                .article-text.text-standart
-                    +svg('vertical-line').vertical-line
-                    p Дорога на роботу і додому — значна частина нашого життя. Але якщо офіс буде розташований у житловому комплексі Rusaniv Residence, вільний час можна витратити інші речі. Збираєтесь відвідати наш відділ продажу? Телефонуйте за номером, вказаним на сайті та замовляйте трансфер прямісінько до дверей офісу. 
-                    p Ми — за чисте довкілля та збереження природних ресурсів, саме тому для трансферу обрали екологічні електрокари Nissan LEAF.
-                    p Чекаємо на вас за адресою: Харківське шосе, 22 км, щоб детальніше розповісти про проект, допомогти вам обрати планування квартири та влаштувати екскурсію мальовничою.
-                    a(href="/news.html").link-standart Назад до новин
-                    .button.text.arrow Обрати квартиру
-                .button.text-small.separate-position-button Замовити дзвінок
-        .layout.layout__white
-            .wrapper.similar-news-wrapper
-                a(href="#").similar-news-link
-                    .news-date.news-date__red 19 листопада 2019
-                    .subtitle 
-                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
-                        +svg('arrow-left-red')
-                a(href="#").similar-news-link
-                    .news-date.news-date__red 19 листопада 2019
-                    .subtitle 
-                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
-                        +svg('arrow-left-red')
-                a(href="#").similar-news-link
-                    .news-date.news-date__red 19 листопада 2019
-                    .subtitle 
-                        span Графік роботи відділу продажу на День захисника...tsrjtjksrtyktyrkytlksyt
-block footer
-block header
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="index.html").breadcrumbs-block__item 
+            span Новини
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
+    section.news-article
+        .article    
+            .article__title-wrap
+                span.article__date 15.072020
+                +svg('vert-wave-blue-line').vert-wave-blue-line
+                .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
+        img.news-article__image(src="./assets/images/news/1.jpg")
+        .news-article__text 
+            p Загальнобудівельні роботи класифікують відповідно до вживаних (що переробляються) матеріалів або конструкцій, що зводяться: арматурні роботи, бетонні роботи, земляні роботи, кам'яні роботи, покрівельні роботи, оздоблювальні роботи, теслярські роботи, свайні, монтажні та ін. 
+            p До спеціальних робіт відносять гідроізоляційні роботи, теплоізоляційні роботи, санітарно-технічні роботи, електромонтажні та ін. 
+            p Деякі будівельні роботи визначаються назвами частин або елементів будівель, що зводяться, і споруд (наприклад, пічні роботи) або особливостями зовнішніх умов (зимові роботи, підземні, підводні тощо). 
+            p Залежно від послідовності виконання будівельні роботи об'єднують в 2 групи: підготовчі роботи і основні (до останніх відносяться всі загальнобудівельної роботи). Окрему групу складають допоміжні роботи (наприклад, кріплення стінок котлованів, встановлення риштувань, пониження рівня ґрунтових вод, ущільнення ґрунтів тощо) і приховані роботи.
+        iframe(src="https://www.youtube.com/embed/WHq77t34ZPk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+        .news-article__subtitle  Загальнобудівельні роботи класифікують відповідно до вживаних (що переробляються) матеріалів або конструкцій, що зводяться:
+        ul.news-article__list
+            li.news-article__list-item арматурні роботи 
+            li.news-article__list-item бетонні роботи 
+            li.news-article__list-item земляні роботи 
+            li.news-article__list-item кам'яні роботи 
+            li.news-article__list-item покрівельні роботи 
+            li.news-article__list-item оздоблювальні роботи 
+            li.news-article__list-item теслярські роботи 
+            li.news-article__list-item свайні 
+            li.news-article__list-item монтажні
+        a(href="news.html").link.blue Повернутися до новин
+        a(href="choose-flat.html").link.blue Обрати квартиру
+    section.similar-news-article
+        .title.blue Схожі новини
+        .article 
+            .article__title-wrap
+                span.article__date 15.072020
+                +svg('vert-wave-blue-line').vert-wave-blue-line
+                .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
+            .article__img-wrap
+                +img('news/1.jpg').article__img
+                +news-article-wave()
+        .article 
+            .article__title-wrap
+                span.article__date 15.072020
+                +svg('vert-wave-blue-line').vert-wave-blue-line
+                .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
+            .article__img-wrap
+                +img('news/1.jpg').article__img
+                +news-article-wave()

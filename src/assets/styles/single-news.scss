@@ -1,0 +1,189 @@
+#single-news {
+    .page__content {
+        background: url(../images/common/wave-pattern1.png) top right no-repeat, #F7F5FB;
+        background-size: 35vw 100vh;
+        background-repeat-y: repeat;
+        padding-top: var(--header-height);
+        padding-left: var(--side-padding);
+        padding-right: var(--side-padding);
+    }
+    .title {
+        padding-left: 0;
+        padding-bottom: 0;
+        max-width: none;
+    }
+}
+
+.news-article {
+    background-color: var(--white);
+    @include shift(2);
+    @include shift-padding(1);
+    padding-top: 40px;
+    padding-bottom: 50px;
+    margin-top: 20px;
+    .article__title-wrap {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+    .article {
+        width: 100%;
+        padding: 0;
+    }
+    .article__title {
+        font-size: 30px;
+        line-height: 1em;
+        max-width: calc(100% - 53px - 30px);
+    }
+    &__image {
+        margin-top: 30px;
+    }
+    iframe {
+        width: 100%;
+        height: calc((100vw - (var(--side-padding) * 2) - 20px) / 4);
+        margin-bottom: 30px;
+    }
+    &__text {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 30px;
+        color: var(--gray-light);
+        p {
+            margin-bottom: 1.5em;
+        }
+    }
+    &__subtitle {
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 30px;
+        color: var(--gray);
+        text-transform: uppercase;
+    }
+    &__list {
+        color: var(--gray-light);
+        font-size: 18px;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    &__list-item:before {
+        content: '·';
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    .link {
+        display: inline-flex;
+        width: 50%;
+        padding-right: 0;
+        margin-top: 50px;
+    }
+    @include from(1720px) {
+        font-size: 18px;
+        line-height: 30px;
+        .article__title {
+            font-size: 36px;
+            line-height: 1em;
+        }
+        &__list {
+            margin-top: 20px;
+        }
+    }
+    @include to(1100px) {
+        @include shift(1);
+    }
+    @include to(768px) {
+        margin-left: 0;
+        margin-right: 0;
+        @include size(12);
+        @include shift-padding(1);
+        margin-top: 30px;
+        .article__title {
+            max-width: calc(100% - 53px - 30px);
+        }
+        .article__title {
+            font-size: 24px;
+            line-height: 1em;
+        }
+        &__image {
+            margin-top: 20px;
+        }
+    }
+    @include to(575px) {
+        margin-top: 20px;
+        padding: 20px 17px;
+        width: 100%;
+        &__text {
+            font-size: 14px;
+            line-height: 22px;
+            margin-top: 10px;
+        }
+        .article__title {
+            font-size: 14px;
+            line-height: 20px;
+            max-width: calc(100% - 25px - 30px);
+        }
+        &__subtitle {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        &__list {
+            font-size: 14px;
+            line-height: 30px;
+        }
+        &__image {
+            margin-top: 10px;
+        }
+        .link {
+            width: 100%;
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .link:last-of-type {
+            margin-top: 20px;
+        }
+        iframe {
+            height: calc((100vw - (var(--side-padding) * 2) - 20px) / 2);
+        }
+    }
+}
+
+.similar-news-article {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    .title {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    .article {
+        width: calc(50% - 10px);
+    }
+    @include from(1720px) {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        .title {
+            margin-bottom: 40px;
+        }
+    }
+    @include to(768px) {
+        margin-bottom: 64px;
+        .article {
+            width: calc(100% - (100% / 12 * 2));
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    @include to(575px) {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        .article {
+            width: 100%;
+        }
+        .title {
+            margin-bottom: 20px;
+        }
+    }
+}
