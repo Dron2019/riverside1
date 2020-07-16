@@ -33,7 +33,7 @@ a[href] {
     height: calc(var(--logo-width * 0.39));
     margin-right: auto;
     @include from(1720px) {
-        --logo-width: 336px;
+        --logo-width: 236px;
     }
     @include to(480px) {
         --logo-width: 100px;
@@ -50,6 +50,17 @@ a[href] {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    &:after {
+        content: '';
+        // background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.9) 100%);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0) 80%, rgba(33, 31, 47, 0.4682247899159664) 100%), linear-gradient(-180deg, rgba(0, 0, 0, 0) 53%, rgba(33, 31, 47, 0.85) 100%);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+    }
     .title {
         // margin-top: auto;
         pointer-events: none;
@@ -62,13 +73,22 @@ a[href] {
         margin-right: 0;
         display: flex;
         width: 54%;
-        padding: 0 calc(var(--side-fields) + 40px) 0 var(--side-fields);
+        padding: 0 calc(var(--side-fields) + 60px) 0 var(--side-fields);
     }
     .scroll-element svg {
         pointer-events: initial;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
     }
     .slider-counter {
         margin-left: auto;
+        position: relative;
+        z-index: 2;
+        .delimiter {
+            height: 0.6em;
+        }
     }
     .wave {
         // height: calc(100% - 70px);
@@ -78,12 +98,17 @@ a[href] {
     }
     .arrows,
     .title,
-    .scroll-element {
+    /*.scroll-element*/
+    {
         position: relative;
         z-index: 1;
     }
     .arrows {
         pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: var(--side-fields);
     }
     .arrow-prev,
     .arrow-next {
@@ -92,6 +117,14 @@ a[href] {
     @include from(1720px) {
         .scroll-element {
             margin-bottom: -120px;
+        }
+        .slider-counter {
+            font-size: 24px;
+            width: 65px;
+            .delimiter svg {
+                width: 3px;
+                height: 16px;
+            }
         }
     }
     @include from(481px) {
@@ -224,7 +257,7 @@ a[href] {
         flex-wrap: wrap;
         width: 100%;
         height: calc(100vw * var(--svg-side-coeficient));
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
         .title {
             padding-left: 0;
             padding-bottom: 0;
@@ -553,6 +586,12 @@ a[href] {
         }
     }
     @include from(1720px) {
+        .right {
+            padding-left: calc(var(--side-fields) + 42px);
+            padding-top: calc(var(--side-fields) + 81px);
+            padding-bottom: calc(var(--side-fields) + 81px);
+            padding-right: calc(calc(var(--side-fields) + 42px));
+        }
         .right .text {
             padding-right: 43%;
         }
@@ -678,6 +717,23 @@ a[href] {
     @include from(1720px) {
         .title {
             max-width: 400px;
+        }
+        padding-left: 150px;
+        padding-right: 150px;
+        &__block {
+            margin-bottom: 75px;
+        }
+        &__block:nth-child(1) {
+            width: calc(100% / 12 * 5 - 32.5px);
+        }
+        &__block:nth-child(2) {
+            width: calc(100% / 12 * 7 - 32.5px);
+        }
+        &__block:nth-child(4) {
+            width: calc(100% / 12 * 7 - 32.5px);
+        }
+        &__block:nth-child(5) {
+            width: calc(100% / 12 * 5 - 32.5px);
         }
     }
     @include to(480px) {
@@ -956,7 +1012,8 @@ a[href] {
     }
     @include from(1720px) {
         .text {
-            margin-top: 65%;
+            // margin-top: 65%;
+            margin-top: auto;
         }
         .right {
             .text {

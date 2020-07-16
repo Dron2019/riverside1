@@ -26,6 +26,7 @@ header.header {
     }
     @include from(1720px) {
         font-size: 24px;
+        padding: 20px 80px 20px 80px;
     }
     @include to(768px) {
         font-size: 16px;

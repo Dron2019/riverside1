@@ -19,7 +19,7 @@
     cursor: url('../images/cursor.png'), auto;
     @include from(1720px) {
         --title-size: 64px;
-        --header-height: 105px;
+        --header-height: 85px;
     }
     @include to(768px) {
         --side-padding: 22px;
@@ -449,7 +449,8 @@
 .text {
     font-family: Cera Pro;
     font-style: normal;
-    font-weight: normal;
+    // font-weight: normal;
+    font-weight: 300;
     font-size: 14px;
     line-height: 1.6em;
     color: var(--white);

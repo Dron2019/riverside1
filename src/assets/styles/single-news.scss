@@ -12,6 +12,19 @@
         padding-bottom: 0;
         max-width: none;
     }
+    @include to(480px) {
+        .breadcrumbs-block {
+            max-inline-size: calc(100vw - 20px);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            flex-wrap: nowrap;
+            &__item-current {
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
 }
 
 .news-article {
@@ -82,6 +95,7 @@
         .article__title {
             font-size: 36px;
             line-height: 1em;
+            max-width: calc(100% - 53px - 55px);
         }
         &__list {
             margin-top: 20px;

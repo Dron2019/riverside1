@@ -8,6 +8,8 @@ menu {
     height: 100vh;
     width: 100vw;
     background-color: var(--blue);
+    background: url(../images/menu/menu-bg.png) left bottom no-repeat, var(--blue);
+    background-size: cover;
     z-index: 50;
     display: flex;
     flex-wrap: wrap;
@@ -49,9 +51,9 @@ menu {
             position: absolute;
             content: '';
             width: 90%;
-            height: 12px;
-            background-color: var(--blue);
-            bottom: calc(67px + 25px);
+            height: 20px;
+            background-color: #138bf6;
+            bottom: calc(67px + 26px);
             right: var(--side-fields);
         }
         position: relative;
@@ -113,6 +115,9 @@ menu {
         margin-right: 0;
     }
     @include from(1680px) {
+        .logo {
+            --logo-width: 336px;
+        }
         .menu-content-image-links {
             height: 600px;
             grid-template-rows: 290px 290px;
@@ -174,6 +179,38 @@ menu {
     //         display: none;
     //     }
     // }
+    @include from-to(576px, 768px) {
+        .menu-content-image-links {
+            margin-left: auto;
+            height: 651px;
+            grid-template-rows: 318px 318px;
+            grid-template-columns: repeat(19, 140px);
+            @include size(7.5);
+            margin-right: 1px;
+        }
+        .menu__content-text-links {
+            padding-left: 30px;
+            @include size(4.5);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .menu__content-text-links .link {
+            font-size: 16px;
+            line-height: 1em;
+            margin-bottom: 30px;
+            margin-top: 0;
+        }
+        .menu__content:after {
+            position: absolute;
+            content: '';
+            width: 90%;
+            height: 19px;
+            background-color: #1289f5;
+            bottom: calc(67px + 20px);
+            right: 1px;
+        }
+    }
     @include to(575px) {
         overflow: hidden;
         flex-direction: row;
@@ -228,6 +265,7 @@ menu {
                 margin-top: 0;
                 margin-bottom: 19px;
                 padding-right: 0;
+                white-space: nowrap;
             }
             .link:after {
                 display: none;

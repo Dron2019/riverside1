@@ -1,0 +1,31 @@
+extends ../layout/main
+block variable
+    -pageName = 'about';
+    - var version = "ua";
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Про комплекс
+        .title.blue Про комплекс
+    section.about-section-with-bg.first(style="background-image:url(assets/images/about/first.jpg)")
+        .about-text-block
+            .blue-logo
+                +svg('about-circle-logo-river')
+            .about-text-block__main-subtitle 
+                <svg class="about-text-block__main-subtitle-wave" viewBox="0 0 60 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M60 15C30 15 30 2 1.15576e-06 2" stroke="#0085FF" stroke-width="3"/>
+                <path d="M60 22C30 22 30 9 1.15576e-06 9" stroke="#0085FF" stroke-width="3"/>
+                </svg>
+                span Жити яскравим, насиченим життям - це вибір
+            .text Вибір тих, хто завжди лине з гамірної столиці у затишну гавань квітучого кварталу. Хто наповнює дозвілля активністю та емоціями, а не нудьгує у чотирьох стінах. Хто виходить назустріч світу, який вітає посмішками сусідів, дитячим сміхом та гострим ароматом ошатних кав'ярень. Жити повним життям - значить, обрати для себе ЖК Riverside!
