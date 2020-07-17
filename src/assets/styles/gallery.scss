@@ -9,5 +9,37 @@
         width: calc(100% - var(--side-fields) * 2);
         margin: 150px auto 30px auto;
         padding: 0 var(--side-fields);
+        padding: 0 calc(var(--side-fields) * 2);
+    }
+    .title {
+        margin-top: auto;
+        margin-right: auto;
+    }
+    .arrows {
+        width: calc(100% - calc(var(--side-fields) * 2));
+        display: flex;
+        justify-content: space-between;
+    }
+    .slider-counter {
+        position: absolute;
+        right: 80px;
+        bottom: 10vh;
+    }
+    @include to(575px) {
+        header.header {
+            background-color: var(--blue);
+        }
+        .breadcrumbs-block {
+            margin: var(--header-height) auto 30px auto;
+        }
+        .slider-counter {
+            right: 30px;
+        }
+        .main-screen {
+            // margin-top: var(--header-height);
+            height: calc(100vh - var(--header-height) - 60px);
+            height: -webkit-fill-available;
+            min-height: auto;
+        }
     }
 }
