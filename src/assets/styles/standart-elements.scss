@@ -280,6 +280,10 @@
     .delimiter {
         margin: 0 auto;
     }
+    @include from(1720px) {
+        width: 70px;
+        font-size: 24px;
+    }
 }
 
 .link {
@@ -427,6 +431,12 @@
         height: 2px;
         width: calc(100% - 217px);
         background-color: rgba(255, 255, 255, 0.5);
+    }
+    @include from(1720px) {
+        .wave-logo {
+            width: 66px;
+            height: 13px;
+        }
     }
     @include from(768px) {
         .top-line {
@@ -668,6 +678,26 @@
             height: calc(100% - 138px);
         }
     }
+    @include from-to(575px,
+    768px) {
+        svg {
+            width: 556px;
+            height: 105px;
+            left: 0;
+            right: auto;
+        }
+        .left-line {
+            position: absolute;
+            left: 0;
+            top: 103px;
+            background-color: #60B3FF;
+            width: 2px;
+            height: calc(100% - 103px);
+        }
+        .top-line {
+            width: calc(100% - 553px);
+        }
+    }
     @include from(480px) {
         .mobile-320 {
             display: none;
@@ -695,7 +725,7 @@
     height: 67px;
 }
 
-.forms {
+section.forms {
     padding-top: 53px;
     padding-bottom: 77px;
     @include shift-padding(1);
@@ -705,6 +735,11 @@
     }
     @include to(1024px) {
         padding: var(--side-padding);
+    }
+    @include from-to(575px,
+    768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
 
@@ -754,6 +789,9 @@
         .tab-head-item {
             font-size: 24px;
             line-height: 30px;
+            @include size(4);
+            display: flex;
+            justify-content: space-between;
         }
     }
     @include to(768px) {
