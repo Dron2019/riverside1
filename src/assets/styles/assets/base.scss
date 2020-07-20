@@ -43,7 +43,8 @@ body {
     font-family: $default-font;
     overflow-x: hidden;
     font-size: var(--text-size);
-    color: #000000;
+    color: #728596;
+    font-weight: 300;
     background: #ffffff;
     background-size: contain;
     @include to(1200px) {

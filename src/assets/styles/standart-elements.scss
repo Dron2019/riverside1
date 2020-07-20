@@ -330,6 +330,7 @@
         margin-left: 10px;
         position: relative;
         transition: .5s;
+        // transition-delay: 1s;
         top: -5px;
     }
     // &.blue::after {
@@ -371,6 +372,12 @@
     color: var(--white);
     &.gray {
         color: var(--gray);
+    }
+    &.color-standart {
+        color: var(--gray-light);
+    }
+    &.no-transform {
+        text-transform: none;
     }
     @include from(1720px) {
         font-size: 24px;

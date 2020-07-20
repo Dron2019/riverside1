@@ -1,5 +1,5 @@
 #web-camera {
-    padding-top: 71px;
+    padding-top: var(--header-height);
     section.web-camera {
         background: url(../images/common/wave-pattern1.png) right no-repeat, #F7F5FB;
         padding: 0 var(--side-padding);
@@ -7,6 +7,7 @@
     }
     .breadcrumbs-block {
         padding-top: 25px;
+        margin-top: 0;
     }
     .breadcrumbs-block__item {
         margin-bottom: 0;
@@ -22,13 +23,13 @@
         justify-content: space-between;
     }
     @include from(1720px) {
-        padding-top: 105px;
+        // padding-top: 105px;
         .title {
             max-width: none;
         }
     }
     @include to(575px) {
-        padding-top: 41px;
+        // padding-top: 41px;
     }
 }
 
