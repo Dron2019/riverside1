@@ -1,0 +1,31 @@
+extends ../layout/main
+block variable
+    -pageName = 'location';
+    - var version = "ua";
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Розташування
+        .title.blue Розташування
+    section.location-first-section
+        .subtitle.color-standart.no-transform.variable-line-height  ЖК Riverside розташований на південному сході Києва, у селі Погреби.
+        .text-standart Всього 2,5 км відділяє квартал від столиці, а тому дістатися до неї на автівці чи громадському транспорті можна всього за 5 хвилин.
+    section.location-separator-block
+        .location-separator-block__text
+            .subtitle.color-standart.no-transform Мальовничі природні околиці подарують чисте повітря та дозволять насолодитися тишею. При цьому, можна без перешкод користуватися найближчою міською інфраструктурою  - шкільними закладами, ресторанами, що знаходяться на під’їзді, заправками, лікарнями та супермаркетами.
+    section.location-last-section
+        .subtitle.color-standart.no-transform.variable-line-height Недалеко від кварталу знаходиться будівельний супермаркет Анжіо, а тому ремонт можна робити швидко та без простоїв.
+        .text-standart Хочеться незвичних розваг? У доступній близькості знайдешь парк, де можна політати на параплані  з інструктором. ЖК Riverside – це ідеальне місце, де отримуєш відразу усе!
+        .navigator-link
+            +svg('marker-blue-riverside')
+            a(href="https://goo.gl/maps/wP7ZLBxob5wLzf86A" target='_blank').link.blue Відкрити <br>у навігаторі

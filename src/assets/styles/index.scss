@@ -798,6 +798,13 @@ a[href] {
         .wave:after {
             height: calc(100% - (var(--side-padding) * 2) - 139px);
         }
+        .slider-counter {
+            margin-left: auto;
+            margin-right: 40px;
+            position: absolute;
+            bottom: 10vh;
+            right: 75px;
+        }
     }
     .wave {
         z-index: 3;
@@ -815,10 +822,6 @@ a[href] {
         padding: 0;
         margin-bottom: 0;
         margin-top: auto;
-    }
-    .slider-counter {
-        margin-left: auto;
-        margin-right: 40px;
     }
     // .arrows {
     //     margin-bottom: auto;
@@ -881,6 +884,13 @@ a[href] {
     @include to(768px) {
         canvas {
             transform: translate(-50%, -50%) scale(1.15) !important;
+        }
+        .slider-counter {
+            margin-left: auto;
+            margin-right: 0px;
+            position: absolute;
+            bottom: 10vh;
+            right: 30px;
         }
     }
 }

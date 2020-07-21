@@ -375,15 +375,27 @@
     }
     &.color-standart {
         color: var(--gray-light);
+        font-weight: 500;
     }
     &.no-transform {
         text-transform: none;
     }
+    &.variable-line-height {
+        line-height: 1.67em;
+    }
     @include from(1720px) {
         font-size: 24px;
+        &.variable-line-height {
+            line-height: 1.5em;
+        }
     }
     @include to(768px) {
         font-size: 16px;
+    }
+    @include to(575px) {
+        &.variable-line-height {
+            line-height: 1.57em;
+        }
     }
 }
 
