@@ -12,6 +12,7 @@ block scripts
     script(defer src='./assets/scripts/libs.js')
     script(defer src='./assets/scripts/forms-handler.js')
     script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/advantages.js')
 block content
     .breadcrumbs-block
         a(href="index.html").breadcrumbs-block__item 
@@ -20,31 +21,41 @@ block content
         .title.blue Переваги
     .advantages-subtitle простір для дозвілля
     .adv-block1.adv-grid
-        .sngl-adv
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+        .sngl-adv.promenades
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
             .sngl-adv__text-block.left
                 .sngl-adv__subtitle Променади
                 .sngl-adv__text.text.gray Твій комфорт сягає далеко за межі твого дому. Виходь назустріч сонячним прогулянкам і  зоряним вечорам – цей світ створений для тебе!
-        .sngl-adv
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+        .sngl-adv.channel
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
             video(poster="./assets/images/advantages/channel.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
             .sngl-adv__text-block.right
                 .sngl-adv__subtitle Канал
                 .sngl-adv__text.text.gray Не треба вирушати у мандри, щоб проводжати захід сонця на узбережжі. Краса навколо тебе – насолоджуся!
-        .sngl-adv
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+        .sngl-adv.fontans
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
             //- img(src="./assets/images/advantages/fontans.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/fontans.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
             .sngl-adv__text-block.right
                 .sngl-adv__subtitle Фонтани
                 .sngl-adv__text.text.gray Водне джерело – це місце сили і ліки від стресу. Заряджайся естетикою свого кварталу!
-        .sngl-adv
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+        .sngl-adv.cafe
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
             //- img(src="./assets/images/advantages/cafe.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/cafe.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -54,7 +65,10 @@ block content
     .advantages-subtitle Місце де панує спорт
     .adv-block2.adv-grid
         .sngl-adv.vertical.veloroads
-            img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/veloroads.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -62,7 +76,10 @@ block content
                 .sngl-adv__subtitle Велодоріжки
                 .sngl-adv__text.text.gray Спорт – це не завжди про силу та дисципліну. Він може бути вітром у волоссі. Веселим спілкуванням без слів. Гармонічною роботою думок та м’язів. Насолоджуйся рухом на свіжому повітрі!
         .sngl-adv.tennis
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -70,7 +87,10 @@ block content
                 .sngl-adv__subtitle Тенісна академія
                 .sngl-adv__text.text.gray Будова тіла починається з руху, а будова зв’язків – зі спільних емоцій. Ми побудували цілих 10 тенісних кортів - розвивай себе у найелітнішому спорті!
         .sngl-adv.skatepark
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
             //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -78,7 +98,10 @@ block content
                 .sngl-adv__subtitle Скейт парк
                 .sngl-adv__text.text.gray Коли спорт захоплює – тіло дивує! Ми забезпечили сучасні можливості для крутих трюків – перевершуй себе!
         .sngl-adv.football-academy
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
             //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -86,7 +109,10 @@ block content
                 .sngl-adv__subtitle Футбольна академія
                 .sngl-adv__text.text.gray Для грандіозного поля – велична гра! Збирай сусідів для дружнього матчу і направляй енергію на перемогу!
         .sngl-adv.stadium
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/stadium.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/stadium.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -96,15 +122,21 @@ block content
     .advantages-subtitle Зростай і розвивайся
     .adv-block3.adv-grid
         .sngl-adv.vertical.vertical-reverse.closed-territory
-            img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
             .sngl-adv__text-block.left
                 .sngl-adv__subtitle Закрита територія
                 .sngl-adv__text.text.gray Пізнавати світ приємно і радісно, якщо відчуваєш захищеність. Дитинство безпечне у рідному кварталі!
-        .sngl-adv.vertical.vertical.kindergardens
-            img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+        .sngl-adv.vertical.kindergardens
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -112,7 +144,10 @@ block content
                 .sngl-adv__subtitle Дитячий садочок/школа
                 .sngl-adv__text.text.gray Друзі у садочку – друзі у власному дворі. Так добре зростати серед своїх і спостерігати, як міцніє дружба.
         .sngl-adv.vertical.vertical-reverse.playgrounds
-            img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave.reverse
+            picture.sngl-adv__image-wave.reverse
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave.reverse
             //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
@@ -120,13 +155,106 @@ block content
                 .sngl-adv__subtitle Дитячі майданчики у дворах
                 .sngl-adv__text.text.gray Коли за кожним рогом чекають дивовижні розваги, сумувати ніколи. Досліджуй, дивуйся, зростай!
         .sngl-adv.playground-complex.full-width
-            img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
             //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
             video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
                 source(src="./static/video/sport.mp4" type="video/mp4")
             .sngl-adv__text-block.left
                 .sngl-adv__subtitle Комплекс майданчиків за каналом
                 .sngl-adv__text.text.gray Хованки, лазалки, стрибалки та гойдалки – цілий комплекс розваг для різного віку! Місця та натхнення вистачить усім!
-
-
+    .advantages-subtitle Водний простір
+    .adv-block4.adv-grid
+        .sngl-adv.lake.full-width
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Озера
+                .sngl-adv__text.text.gray Коли поруч є озеро, варіанти для відпочинку знайдуться завжди. Милуйся краєвидами, рибаль, чи розважайся з сім’єю!
+        .sngl-adv.beach
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Пляж 
+                .sngl-adv__text.text.gray Полежати на теплому пісочку чи здійснити бадьорий ранковий заплив? Твоє життя – твій вибір, використовуй усі задоволення! 
+        .sngl-adv.kayakas
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Байдарки
+                .sngl-adv__text.text.gray Чи вмієш ти веслувати? А якщо навчимо? Розширюй список своїх вражень та насолоджуйся єдністю стихії та роботи м’язів!
+        .sngl-adv.full-width.surfing
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Серфінг 
+                .sngl-adv__text.text.gray Не варто чекати поїздки на море, щоб підкорити мінливу хвилю. Серфінгуй вдома! 
+    .advantages-subtitle Досконалий у дрібницях
+    .adv-block5.adv-grid
+        .sngl-adv.elevators
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Ліфти Schindler 
+                .sngl-adv__text.text.gray Картинка досконалості складається з непомітних деталей. Інноваційні, надійні та плавні ліфти Schindler настільки тихі, що ви чуєте свої думки.
+        .sngl-adv.vertical.entry-groups
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Вхідні групи без сходів та пандусів
+                .sngl-adv__text.text.gray Так просто закотити велосипед після прогулянки, вийти з дитячим візком без допомоги, чи стартувати на роліках прямо від ліфту. Відчуй себе вільним у бажаннях!
+        .sngl-adv.panorama-windows
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Панорамні вікна
+                .sngl-adv__text.text.gray Зроби мальовничий всесвіт частиною інтер’єру! Теплі вікна та широкі краєвиди – неймовірне поєднання!
+        .sngl-adv.terrace-apparts.full-width
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Терасні квартири
+                .sngl-adv__text.text.gray Власне подвір’я під зорями? Чом би й ні! Читай, відпочивай, займайся спортом чи мрій на своїй відкритій терасі! 
 

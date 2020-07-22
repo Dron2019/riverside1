@@ -42,7 +42,6 @@
                  case 'about':
                      videosLoader();
                      break;
-
                  default:
                      break;
              }
@@ -69,9 +68,38 @@
          return;
      }
      document.querySelectorAll('.gallery .slide-item__image').forEach(galleryImage => {
-         galleryImage.src = galleryImage.dataset.src;
+         //  console.log(galleryImage.dataset.mob_src);
+         if (galleryImage.dataset.mob_src !== undefined && window.screen.width <= 480) {
+             galleryImage.src = galleryImage.dataset.mob_src;
+
+         } else {
+
+             galleryImage.src = galleryImage.dataset.src;
+         }
      });
 
+     function setGalleryCanvasResolution(side) {
+
+         switch (side) {
+             case 'width':
+                 if (window.screen.width <= 480) {
+                     return 500;
+                 } else {
+                     return 1920;
+                 }
+                 break;
+             case 'height':
+                 if (window.screen.width <= 480) {
+                     return 800;
+                 } else {
+                     return 1080;
+                 }
+                 break;
+             default:
+                 break;
+         }
+
+     }
      var galleryImages = document.querySelectorAll('.gallery .slide-item__image');
      var galleryImagesSrc = [];
 
@@ -96,10 +124,10 @@
              fullScreen: true,
              navSelector: '.gallery',
              displaceAutoFit: true,
-             //  stageWidth: document.documentElement.clientWidth * 1.1,
+             stageWidth: setGalleryCanvasResolution('width'),
+             stageHeight: setGalleryCanvasResolution('height'),
              image: document.querySelectorAll('.gallery .slide-item__image'),
              navElement: document.querySelectorAll('.gallery .scene-nav'),
-             //  stageHeight: document.documentElement.clientHeight,
              displacementCenter: true,
              interactive: false,
              interactionEvent: 'click', // 'click', 'hover', 'both' 

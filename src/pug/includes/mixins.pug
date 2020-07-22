@@ -20,8 +20,13 @@ mixin link-blank(href)
 	a(herf=href rel="nofollow" target="_blank")
 mixin img(src)
 	img(src='./assets/images/'+src+''  alt="foto")&attributes(attributes)
-mixin lazyImg(src)
-	img(data-src='./assets/images/'+src+'' alt="foto")&attributes(attributes)
+mixin lazyImg(src,mob)
+	if mob===undefined
+		img(data-src='./assets/images/'+src+'' alt="foto")&attributes(attributes)
+	else
+		img(data-src='./assets/images/'+src+'' alt="foto" data-mob_src='./assets/images/'+mob+'')&attributes(attributes)
+
+
 - var phoneNumber = `+38 (096) 165-30-30 `;
 - var phoneNumberHref = phoneNumber.replace(/\D/g,'');
 
