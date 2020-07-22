@@ -221,6 +221,16 @@
     width: calc(100% - var(--side-padding) - var(--side-padding));
     display: flex;
     justify-content: space-between;
+    &.blue .arrow-prev,
+    &.blue .arrow-next {
+        border: 2px solid var(--blue);
+    }
+    &.blue path {
+        stroke: var(--blue) !important;
+    }
+    &.blue rect {
+        fill: var(--blue);
+    }
     .arrow-prev,
     .arrow-next {
         display: flex;
@@ -277,6 +287,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &.blue {
+        color: var(--blue);
+    }
+    &.blue rect {
+        fill: var(--blue) !important;
+    }
     .delimiter {
         margin: 0 auto;
     }

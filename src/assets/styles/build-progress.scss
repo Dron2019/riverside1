@@ -1,0 +1,73 @@
+#build-progress {
+    .page__content {
+        margin-top: var(--header-height);
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+    }
+    .title {
+        padding-left: 0;
+        padding-bottom: 0;
+        max-width: none;
+    }
+    .breadcrumbs-block {
+        margin-top: 23px;
+        margin-bottom: 36px;
+    }
+    --breadcrumbs-height: 73px;
+    @include from(1720px) {
+        --breadcrumbs-height: 94px;
+        margin-bottom: 36px;
+        --adv-row-height: calc((100vw - (var(--side-padding) * 2) - 20px) / 2 * 0.38);
+    }
+    @include from-to(769px, 1719px) {
+        --adv-row-height: calc((100vw - (var(--side-padding) * 2) - 20px) / 2 * 0.5);
+    }
+    @include from-to(769px, 1024px) {
+        --adv-row-height: calc((100vw - (var(--side-padding) * 2) - 20px) / 2 * 0.55);
+    }
+    @include to(768px) {
+        --adv-row-height: calc((100vw - (var(--side-padding) * 2)) * 0.4);
+        .breadcrumbs-block {
+            margin-top: 0;
+            padding-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    @include to(575px) {
+        --adv-row-height: 75vh;
+        .breadcrumbs-block {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+    }
+    .arrows {}
+}
+
+.monthes,
+.years {
+    font-weight: 400;
+    & li {
+        color: #DDE6EE;
+        pointer-events: none;
+    }
+    & li.active,
+    & li.current {
+        pointer-events: auto;
+    }
+    & li.active {
+        color: var(--gray-light);
+    }
+    & li.current {
+        color: var(--blue);
+    }
+}
+
+.current-month {
+    text-transform: uppercase;
+    max-width: 8ch;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+    color: var(--blue);
+}

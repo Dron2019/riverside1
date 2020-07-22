@@ -1,0 +1,65 @@
+extends ../layout/main
+block variable
+    -pageName = 'build-progress';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/build-progress.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Хід будівництва
+        .title.blue Хід будівництва
+    .arrows.blue
+        .arrow-prev.scene-nav.scene-nav--prev(data-nav="previous")
+            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+            <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+            </svg>
+        .arrow-next.scene-nav.scene-nav--next(data-nav="next")
+            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+            <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+            </svg>
+    .slider-counter.blue
+        .current 1
+        .delimiter 
+            <svg width="2" height="12" viewBox="0 0 2 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect opacity="0.5" width="2" height="12" transform="matrix(-1 0 0 1 2 0)" fill="white"/>
+            </svg>
+        .all 4
+    .blue-logo
+        +svg('about-circle-logo-river')
+    .current-month
+    ul.years
+        li(data-value="2019") 2019
+        li(data-value="2020") 2020
+        li(data-value="2021") 2021
+        li(data-value="2022") 2022
+    ul.monthes
+        li(data-value="01") Січень
+        li(data-value="02") Лютий 
+        li(data-value="03") Березень
+        li(data-value="04") Квітень
+        li(data-value="05") Травень
+        li(data-value="06") Червень
+        li(data-value="07") Липень
+        li(data-value="08") Серпень
+        li(data-value="09") Вересень
+        li(data-value="10") Жовтень
+        li(data-value="11") Листопад 
+        li(data-value="12") Грудень
+    .slider
+        +img('01.jpg')(data-month="01" data-year='2020')
+        +img('02.jpg')(data-month="01" data-year='2020')
+        +img('03.jpg')(data-month="01" data-year='2020')
+        +img('02.jpg')(data-month="01" data-year='2020')
