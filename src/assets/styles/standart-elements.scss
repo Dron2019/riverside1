@@ -1190,3 +1190,184 @@ section.forms {
         }
     }
 }
+
+.select-box {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 30px;
+    color: var(--white);
+    max-width: 170px;
+    font-size: 18px;
+    font-weight: 500;
+    &__current {
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        border: 1px solid var(--blue);
+        color: var(--white);
+        background-color: var(--blue);
+        // border-radius: 25px;
+        min-height: 1.5em;
+        z-index: 3;
+        transition: .5s;
+        &:focus {
+            background-color: var(--blue);
+            border-color: transparent;
+            &+.select-box__list {
+                opacity: 1;
+                padding-top: 20px;
+                margin-top: -15px;
+                z-index: 2;
+                position: relative;
+                background-color: var(--blue);
+                // We have to set "animation-name: none;" to make the list visible (read below how it works)
+                animation-name: none;
+                transition: .5s;
+                .select-box__option {
+                    cursor: pointer;
+                }
+            }
+            .select-box__icon {
+                transform: translateY(-50%) rotate(180deg);
+                fill: var(--white);
+                opacity: 1;
+            }
+        }
+    }
+    .select-box__list {
+        box-shadow: 0px 30px 50px rgba(0, 57, 90, 0.15);
+    }
+    .select-box__option {
+        transition: .5s;
+    }
+    .select-box__option:hover {
+        color: var(--red);
+    }
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 12px;
+        transition: 0.2s ease;
+        width: 18px;
+        height: 9px;
+        stroke: #fff;
+        fill: none;
+        stroke-width: 2px;
+    }
+    &__value {
+        display: flex;
+    }
+    &__input {
+        display: none;
+        &:checked+.select-box__input-text {
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            justify-content: flex-start;
+        }
+    }
+    &__input-text {
+        display: none;
+        width: 100%;
+        margin: 0;
+        // padding: 15px;
+        height: 30px;
+        text-align: center;
+        margin-right: 12px;
+    }
+    &__list {
+        position: absolute;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+        opacity: 0;
+        // We need to use animation with delay.
+        // Otherwise the click event will not have time to run on label, because this element disapears immediately when .select-box__current element loses the focus.
+        // This delay will not be noticed because we set "opacity" to "0".
+        // We also use "animation-fill-mode: forwards" to make the list stay hidden.
+        animation-name: HideList;
+        animation-duration: 0.5s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: step-start;
+        box-shadow: 0 15px 30px -10px transparentize(#000, 0.9);
+    }
+    &__option {
+        display: block;
+        // padding: 15px;
+        height: 30px;
+        text-align: center;
+        background-color: var(--blue);
+        &:hover,
+        &:focus {
+            color: #546c84;
+            background-color: var(--blue);
+            color: var(--white);
+        }
+    }
+    @include from(1680px) {
+        max-width: 240px;
+        height: 44px;
+        font-size: 25px;
+        &__current {
+            height: 100%;
+        }
+        &__input-text {
+            height: 40px;
+        }
+        &__option {
+            height: 40px;
+            margin-top: -1px;
+        }
+        &__list {
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+    }
+    &:hover {
+        .select-box__current {
+            background-color: var(--blue);
+            border-color: transparent;
+            color: var(--white);
+        }
+        .select-box__current+.select-box__list {
+            opacity: 1;
+            padding-top: 20px;
+            margin-top: -20px;
+            z-index: 2;
+            position: relative;
+            background-color: var(--white);
+            // We have to set "animation-name: none;" to make the list visible (read below how it works)
+            animation-name: none;
+            transition: .5s;
+            .select-box__option {
+                cursor: pointer;
+            }
+        }
+        .select-box__icon {
+            transform: translateY(-50%) rotate(180deg);
+            fill: transparent;
+            opacity: 1;
+        }
+    }
+    @include to(575px) {
+        max-width: none;
+        &__option,
+        &__input-text {
+            text-align: left;
+            padding-left: 15px;
+        }
+    }
+}
+
+@keyframes HideList {
+    from {
+        transform: scaleY(1);
+    }
+    to {
+        transform: scaleY(0);
+    }
+}

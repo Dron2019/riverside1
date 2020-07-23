@@ -219,3 +219,10 @@ function putCallbackFormInPopup(selector) {
         return clientId;
     }
 })();
+
+
+document.querySelectorAll('.input-group').forEach(icon => {
+    icon.addEventListener('click', function(evt) {
+        icon.querySelector('input').focus();
+    });
+})

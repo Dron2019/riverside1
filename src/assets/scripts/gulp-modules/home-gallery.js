@@ -79,7 +79,6 @@
      });
 
      function setGalleryCanvasResolution(side) {
-
          switch (side) {
              case 'width':
                  if (window.screen.width <= 480) {

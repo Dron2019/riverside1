@@ -9,9 +9,11 @@ block head
 		link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
 	
-	script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+	//- script(defer src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/gsap.min.js')
+	script(defer src='./assets/scripts/gsap.js')
 	script(defer src='./assets/scripts/libs.js')
-	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+	script(defer src='./assets/scripts/imagesloaded-plugin.js')
+	//- <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
 	script(defer src='./assets/scripts/pixi.min.js')
 	script(defer src='./assets/scripts/canvas_slideshow.js')
 	script(defer src='./assets/scripts/displacment-hover/three.min.js')
@@ -21,9 +23,6 @@ block scripts
 	script(defer src='./assets/scripts/index.js')
 	script(defer src='./assets/scripts/home-gallery.js')
 	script(defer src="./assets/scripts/menu.js")
-
-
-	
 block content
 	section.main-screen-layout
 		.slide-wrapper
@@ -144,7 +143,7 @@ block content
 				.text
 					p Жити яскравим, насиченим життям - це вибір. Вибір тих, хто завжди лине з гамірної столиці у затишну гавань квітучого кварталу. 
 					p Хто наповнює дозвілля активністю та емоціями, а не нудьгує у чотирьох стінах. Хто виходить назустріч світу, який вітає посмішками сусідів, дитячим сміхом та гострим ароматом ошатних кав'ярень. Жити повним життям - значить, обрати для себе ЖК Riverside!
-				a(href="#").link Детальніше
+				a(href="about.html").link Детальніше
 			.distortion-hover__item-img(data-displacement="./assets/images/about-hover-block/displacment.png" data-intensity="-0.65" )
 				+img('about-hover-block/1st.jpg')
 				+img('about-hover-block/2nd.jpg')
@@ -155,7 +154,7 @@ block content
 					.title <span class="gray">Бути в</span> <span class="blue"> моменті</span>
 				.text-group
 					.text.gray Один день на курорті - це класний краєвид з вікон, ресторани в двох хвилинах, завжди свіже повітря, все необхідне під боком: спорт, концерти, променад, пляж і величезна зелена зона.
-					a(href="#").link.blue Детальніше
+					a(href="advantages.html").link.blue Детальніше
 				+img('about-hover-block/about-right-block.jpg').bg-image
 	section.reasons-to-choose
 		.reasons-to-choose__block
@@ -291,7 +290,7 @@ block content
 				.text 
 					p ЖК Riverside розташований на південному сході Києва, у селі Погреби. Всього 2,5 км відділяє квартал від столиці, а тому дістатися до неї на автівці чи громадському транспорті можна всього за 5 хвилин 
 					p Мальовничі природні околиці подарують чисте повітря та дозволять насолодитися тишею. Мальовничі природні околиці подарують чисте повітря та дозволять насолодитися тишею.
-				a(href="#").link Детальніше
+				a(href="location.html").link Детальніше
 			.distortion-hover__item-img(data-displacement="./assets/images/contact-hover-block/6.jpg" data-intensity="-0.65" )
 				+img('contact-hover-block/1.jpg')
 				+img('contact-hover-block/2.jpg')
