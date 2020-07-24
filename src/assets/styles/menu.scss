@@ -104,6 +104,8 @@ menu {
         // margin-top: auto;
         position: absolute;
         border: var(--side-fields);
+        padding-bottom: var(--side-fields);
+        padding-left: var(--side-fields);
         bottom: 0;
     }
     .wave {

@@ -1,5 +1,4 @@
 <?php
-
 $roomsCount = $_POST['rooms'];
 for ($i=0; $i<20; $i++) {?>
     <div class="card fadeIn" style="opacity:0; animation-delay:<?=$i/15;?>s"  onanimationend="this.style.opacity=1">
