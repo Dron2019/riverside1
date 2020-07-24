@@ -1,0 +1,75 @@
+extends ../layout/main
+block variable
+    -pageName = 'documents';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Документи Riverside1'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/documents.js')
+block content
+    .documents-page-wrapper   
+        .breadcrumbs-block
+            a(href="index.html").breadcrumbs-block__item 
+                span Головна
+            a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Документи
+            .title.blue Документи
+        .docs-slider
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Разрешение на строительные работы серии ІУ №113182922166 от 19 октября 2018 года
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Лицензия на право проведения хозяйственной деятельности, связанной с созданием объектов архитектуры №2013055564 , выдана ООО «АЕС-ГРУПП» от 09.10.2018 года - бессрочно.
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Паспорт обьекта
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Паспорт обьекта
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Разрешение на строительные работы серии ІУ №113182922166 от 19 октября 2018 года
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Лицензия на право проведения хозяйственной деятельности, связанной с созданием объектов архитектуры №2013055564 , выдана ООО «АЕС-ГРУПП» от 09.10.2018 года - бессрочно.
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Паспорт обьекта
+            a(href="" target='_blank').doc
+                +svg('doc-icon')
+                +svg('double-blue-wave')
+                .text.doc-name.gray Паспорт обьекта
+            .arrows.blue
+                .arrow-prev.scene-nav.scene-nav--prev(data-nav="previous")
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+                    <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+                    </svg>
+                .arrow-next.scene-nav.scene-nav--next(data-nav="next")
+                    <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="11" width="20" height="2" transform="rotate(-180 20 11)" fill="white"/>
+                    <path d="M11 19L20 10L11 0.999998" stroke="white" stroke-width="2"/>
+                    </svg>
+            +wave-top()
+        .slider-counter.blue
+            .current 1
+            .delimiter 
+                <svg width="2" height="12" viewBox="0 0 2 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect opacity="0.5" width="2" height="12" transform="matrix(-1 0 0 1 2 0)" fill="white"/>
+                </svg>
+            .all 1
+

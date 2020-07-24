@@ -18,6 +18,15 @@
     }
 }
 
+#home,
+#gallery {
+    .main-screen .title {
+        max-width: 350px;
+        padding-left: var(--side-padding);
+        padding-bottom: var(--side-padding);
+    }
+}
+
 a[href] {
     text-decoration: none;
 }
@@ -402,6 +411,8 @@ a[href] {
     .title {
         padding-top: 20px;
         line-height: 1.2em;
+        padding-left: var(--side-padding);
+        padding-bottom: var(--side-padding);
     }
     .genplan-list li {
         width: 32%;

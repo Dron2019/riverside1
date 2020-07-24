@@ -1,0 +1,172 @@
+#choose-flat {
+    --breadcrumbs-height: 73px;
+    .page__content {
+        margin-top: var(--header-height);
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+    }
+    .breadcrumbs-block {
+        margin-top: 23px;
+        margin-bottom: 36px;
+    }
+    @include from(1720px) {
+        --breadcrumbs-height: 94px;
+        margin-bottom: 36px;
+    }
+    @include to(768px) {
+        .page__content {}
+        .breadcrumbs-block {
+            margin-top: 0;
+            padding-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    @include to(575px) {
+        .breadcrumbs-block {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+    }
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+    }
+    .tabs>.tab {
+        @include size(2.4);
+    }
+    @include to(575px) {
+        .tabs {
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .tabs>.tab {
+            width: calc(50% - 4px);
+            margin-bottom: 8px;
+        }
+        .tabs>.tab:last-child {
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.choose-flat-tab {
+    background: #FFFFFF;
+    border: 1px solid #F7F5FB;
+    transition: .5s;
+    &.tab,
+    &.tab.active {
+        display: flex;
+    }
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    padding: 7px 15px;
+    color: var(--blue);
+    &.active {
+        background: var(--blue);
+        color: var(--white);
+    }
+    @include from(1720px) {
+        height: 50px;
+        font-size: 24px;
+        line-height: 36px;
+    }
+    @include to(768px) {
+        height: 50px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    @include to(575px) {
+        height: 26px;
+    }
+}
+
+.card {
+    border: 1px solid #F7F5FB;
+    transition: .5s;
+    padding: 30px;
+    padding-top: 20px;
+    .flat-img {
+        font-size: 18px;
+        line-height: 18px;
+        mix-blend-mode: darken;
+        margin-bottom: 18px;
+        height: 220px;
+        object-fit: contain;
+    }
+    .flat-name {
+        margin: 0 auto;
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 18px;
+        font-weight: 500;
+        color: var(--gray);
+    }
+    .link {
+        margin-top: 20px;
+    }
+    .card-row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-row span:first-child {
+        width: Min(75%, 15ch);
+    }
+    .card-row span:last-child {
+        text-align: left;
+        display: inline-block;
+        margin-right: auto;
+    }
+    @include from(1720px) {
+        .flat-name {
+            font-size: 24px;
+            line-height: 36px;
+        }
+    }
+    @include from(769px) {
+        &:hover {
+            background: #F7F5FB;
+        }
+    }
+    @include to(768px) {
+        padding: 20px;
+        padding-top: 15px;
+        font-size: 14px;
+        .link {
+            font-size: 16px;
+        }
+    }
+    @include to(575px) {
+        .link {
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}
+
+.flat-container {
+    display: grid;
+    grid-template-rows: auto;
+    margin: var(--this-gap) auto;
+    --this-gap: 20px;
+    gap: var(--this-gap);
+    justify-content: space-between;
+    grid-template-columns: repeat(4, calc(25% - var( --this-gap)));
+    transition: .5s;
+    @include to(1024px) {
+        grid-template-columns: repeat(3, calc(33% - var( --this-gap)));
+    }
+    @include to(650px) {
+        --this-gap: 10px;
+        grid-template-columns: repeat(2, calc(50% - var( --this-gap)));
+    }
+    @include to(575px) {
+        grid-template-columns: repeat(1, 100%);
+    }
+}

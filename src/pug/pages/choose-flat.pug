@@ -1,0 +1,159 @@
+extends ../layout/main
+block variable
+    -pageName = 'choose-flat';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Документи Riverside1'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/choose-flat.js')
+block content
+    .documents-page-wrapper   
+        .breadcrumbs-block
+            a(href="index.html").breadcrumbs-block__item 
+                span Головна
+            a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Обрати квартиру
+            .title.blue Обрати квартиру
+        .tabs
+            .tab.choose-flat-tab(data-rooms="1" ).active 1-кімнатні
+            .tab.choose-flat-tab(data-rooms="2" ) 2-кімнатні
+            .tab.choose-flat-tab(data-rooms="3" ) 3-кімнатні
+            .tab.choose-flat-tab(data-rooms="4" ) 4-кімнатні
+            .tab.choose-flat-tab(data-rooms="COM") Ком. нерухомість
+        .flat-container.flat-container-js
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/11.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування
+            .card
+                .flat-name Квартира 2А
+                +img('choose-flat/15.png').flat-img
+                .card-row 
+                    span Будинок: 
+                    span.value 15
+                .card-row 
+                    span Загальна площа: 
+                    span.value.square-metres 15 м<sub>2</sub>
+                .card-row 
+                    span Житлова площа:
+                    span.value.square-metres 15 м<sub>2</sub>
+                a(href="flat.html").link.blue Дивитися планування

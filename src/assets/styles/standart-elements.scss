@@ -153,7 +153,7 @@
     }
     @include to(480px) {
         &:after {
-            height: calc(100% - (var(--side-padding) * 2) - 90px);
+            height: calc(100% - (var(--side-padding) * 2) - 93px);
             width: 2px;
             background-color: rgba(255, 255, 255, 0.5);
         }
@@ -171,9 +171,6 @@
     line-height: 1em;
     color: var(--white);
     text-transform: uppercase;
-    max-width: 350px;
-    padding-left: var(--side-padding);
-    padding-bottom: var(--side-padding);
     &.blue {
         color: var(--blue);
     }
@@ -1370,4 +1367,21 @@ section.forms {
     to {
         transform: scaleY(0);
     }
+}
+
+.icon--double-blue-wave {
+    stroke: var(--blue);
+    fill: none;
+    stroke-width: 3;
+    width: 24px;
+    height: 9px;
+    @include from(1720px) {
+        width: 60px;
+        height: 24px;
+    }
+}
+
+.square-metres {
+    display: inline-block;
+    margin-top: -0.1em;
 }

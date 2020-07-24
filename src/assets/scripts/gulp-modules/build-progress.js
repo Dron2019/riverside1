@@ -145,9 +145,11 @@ function each(array, func) {
 function smoothTextChange(startText, finishText, elem, firstStart) {
     if (firstStart) elem.style.minHeight = getComputedStyle(elem).height;
     if (firstStart) elem.style.minWidth = getComputedStyle(elem).width;
+    // finishText = putFinishTextInSpan(finishText);
 
     function timeoutChange(text, element) {
         if (text.length === 0) {
+
             element.innerHTML = finishText;
             // fillText(finishText)
             return;
@@ -163,8 +165,13 @@ function smoothTextChange(startText, finishText, elem, firstStart) {
             setTimeout(() => {
                 fillText(toFill.substring(0, toFill.length - 1));
             }, 50);
-
         }
+
+    }
+
+    function putFinishTextInSpan(finishText1) {
+        finishText1 = finishText1.split('').map((el, i) => `<span style="animation-delay:${i/10}s" class="fadeIn">${el}</span>`);
+        return finishText1.toString().replace(/,/g, '');
     }
     timeoutChange(startText, elem);
 };
