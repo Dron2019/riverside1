@@ -257,8 +257,9 @@ a[href] {
     }
     &.layout {
         min-height: initial;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.25) 80%);
     }
-    --svg-side-coeficient: 0.4989;
+    --svg-side-coeficient: 0.3912;
     height: calc(100vw * var(--svg-side-coeficient));
     .title {
         align-self: flex-end;
@@ -267,9 +268,12 @@ a[href] {
         padding: var(--side-fields);
         display: flex;
         flex-wrap: wrap;
-        width: 100%;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
         height: calc(100vw * var(--svg-side-coeficient));
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+        // background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+        background: var(--blue);
         .title {
             padding-left: 0;
             padding-bottom: 0;
@@ -277,12 +281,15 @@ a[href] {
             margin-top: auto;
             margin-right: auto;
             max-width: 320px;
+            position: absolute;
+            bottom: var(--side-fields);
+            left: var(--side-fields);
         }
     }
     .genplan-list {
-        margin-left: auto;
-        padding-right: 94px;
-        padding-top: 40px;
+        // margin-left: auto;
+        // padding-right: 94px;
+        // padding-top: 40px;
     }
     .genplan-list li:not(.page-link-group) {
         text-transform: uppercase;
@@ -292,7 +299,7 @@ a[href] {
         font-weight: bold;
         font-size: 12px;
         line-height: 1em;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         display: flex;
         align-items: center;
         position: relative;
@@ -323,16 +330,17 @@ a[href] {
     .page-link-group {
         display: flex;
         flex-direction: column;
-        margin-top: 4em;
+        // margin-top: 4em;
+        margin-top: 1em;
         .link {
             margin-bottom: 20px;
         }
     }
     .genplan-svg {
-        position: absolute;
+        // position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 70%;
         height: 100%;
         z-index: -1;
     }
@@ -341,7 +349,8 @@ a[href] {
         height: 100%;
         transition: .5s;
     }
-    .genplan-svg path {
+    .genplan-svg path,
+    .genplan-svg polygon {
         fill: none;
         stroke: transparent;
         transition: .5s;
@@ -363,14 +372,26 @@ a[href] {
             margin-top: 3em;
         }
         .genplan-list li:not(.page-link-group) {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
     }
     @include to(1220px) {
+        &__content {
+            width: calc(29.9% + 100px);
+            margin-left: -100px;
+        }
         .page-link-group {
             margin-top: 2em;
         }
+        .genplan-list {
+            width: 100%;
+            column-count: 2;
+            break-inside: avoid;
+        }
         .genplan-list li:not(.page-link-group) {
+            margin-bottom: 15px;
+        }
+        .page-link-group .link {
             margin-bottom: 15px;
         }
     }
@@ -386,11 +407,19 @@ a[href] {
         }
     }
     @include to(768px) {
+        .genplan-svg {
+            width: 100%;
+            height: auto;
+        }
+        &__content {
+            background: transparent;
+        }
         .genplan-list {
             display: none;
         }
     }
     @include to(480px) {
+        --svg-side-coeficient: 0.564;
         .wave,
         .title {
             display: none;

@@ -17,7 +17,7 @@ tabNavList.forEach(el => {
 
 
 
-function reRenderFlats(container, adress, data) {
+function reRenderFlats(container, adress, data, callback) {
     let action = 'flat-ajax.php';
     let sendData = new FormData();
     sendData.append('action', action);

@@ -100,15 +100,26 @@ genplanSvgLinkList.forEach(link => {
         link.addEventListener('mouseover', function(evt) {
             // link.dataset.svgID;
             // //console.log(typeof link.dataset.svgid);
-
-            if (link.dataset.svgid.length == 0) return;
+            if (link.dataset.svgid.length == 0 || document.querySelector(`#${link.dataset.svgid}`) === null) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `#ffffff`;
-            document.querySelector(`#${link.dataset.svgid}`).style.fill = `rgba(0, 133, 255, 0.7)`;
+            document.querySelector(`#${link.dataset.svgid}`).style.fill = `rgba(0, 133, 255, 0.8)`;
+            if (document.querySelector(`#${link.dataset.svgid}`).tagName === 'g') {
+                document.querySelector(`#${link.dataset.svgid}`).querySelectorAll('path,polygon').forEach(el => {
+                    el.style.stroke = `#ffffff`;
+                    el.style.fill = `rgba(0, 133, 255, 0.8)`;
+                })
+            }
         });
         link.addEventListener('mouseout', function(evt) {
-            if (link.dataset.svgid.length == 0) return;
+            if (link.dataset.svgid.length == 0 || document.querySelector(`#${link.dataset.svgid}`) === null) return;
             document.querySelector(`#${link.dataset.svgid}`).style.stroke = `none`;
             document.querySelector(`#${link.dataset.svgid}`).style.fill = `none`;
+            if (document.querySelector(`#${link.dataset.svgid}`).tagName === 'g') {
+                document.querySelector(`#${link.dataset.svgid}`).querySelectorAll('path,polygon').forEach(el => {
+                    el.style.stroke = `none`;
+                    el.style.fill = `none`;
+                })
+            }
         });
     })
     /**GENPLAN END */
@@ -168,8 +179,10 @@ tabNavList.forEach(el => {
 
 
 
+if (window.screen.width > 480) {
 
-document.querySelector('header').style.backgroundColor = `transparent`;
+    document.querySelector('header').style.backgroundColor = `transparent`;
+}
 if (window.screen.width > 481) {
     let mainScreen = document.querySelector('.main-screen-layout');
     window.addEventListener('scroll', () => {

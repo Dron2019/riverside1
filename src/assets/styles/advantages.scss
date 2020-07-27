@@ -455,6 +455,12 @@
             padding-top: 60px;
         }
     }
+    @include from-to(769px,
+    1100px) {
+        &__text-block {
+            padding: 0 15px;
+        }
+    }
     @include to(768px) {
         --full-width-increase-coef: 1;
         &.vertical &__text-block {

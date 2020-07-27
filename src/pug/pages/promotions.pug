@@ -1,9 +1,9 @@
 extends ../layout/main
 block variable
-    -pageName = 'news';
+    -pageName = 'promotions';
     - var version = "ua";
 block meta
-    title= 'Rusaniv Residence'
+    title= 'Акції Riverside1'
     meta(name='description', content='')
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
@@ -17,8 +17,8 @@ block content
     .breadcrumbs-block
         a(href="index.html").breadcrumbs-block__item 
             span Головна
-        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Новини
-        h1.title.blue Новини
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Акції
+        h1.title.blue Акції
     section.articles-wrapper
         .article 
             .article__title-wrap
@@ -28,7 +28,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -36,7 +36,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -44,7 +44,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -52,7 +52,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -60,7 +60,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -68,7 +68,7 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
         .article 
             .article__title-wrap
                 span.article__date 15.072020
@@ -76,13 +76,9 @@ block content
                 .article__title Шановні інвестори! Повідомляємо вас про ситуацію, що склалася довкола COVID-19
             .article__img-wrap
                 +img('news/1.jpg').article__img
-                +news-article-wave('single-news.html')
+                +news-article-wave('single-promotions.html')
     .news-pagination
         a(href="#").news-pagination__item.active 1
         a(href="#").news-pagination__item 2
         a(href="#").news-pagination__item 3
         a(href="#").news-pagination__item 4
-
-
-
-

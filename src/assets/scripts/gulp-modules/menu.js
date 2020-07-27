@@ -27,21 +27,21 @@ document.querySelectorAll(menuOpenSelector).forEach(but => {
 window.menuMouseMoveStart = 0;
 window.menuMouseMoveEnd = 0;
 window.clicked = false;
-document.querySelector('.menu-content-image-links').addEventListener('mousedown', function(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
-    window.menuMouseMoveStart = evt.clientX;
-    // console.log(evt.clientX);
-    window.menuMouseMoveEnd = 0;
-    window.clicked = true;
+// document.querySelector('.menu-content-image-links').addEventListener('mousedown', function(evt) {
+//     evt.preventDefault();
+//     evt.stopPropagation();
+//     window.menuMouseMoveStart = evt.clientX;
+//     // console.log(evt.clientX);
+//     window.menuMouseMoveEnd = 0;
+//     window.clicked = true;
 
-});
-document.querySelector('.menu-content-image-links').addEventListener('mouseup', function(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    window.clicked = false;
-    return false;
-});
+// });
+// document.querySelector('.menu-content-image-links').addEventListener('mouseup', function(evt) {
+//     evt.stopPropagation();
+//     evt.preventDefault();
+//     window.clicked = false;
+//     return false;
+// });
 
 document.querySelector('.menu-content-image-links').addEventListener('mousemove', function(evt) {
     if (!window.clicked) return;

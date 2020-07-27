@@ -1042,6 +1042,16 @@ section.forms {
     @include to(768px) {
         margin-top: 20px;
     }
+    @include to(575px) {
+        .breadcrumbs-block__item {
+            font-size: 12px;
+            line-height: 12px;
+        }
+        &__item {
+            font-size: 12px;
+            line-height: 12px;
+        }
+    }
     @include to(480px) {
         .title {
             position: static;

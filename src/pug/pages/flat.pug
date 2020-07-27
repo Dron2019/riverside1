@@ -1,0 +1,73 @@
+extends ../layout/main
+block variable
+    -pageName = 'flat';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Квартира Riverside1'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/flat.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="choose-flat.html").breadcrumbs-block__item 
+            span Обрати квартиру
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Квартира 3Б
+        .title.blue Квартира 3Б
+    .contacts__info-blocks-wrapper.contacts__info-block-column.contacts.flat-page-left-block
+        .contacts__mini-group 
+            .contacts__mini-group-title Адреса обьекта
+            a.contacts__mini-group-text(href="#") Київська область, Броварський район, село Погреби, вул. Приозерна, 2А
+            +svg('circle-blue-marker').decor-icon
+        .contacts__mini-group 
+            .contacts__mini-group-title Телефон
+            .contacts__mini-group-text.istat_1
+                a(href="tel:") +38 (096) 165-30-30 
+                a(href="tel:") +38 (063) 165-30-30 
+                a(href="tel:") +38 (099) 165-30-30 
+            +svg('circle-blue-tel-tube').decor-icon
+        .contacts__mini-group 
+            .contacts__mini-group-title Відділ продажу
+            a(href="").contacts__mini-group-text с. Погреби вул. Кутузова 1 
+            +svg('circle-blue-riverside').decor-icon
+    img(src="./assets/images/choose-flat/15.png").flat-img
+    .flat-page-right-block
+        .flat-info-wrapper
+            +flat-block-wave()
+            ul.flat-info-list
+                li.main-flat-info 
+                    span Будинок: 
+                    span 5
+                li.main-flat-info 
+                    span Загальна площ
+                    span.square-metres 5 м<sub>2</sub> 
+                li.main-flat-info 
+                    span Житлова площа: 
+                    span.square-metres 5 м<sub>2</sub> 
+                li 
+                    span Поверх: 
+                    span 5
+                li 
+                    span Передпокій: 
+                    span.square-metres 12.6 м<sub>2</sub> 
+                li 
+                    span Балкон: 
+                    span.square-metres 9.3 м<sub>2</sub> 
+                li 
+                    span Вітальня: 
+                    span.square-metres 25.8 м<sub>2</sub> 
+                li 
+                    span Кухня-їдальня: 
+                    span.square-metres 16.2 м<sub>2</sub> 
+                li 
+                    span Ванна кімната:
+                    span.square-metres 5 м<sub>2</sub> 
+        a.link.blue.form-call-button-js(href="#") Записатися на перегляд
+        a.link.blue(href="#" target='_blank') Завантажити планування

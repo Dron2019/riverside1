@@ -1,0 +1,294 @@
+#flat {
+    --breadcrumbs-height: 73px;
+    .page__content {
+        margin-top: var(--header-height);
+        padding-left: var(--side-fields);
+        padding-right: var(--side-fields);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .breadcrumbs-block {
+        margin-top: 23px;
+        margin-bottom: 36px;
+        width: 100%;
+    }
+    @include from(1720px) {
+        --breadcrumbs-height: 94px;
+        margin-bottom: 36px;
+    }
+    @include to(768px) {
+        .page__content {}
+        .breadcrumbs-block {
+            margin-top: 0;
+            padding-top: 20px;
+            margin-bottom: 30px;
+        }
+    }
+    @include to(950px) {
+        .breadcrumbs-block .title {
+            transform: none;
+            position: static;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    @include to(575px) {
+        .breadcrumbs-block {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+        .breadcrumbs-block__item {
+            font-size: 12px;
+            line-height: 12px;
+        }
+    }
+    .flat-img {
+        @include size(5);
+        @include shift-padding(0.5);
+        object-fit: contain;
+        object-position: top;
+        cursor: zoom-in;
+        @include to(1200px) {
+            @include shift-padding(0);
+        }
+        @include to(950px) {
+            order: 1;
+            @include size(7);
+        }
+        @include to(575px) {
+            width: 100%;
+        }
+    }
+    .flat-img {
+        @include size(5);
+        @include shift-padding(0.5);
+        object-fit: contain;
+        object-position: top;
+        cursor: zoom-in;
+        @include to(1200px) {
+            @include shift-padding(0);
+        }
+        @include to(950px) {
+            order: 1;
+            @include size(7);
+        }
+        @include to(575px) {
+            width: 100%;
+        }
+    }
+}
+
+.flat-page-left-block {
+    background: url(../images/flat/left-bock-bg.jpg) right no-repeat;
+    background-size: cover;
+    margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
+    padding: 73px var(--side-fields);
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-right: 0;
+    align-content: flex-start;
+    @include size(3.5);
+    .contacts__mini-group-title {
+        color: var(--gray);
+    }
+    .contacts__mini-group {
+        padding-left: calc(40px + 20px);
+    }
+    .decor-icon {
+        left: 0em;
+    }
+    @include to(1200px) {
+        @include size(4);
+    }
+    @include to(950px) {
+        width: calc(100% + var(--side-fields) * 2);
+        margin-right: calc(var(--side-fields) - (var(--side-fields) * 2));
+        order: 3;
+        padding-top: 35px;
+        padding-bottom: 35px;
+        justify-content: space-between;
+        .contacts__mini-group {
+            width: 33%;
+        }
+        .decor-icon {
+            width: 26px;
+            height: 26px;
+        }
+        .contacts__mini-group {
+            padding-left: calc(26px + 20px);
+        }
+    }
+    @include to(575px) {
+        .contacts__mini-group {
+            width: 100%;
+        }
+    }
+    // @include from-to(769px, 950px) {
+    //     .contacts__mini-group {
+    //         padding-left: 20px;
+    //     }
+    //     .decor-icon {
+    //         display: none;
+    //     }
+    // }
+}
+
+.flat-page-right-block {
+    @include size(3.5);
+    padding-bottom: 70px;
+    .link {
+        @include shift-padding-left(2);
+        @include shift-padding-right(4);
+        margin-top: 40px;
+        line-height: 1.25em;
+    }
+    @include from(1720px) {
+        @include size(3);
+    }
+    @include to(1200px) {
+        @include size(3.5);
+        .link {
+            @include shift-padding-left(1);
+        }
+    }
+    @include to(950px) {
+        order: 2;
+        @include size(5);
+        .link {
+            margin-top: 25px;
+        }
+    }
+    @include to(575px) {
+        width: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding-bottom: 0;
+        .link {
+            @include shift-padding-right(1);
+            font-size: 14px;
+            justify-content: center;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.flat-info-wrapper {
+    position: relative;
+    /* Отспут от рамки + высота рамки*/
+    padding-top: calc(40px + 20px);
+    @include shift-padding(2);
+    padding-bottom: 70px;
+    @include from(1720px) {
+        padding-top: calc(40px + 30px)
+    }
+    @include to(1200px) {
+        @include shift-padding(1);
+        @include shift-padding-right(0.5);
+    }
+    @include to(575px) {
+        padding-bottom: 35px;
+    }
+}
+
+.flat-block-wave {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    & .river-small-logo {
+        fill: var(--blue);
+        stroke: var(--blue);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 75px;
+        height: 14px;
+    }
+    &__line {
+        stroke: var(--blue);
+        stroke-width: 2;
+        width: 229px;
+        height: 44px;
+    }
+    div[class*=-line] {
+        position: absolute;
+        background-color: var(--blue);
+    }
+    .left-line {
+        top: 44px;
+        left: 0;
+        height: calc(100% - 44px);
+        width: 2px;
+    }
+    .top-line {
+        top: 0;
+        left: 228px;
+        width: calc(100% - 228px);
+        height: 2px;
+    }
+    .right-line {
+        width: 2px;
+        right: 0;
+        top: 0;
+        height: 100%;
+    }
+    .bottom-line {
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+    }
+    @include to(575px) {
+        & .river-small-logo {
+            width: 52px;
+            height: 9px;
+        }
+        &__line {
+            stroke-width: 3;
+            width: 142px;
+            height: 28px;
+        }
+        .left-line {
+            top: 28px;
+            left: 0;
+            height: calc(100% - 28px);
+            width: 2px;
+        }
+        .top-line {
+            top: 0;
+            left: 142px;
+            width: calc(100% - 142px);
+            height: 2px;
+        }
+    }
+}
+
+.main-flat-info {
+    font-weight: bold;
+    color: var(--gray);
+}
+
+.flat-info-list {
+    font-size: 14px;
+    line-height: 22px;
+    & li {
+        display: grid;
+        grid-template-columns: 65% 30%;
+    }
+    & li span:first-child {
+        white-space: nowrap;
+    }
+    @include from(1720px) {
+        font-size: 18px;
+        line-height: 32px;
+    }
+}
+
+.mfp-figure figure {
+    background-color: var(--white);
+}

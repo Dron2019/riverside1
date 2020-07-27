@@ -11,6 +11,8 @@
         padding-left: var(--side-fields);
         padding-right: var(--side-fields);
         margin-top: 23px;
+        position: relative;
+        z-index: 2;
     }
     --breadcrumbs-height: 73px;
     @include from(1720px) {
@@ -35,7 +37,7 @@
     background: url(../images/developers/bg.png) left no-repeat, url(../images/location/bg-image.jpg) right no-repeat;
     background-size: 55vw, auto 100%;
     min-height: 560px;
-    margin-top: calc(var(--header-height) - (var(--header-height) * 2));
+    margin-top: calc(var(--header-height) - (var(--header-height) * 2) - 1px);
     padding-top: var(--header-height);
     @include shift-padding-right(8);
     @include shift-padding-left(1);

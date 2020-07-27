@@ -7,7 +7,7 @@
         position: relative;
         z-index: 5;
         width: calc(100% - var(--side-fields) * 2);
-        margin: 150px auto 30px auto;
+        margin: 120px auto 30px auto;
         padding: 0 var(--side-fields);
         padding: 0 calc(var(--side-fields) * 2);
     }
@@ -30,7 +30,7 @@
             background-color: var(--blue);
         }
         .breadcrumbs-block {
-            margin: var(--header-height) auto 30px auto;
+            margin: calc(25px + var(--header-height)) auto 30px auto;
         }
         .slider-counter {
             right: 30px;

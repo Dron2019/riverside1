@@ -32,5 +32,3 @@
 
 
 // syncroAnim(el[0], el);
-
-// alert(document.querySelector("#advantages > div.page__content > div.adv-block3.adv-grid > div.sngl-adv.vertical.vertical.kindergardens > picture"))

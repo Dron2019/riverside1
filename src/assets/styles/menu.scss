@@ -28,7 +28,8 @@ menu {
             display: initial;
             animation: none;
             position: relative;
-            top: 0.3em;
+            // top: 0.3em;
+            top: auto;
         }
         .open-svg {
             display: none;
@@ -50,7 +51,7 @@ menu {
         &:after {
             position: absolute;
             content: '';
-            width: 90%;
+            width: 75%;
             height: 20px;
             background-color: #138bf6;
             bottom: calc(67px + 26px);
@@ -115,6 +116,8 @@ menu {
         order: 2;
         margin-left: 50px;
         margin-right: 0;
+        display: flex;
+        align-items: flex-start;
     }
     @include from(1680px) {
         .logo {
@@ -186,8 +189,8 @@ menu {
             margin-left: auto;
             height: 651px;
             grid-template-rows: 318px 318px;
-            grid-template-columns: repeat(19, 140px);
-            @include size(7.5);
+            grid-template-columns: repeat(19, 130px);
+            @include size(8);
             margin-right: 1px;
         }
         .menu__content-text-links {
