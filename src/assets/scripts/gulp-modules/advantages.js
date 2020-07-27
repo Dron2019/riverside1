@@ -1,34 +1,45 @@
-// // document.querySelectorAll('.sngl-adv').forEach(el => {
+document.querySelectorAll('.sngl-adv').forEach(el => {
+    el.style.opacity = 0;
+})
 
-// //     setTimeout(() => {
-// //         el.classList.add('fadeIn');
-// //     }, 1000);
-// // });
+var options = {
+    threshold: 0.5,
+    root: null,
+    selectorToObserve: '.adv-grid',
+    selectorToAnim: '.sngl-adv',
+}
+var callback = function(entries, observer) {
+    if (entries[0].isIntersecting) {
+        gsap.fromTo(entries[0].target.querySelectorAll(options.selectorToAnim), {
+            opacity: 0,
+            x: function(index, target) {
+                if (target.classList.value.match(/vertical/)) {
+                    return 0;
+                } else {
+                    return getComputedStyle(target).width;
+                }
+            },
+            y: function(index, target) {
+                if (target.classList.value.match(/vertical/)) {
+                    return getComputedStyle(target).height;
+                } else {
+                    return '0';
+                }
+            }
+        }, {
+            opacity: 1,
+            x: 0,
+            y: function(index, target, targets) { //function-based value
+                return 0;
+            },
+            duration: 1,
 
-// let el = document.querySelectorAll('.sngl-adv');
-// el.forEach((elem, index) => {
-//     elem.style.transitionTimingFunction = `ease-in-out`;
-// })
-// el[0].classList.add('fadeIn');
-
-
-// let animObject = {
-//     'vertical': 'fadeInUp',
-//     'vertical-reverse': 'fadeInDown',
-//     'null': 'fadeIn',
-// }
-// var syncroAnim = function(elem, collection, index = 0) {
-//     console.log(this);
-//     if (collection) elem = collection[index];
-//     elem.classList.add('fadeIn');
-
-//     setTimeout(() => {
-//         syncroAnim(el[index], collection, index);
-//     }, 200);
-//     index++;
-//     elem.onanimationend = () => { elem.classList.remove('fadeIn'); }
-
-// };
-
-
-// syncroAnim(el[0], el);
+            stagger: 0.3,
+        });
+        observer.unobserve(entries[0].target);
+    }
+};
+var observer = new IntersectionObserver(callback, options);
+document.querySelectorAll(options.selectorToObserve).forEach(el => {
+    observer.observe(el);
+})

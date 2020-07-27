@@ -2,6 +2,7 @@ gsap.fromTo('.location-first-section', { opacity: 0 }, {
     opacity: 1,
     duration: 1
 });
+gsap.from('.location-first-section', { backgroundPosition: '100vw', delay: 1, duration: 1.2 });
 gsap.from('.location-first-section>div', { x: '-100vw', stagger: 0.5, delay: 0.2 });
 var options = {
     threshold: 0.2,

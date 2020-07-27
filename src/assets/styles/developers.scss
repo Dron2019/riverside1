@@ -136,7 +136,12 @@
         padding-right: 100px;
         column-count: 2;
         column-gap: 10%;
-        line-break: anywhere;
+        line-break: auto;
+    }
+    &__text div,
+    &__text span {
+        break-inside: avoid;
+        display: inline-block;
     }
     &__text {
         --text-left-padding: 27px;

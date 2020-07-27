@@ -2,6 +2,7 @@
     padding-top: 71px;
     section.contacts {
         background: url(../images/common/wave-pattern1.png) right no-repeat, #F7F5FB;
+        background-size: contain;
     }
     .title {
         margin-bottom: 0;
@@ -10,7 +11,8 @@
         text-align: center;
     }
     @include from(1720px) {
-        padding-top: 100px;
+        // padding-top: 100px;
+        padding-top: var( --header-height);
     }
     @include to(480px) {
         padding-top: 42px;
