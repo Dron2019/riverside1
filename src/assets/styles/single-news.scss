@@ -57,7 +57,7 @@
         margin-bottom: 30px;
     }
     &__text {
-        font-weight: 500;
+        font-weight: 400;
         font-size: 18px;
         line-height: 30px;
         margin-top: 30px;
@@ -86,7 +86,8 @@
     }
     .link {
         display: inline-flex;
-        width: 50%;
+        width: calc(50% - 5px);
+        white-space: nowrap;
         padding-right: 0;
         margin-top: 50px;
     }
@@ -102,8 +103,23 @@
             margin-top: 20px;
         }
     }
+    @include to(1200px) {
+        .link {
+            display: inline-block;
+        }
+        .link:last-of-type {
+            padding-left: 15%;
+            margin-left: auto;
+        }
+    }
     @include to(1100px) {
         @include shift(1);
+    }
+    @include from-to(769px, 861px) {
+        .link {
+            width: auto;
+            display: block;
+        }
     }
     @include to(768px) {
         margin-left: 0;

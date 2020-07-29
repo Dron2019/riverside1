@@ -649,6 +649,12 @@ a[href] {
             object-position: 40% bottom;
         }
     }
+    @media (orientation:landscape) and (max-height:750px) {
+        .left .text {
+            max-width: 75%;
+            margin-top: 25px;
+        }
+    }
     @include from-to(575px,
     768px) {
         .left .text {
@@ -1031,6 +1037,7 @@ a[href] {
             // @include shift-right(1);
             padding-right: 15px;
             align-self: center;
+            // overflow: hidden;
         }
         .title {
             margin-bottom: 0px;
@@ -1147,6 +1154,13 @@ a[href] {
         }
     }
     @include to(1024px) {
+        .left {
+            &__content {
+                max-width: 75%;
+            }
+        }
+    }
+    @media (orientation:landscape) and (max-height:750px) {
         .left {
             &__content {
                 max-width: 75%;

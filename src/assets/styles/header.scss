@@ -51,6 +51,16 @@ header.header {
     @include from(1720px) {
         font-size: 24px;
     }
+    @include from(769px) {
+        &:before {
+            content: '';
+            width: 19px;
+            height: 18px;
+            background-size: contain;
+            background-image: url("data:image/svg+xml,%3Csvg width='19' height='18' viewBox='0 0 19 18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5097 14.3514L16.5163 14.3449L16.5227 14.3383C17.2812 13.5576 17.1163 12.3024 16.1733 11.7114L16.1621 11.7043L16.1506 11.6975L13.2863 10.0065L13.0511 9.86765H12.9722C12.2568 9.61754 11.5351 9.91584 11.1351 10.219L11.0771 10.263L11.026 10.3149L10.4866 10.8635C10.2582 10.7732 10.0144 10.6192 9.7403 10.3961C9.4877 10.1906 9.27526 9.9862 9.04104 9.76082C8.90563 9.63051 8.76295 9.4932 8.60101 9.34463L8.601 9.34462C8.01927 8.81091 7.46176 8.14997 7.16988 7.48853L7.56335 7.09526L7.5634 7.0953L7.57126 7.08727C8.07938 6.56786 8.30329 5.74509 7.94007 4.96985L7.93007 4.9485L7.91907 4.92765L6.33111 1.91646L6.31053 1.87743L6.28659 1.84037C6.0643 1.4962 5.6988 1.13935 5.16733 1.03104C4.60735 0.91692 4.10302 1.12602 3.73012 1.44321L3.69952 1.46924L3.6711 1.49764L1.71029 3.45746C1.15904 3.97459 1.01313 4.67749 1.00383 5.21549C0.943911 6.58549 1.61961 8.03892 2.06774 8.96642L2.07555 8.98259L2.08394 8.99847C3.3996 11.489 5.47091 13.5079 7.6632 15.1028L7.68449 15.1183L7.70656 15.1326C9.03134 15.9936 10.7979 16.9411 12.748 16.9996L12.7636 17L12.7791 17C13.3221 16.9993 14.0028 16.8519 14.5409 16.3044L16.5097 14.3514Z' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+            margin-right: 15px;
+        }
+    }
     @include to(768px) {
         font-size: 16px;
         &:before {
@@ -170,13 +180,15 @@ header.header {
         transition: .5s;
         position: absolute;
         margin-left: 18px;
+        transform-origin: center;
         right: 0cm;
         content: url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
         top: 0.2em;
     }
     &:hover .active {}
     &:hover:after {
-        transform: rotate(180deg);
+        // transform: rotate(180deg);
+        transform: rotate(180deg) translateY(-7px);
     }
     & a {
         color: #fff;
@@ -202,6 +214,7 @@ header.header {
         background-color: var(--blue);
         transition: .5s;
     }
+    @include from(1720px) {}
     @include to(768px) {
         order: 1;
         margin-right: 20px;

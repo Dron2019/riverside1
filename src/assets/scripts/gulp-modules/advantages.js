@@ -32,9 +32,9 @@ var callback = function(entries, observer) {
             y: function(index, target, targets) { //function-based value
                 return 0;
             },
-            duration: 1,
+            duration: 0.5,
 
-            stagger: 0.3,
+            stagger: 0.45,
         });
         observer.unobserve(entries[0].target);
     }

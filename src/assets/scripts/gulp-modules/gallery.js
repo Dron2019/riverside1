@@ -12,9 +12,7 @@ galleryHEaderWrapper.append($header);
 
 
 for (var i = 0; i < spriteImages.length; i++) {
-
     var img = spriteImages[i];
-
     // Set the texts you want to display to each slide 
     // in a sibling element of your image and edit accordingly
     if (img.nextElementSibling) {
@@ -54,7 +52,6 @@ mousePopup.innerHTML = 'Натисніть та утримуйте на зобр
 document.querySelector('.main-screen').append(mousePopup);
 document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
     console.log(evt);
-
     mousePopup.style.top = evt.clientY + 'px';
     mousePopup.style.left = evt.clientX + 30 + 'px';
 });

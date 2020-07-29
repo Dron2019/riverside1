@@ -57,6 +57,7 @@
     & li {
         color: #DDE6EE;
         pointer-events: none;
+        transition: .5s;
     }
     & li.active,
     & li.current {
@@ -67,6 +68,11 @@
     }
     & li.current {
         color: var(--blue);
+    }
+    @include from(769px) {
+        & li:hover {
+            color: var(--blue);
+        }
     }
 }
 
@@ -120,8 +126,11 @@
 .years {
     display: flex;
     width: 100%;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-bottom: 1em;
+    & li:not(:last-child) {
+        margin-right: 20px;
+    }
     @include to(768px) {
         width: max-content;
         margin-bottom: 30px;
@@ -157,13 +166,14 @@
     position: relative;
     @include size(8);
     @include shift-right(0.4);
+    margin-right: 5px;
     align-self: flex-start;
     margin-left: auto;
     padding: 0 60px;
     .arrows {
         position: absolute;
         top: calc(50% - 38px);
-        transform: translateY(-50%);
+        transform: translateY(-25%);
         left: 0;
         width: 100%;
         .scene-nav {

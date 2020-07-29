@@ -96,18 +96,21 @@
     &__main-subtitle {
         position: relative;
         font-weight: bold;
-        font-size: 36px;
-        line-height: 36px;
+        font-size: 30px;
+        line-height: 30px;
         text-transform: uppercase;
         color: var(--blue);
         margin-bottom: 30px;
         padding-top: 30px;
         &-wave {
             width: 60px;
-            height: 20px;
+            height: 24px;
             position: absolute;
             left: 0;
             top: 0;
+        }
+        &-wave path {
+            stroke-width: 3 !important;
         }
     }
     &__main-subtitle-small {
@@ -164,13 +167,16 @@
         padding-bottom: 93px;
         width: 645px;
         &__main-subtitle {
-            font-size: 30px;
-            line-height: 30px;
+            font-size: 36px;
+            line-height: 36px;
             margin-bottom: 20px;
         }
         &__main-subtitle-small {
             font-size: 24px;
             line-height: 36px;
+        }
+        &-wave path {
+            stroke-width: 4 !important;
         }
     }
     @include to(768px) {
@@ -212,7 +218,10 @@
             position: relative;
             &-wave {
                 width: 42px;
-                height: 14px;
+                height: 16px;
+            }
+            &-wave path {
+                stroke-width: 2 !important;
             }
         }
         &__main-subtitle-small {

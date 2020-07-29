@@ -1,5 +1,5 @@
 /* beautify preserve:start */
-@@include('../libs/scrollme/jquery.scrollme.min.js')
+// @@include('../libs/scrollme/jquery.scrollme.min.js')
 /* beautify preserve:end*/
 
 if (window.screen.width<576) {

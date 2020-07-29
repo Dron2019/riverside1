@@ -1,82 +1,83 @@
 menu.menu
     +wave-for-menu()
     .menu__content
-        .menu__content-text-links
-            a(href="index.html").link Головна 
-            a(href="about.html").link Про комплекс
-            a(href="developers.html").link забудовник
-            a(href="news.html").link Новини
-            a(href="location.html").link Розташування
-            a(href="choose-flat.html").link Обрати квартиру
-            a(href="#").link Інфраструктура
-            a(href="contact.html").link Контакти
-        .menu-content-image-links
-            a(href="" style="grid-area: 1/1/1/3;").menu__content-image-link
-                img(src="./assets/images/menu/1-room.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link 1-кімнатні
-            a(href="" style="grid-area: 1/3/1/6;").menu__content-image-link
-                img(src="./assets/images/menu/2-room.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link 2-кімнатні
-            a(href="" style="grid-area: 2/1/2/4;").menu__content-image-link
-                img(src="./assets/images/menu/3-room.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link 3-кімнатні
-            a(href="" style="grid-area: 2/4/2/6;").menu__content-image-link
-                img(src="./assets/images/menu/4-room.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link 4-кімнатні
-            a(href="" style="grid-area: 1/6/3/9;").menu__content-image-link
-                img(src="./assets/images/menu/commercial.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Комерційна нерухомість
-            a(href="advantages.html" style="grid-area: 1/9/1/12;").menu__content-image-link
-                img(src="./assets/images/menu/advantages.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Переваги
-            a(href="gallery.html" style="grid-area: 1/12/1/16;").menu__content-image-link
-                img(src="./assets/images/menu/gallery.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Галерея
-            a(href="" style="grid-area: 2/9/2/11;").menu__content-image-link
-                img(src="./assets/images/menu/panorama.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Панорама
-            a(href="documents.html" style="    grid-area: 2/11/2/14;").menu__content-image-link
-                img(src="./assets/images/menu/documents.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Документи
-            a(href="web-camera.html" style="grid-area: 2/14/2/16;").menu__content-image-link
-                img(src="./assets/images/menu/web-camera.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Веб камера
-            a(href="build-progress.html" style="grid-area: 1/16/3/19;").menu__content-image-link
-                img(src="./assets/images/menu/build-progress.jpg")
-                .img-gradient.color1
-                .img-gradient.color2
-                .img-gradient.color3
-                .link Хід будівництва
+        .menu__scroll.main-scroller
+            .menu__content-text-links
+                a(href="index.html").link Головна 
+                a(href="about.html").link Про комплекс
+                a(href="developers.html").link забудовник
+                a(href="news.html").link Новини
+                a(href="location.html").link Розташування
+                a(href="choose-flat.html").link Обрати квартиру
+                a(href="#").link Інфраструктура
+                a(href="contact.html").link Контакти
+            .menu-content-image-links
+                a(href="space-for-leisure.html?rooms=1" style="grid-area: 1/4/1/6;").menu__content-image-link
+                    img(src="./assets/images/menu/leisure-space.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Простір для  дозвілля
+                a(href="grove-and-develop.html" style="grid-area: 1/6/1/9;").menu__content-image-link
+                    img(src="./assets/images/menu/grow-develop.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Зростай і розвивайся
+                a(href="sport-place.html?rooms=3" style="grid-area: 2/4/2/7;").menu__content-image-link
+                    img(src="./assets/images/menu/sport-space.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Місце де панує спорт
+                a(href="water-space.html?rooms=4" style="grid-area: 2/7/2/9;").menu__content-image-link
+                    img(src="./assets/images/menu/water-space.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Водний простір
+                a(href="" style="grid-area: 1/1/3/4;").menu__content-image-link
+                    img(src="./assets/images/menu/choose-flat.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Обрати квартиру
+                a(href="perfect-details.html" style="grid-area: 1/9/1/12;").menu__content-image-link
+                    img(src="./assets/images/menu/perfect-details.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Досконалий у дрібницях
+                a(href="gallery.html" style="grid-area: 1/12/1/16;").menu__content-image-link
+                    img(src="./assets/images/menu/gallery.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Галерея
+                a(href="" style="grid-area: 2/9/2/11;").menu__content-image-link
+                    img(src="./assets/images/menu/panorama.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Панорама
+                a(href="documents.html" style="    grid-area: 2/11/2/14;").menu__content-image-link
+                    img(src="./assets/images/menu/documents.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Документи
+                a(href="web-camera.html" style="grid-area: 2/14/2/16;").menu__content-image-link
+                    img(src="./assets/images/menu/web-camera.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Веб камера
+                a(href="build-progress.html" style="grid-area: 1/16/3/19;").menu__content-image-link
+                    img(src="./assets/images/menu/build-progress.jpg")
+                    .img-gradient.color3
+                    .img-gradient.color2
+                    .img-gradient.color1
+                    .link Хід будівництва
         <svg class="menu-scroll-element" width="16" height="26" viewBox="0 0 16 26" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="1" y="1" width="14" height="24" rx="7" stroke="white" stroke-width="2"></rect>
             <rect x="7" y="12" width="2" height="5" rx="1" fill="white" class="bounce-infinite"></rect>

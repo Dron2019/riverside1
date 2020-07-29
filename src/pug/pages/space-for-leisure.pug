@@ -1,0 +1,65 @@
+extends ../layout/main
+block variable
+    -pageName = 'advantages';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/gsap.js')
+    script(defer src='./assets/scripts/advantages.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Простір для дозвілля
+        .title.blue Простір для дозвілля
+    .advantages-subtitle простір для дозвілля
+    .adv-block1.adv-grid(data-desktop-anim="fadeInLeft")
+        .sngl-adv.promenades
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Променади
+                .sngl-adv__text.text.gray Твій комфорт сягає далеко за межі твого дому. Виходь назустріч сонячним прогулянкам і  зоряним вечорам – цей світ створений для тебе!
+        .sngl-adv.channel
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            video(poster="./assets/images/advantages/channel.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Канал
+                .sngl-adv__text.text.gray Не треба вирушати у мандри, щоб проводжати захід сонця на узбережжі. Краса навколо тебе – насолоджуся!
+        .sngl-adv.fontans
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/fontans.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/fontans.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Фонтани
+                .sngl-adv__text.text.gray Водне джерело – це місце сили і ліки від стресу. Заряджайся естетикою свого кварталу!
+        .sngl-adv.cafe
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/cafe.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/cafe.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Кафе
+                .sngl-adv__text.text.gray Відчуваєш кавові аромати? Вони запрошують на відпочинок і тепле спілкування. Проводь час з близькими та насичуйся емоціями від зустрічей!

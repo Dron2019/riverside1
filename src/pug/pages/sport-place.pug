@@ -1,0 +1,79 @@
+extends ../layout/main
+block variable
+    -pageName = 'advantages';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/gsap.js')
+    script(defer src='./assets/scripts/advantages.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Місце де панує спорт
+        .title.blue Місце де панує спорт
+    .advantages-subtitle Місце де панує спорт
+    .adv-block2.adv-grid
+        .sngl-adv.vertical.veloroads
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/veloroads.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Велодоріжки
+                .sngl-adv__text.text.gray Спорт – це не завжди про силу та дисципліну. Він може бути вітром у волоссі. Веселим спілкуванням без слів. Гармонічною роботою думок та м’язів. Насолоджуйся рухом на свіжому повітрі!
+        .sngl-adv.tennis
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Тенісна академія
+                .sngl-adv__text.text.gray Будова тіла починається з руху, а будова зв’язків – зі спільних емоцій. Ми побудували цілих 10 тенісних кортів - розвивай себе у найелітнішому спорті!
+        .sngl-adv.skatepark
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Скейт парк
+                .sngl-adv__text.text.gray Коли спорт захоплює – тіло дивує! Ми забезпечили сучасні можливості для крутих трюків – перевершуй себе!
+        .sngl-adv.football-academy
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/promenades.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Футбольна академія
+                .sngl-adv__text.text.gray Для грандіозного поля – велична гра! Збирай сусідів для дружнього матчу і направляй енергію на перемогу!
+        .sngl-adv.stadium
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/stadium.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/stadium.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Стадіон
+                .sngl-adv__text.text.gray Дружня підтримка забезпечить половину успіху. Приходь на стадіон, щоб вболівати за своїх, - вивільни емоції!

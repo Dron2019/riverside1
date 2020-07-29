@@ -129,6 +129,9 @@
             line-height: 36px;
         }
     }
+    @include from(1200px) {
+        padding: 15px;
+    }
     @include from(769px) {
         &:hover {
             background: #F7F5FB;

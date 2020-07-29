@@ -52,7 +52,9 @@ for (var i = 0; i < spriteImages.length; i++) {
 // });
 var moveSlider = new CanvasSlideshow({
     sprites: spriteImagesSrc,
+    // displacementImage: './assets/images/main-screen-filter.jpg',
     displacementImage: './assets/images/main-screen-filter.jpg',
+
     autoPlay: false,
     selector: '.main-screen',
     autoPlaySpeed: [0.3, 0.3],

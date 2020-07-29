@@ -1,0 +1,68 @@
+extends ../layout/main
+block variable
+    -pageName = 'advantages';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/gsap.js')
+    script(defer src='./assets/scripts/advantages.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Досконалий у дрібницях
+        .title.blue Досконалий у дрібницях
+    .advantages-subtitle Досконалий у дрібницях
+    .adv-block5.adv-grid
+        .sngl-adv.elevators
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Ліфти Schindler 
+                .sngl-adv__text.text.gray Картинка досконалості складається з непомітних деталей. Інноваційні, надійні та плавні ліфти Schindler настільки тихі, що ви чуєте свої думки.
+        .sngl-adv.vertical.entry-groups
+            picture.sngl-adv__image-wave
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave-vertical.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave-vertical.png").sngl-adv__image-wave
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Вхідні групи без сходів та пандусів
+                .sngl-adv__text.text.gray Так просто закотити велосипед після прогулянки, вийти з дитячим візком без допомоги, чи стартувати на роліках прямо від ліфту. Відчуй себе вільним у бажаннях!
+        .sngl-adv.panorama-windows
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Панорамні вікна
+                .sngl-adv__text.text.gray Зроби мальовничий всесвіт частиною інтер’єру! Теплі вікна та широкі краєвиди – неймовірне поєднання!
+        .sngl-adv.terrace-apparts.full-width
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Терасні квартири
+                .sngl-adv__text.text.gray Власне подвір’я під зорями? Чом би й ні! Читай, відпочивай, займайся спортом чи мрій на своїй відкритій терасі! 

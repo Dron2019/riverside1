@@ -302,7 +302,8 @@
 .link {
     font-family: Cera Pro;
     font-style: normal;
-    font-weight: bold;
+    // font-weight: bold;
+    font-weight: 600;
     font-size: 18px;
     line-height: 1em;
     text-transform: uppercase;
@@ -817,6 +818,15 @@ section.forms {
     .tab.active {
         display: block;
     }
+    @include from(769px) {
+        .tab-head-item:hover {
+            color: var(--blue);
+        }
+        .tab-head-item:hover:after,
+        .tab-head-item:hover:before {
+            opacity: 1;
+        }
+    }
     @include from(1720px) {
         .tab-head-item {
             font-size: 24px;
@@ -896,6 +906,7 @@ section.forms {
     --border-width: 2px;
     margin: var(--side-fields);
     pointer-events: none;
+    z-index: 2;
     &>div {
         position: absolute;
         background-color: rgba(255, 255, 255, 0.5);

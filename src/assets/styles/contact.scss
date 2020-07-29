@@ -26,13 +26,16 @@
         padding-top: 50px;
         padding-bottom: 50px;
     }
+    .map-link-block .link {
+        padding-left: 0;
+    }
     @include from(1720px) {
         .forms .tab-head {
             margin-bottom: 80px;
         }
         .input-group {
             margin-bottom: 0;
-            margin-top: 50px;
+            margin-top: 0px;
         }
         .input-group:last-of-type {
             margin-top: 50px;

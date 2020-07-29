@@ -232,7 +232,7 @@
 
 .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
     animation-delay: 0.15s;
-    animation: zoomInDown 0.75s 1 ease-in;
+    animation: fadeInDown 0.75s 1 ease-in;
     // opacity: 1 !important;
 }
 
@@ -240,7 +240,7 @@
 /* content animate out */
 
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-    animation: zoomOutDown .5s 1 ease-in;
+    animation: fadeOutDown .5s 1 ease-in;
     opacity: 1;
 }
 

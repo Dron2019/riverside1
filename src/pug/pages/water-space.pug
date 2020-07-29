@@ -1,0 +1,68 @@
+extends ../layout/main
+block variable
+    -pageName = 'advantages';
+    - var version = "ua";
+    - var autoplayVideo = 'true';
+block meta
+    title= 'Rusaniv Residence'
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/forms-handler.js')
+    script(defer src='./assets/scripts/menu.js')
+    script(defer src='./assets/scripts/gsap.js')
+    script(defer src='./assets/scripts/advantages.js')
+block content
+    .breadcrumbs-block
+        a(href="index.html").breadcrumbs-block__item 
+            span Головна
+        a(href="#").breadcrumbs-block__item.breadcrumbs-block__item-current Водний простір
+        .title.blue Водний простір
+    .advantages-subtitle Водний простір
+    .adv-block4.adv-grid
+        .sngl-adv.lake.full-width
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Озера
+                .sngl-adv__text.text.gray Коли поруч є озеро, варіанти для відпочинку знайдуться завжди. Милуйся краєвидами, рибаль, чи розважайся з сім’єю!
+        .sngl-adv.beach
+            picture.sngl-adv__image-wave.right
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.right
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.right
+                .sngl-adv__subtitle Пляж 
+                .sngl-adv__text.text.gray Полежати на теплому пісочку чи здійснити бадьорий ранковий заплив? Твоє життя – твій вибір, використовуй усі задоволення! 
+        .sngl-adv.kayakas
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Байдарки
+                .sngl-adv__text.text.gray Чи вмієш ти веслувати? А якщо навчимо? Розширюй список своїх вражень та насолоджуйся єдністю стихії та роботи м’язів!
+        .sngl-adv.full-width.surfing
+            picture.sngl-adv__image-wave.left
+                <source srcset="./assets/images/advantages/adv-wave-mobile.png" media="(max-width: 575px)">
+                <img src="./assets/images/advantages/adv-sngl-wave.png" alt="MDN">
+            //- img(src="./assets/images/advantages/adv-sngl-wave.png").sngl-adv__image-wave.left
+            //- img(src="./assets/images/advantages/veloroads.jpg").sngl-adv__image-background
+            video(poster="./assets/images/advantages/promenades.jpg" autostart="true" loop="true" muted playsinline).sngl-adv__image-background
+                source(src="./static/video/sport.mp4" type="video/mp4")
+            .sngl-adv__text-block.left
+                .sngl-adv__subtitle Серфінг 
+                .sngl-adv__text.text.gray Не варто чекати поїздки на море, щоб підкорити мінливу хвилю. Серфінгуй вдома! 

@@ -8,14 +8,17 @@ menu {
     height: 100vh;
     width: 100vw;
     background-color: var(--blue);
-    background: url(../images/menu/menu-bg.png) left bottom no-repeat, var(--blue);
+    background: url(../images/menu/menu-bg.png) left bottom no-repeat/*, var(--blue)*/
+    ;
+    // background-size: 100vw 60%;
     background-size: cover;
     z-index: 50;
     display: flex;
     flex-wrap: wrap;
     transform: translateY(-100vh);
     flex-direction: column;
-    transition: transform 1s ease-in-out;
+    // transition: transform 1s ease-in-out;
+    transition: transform 1s cubic-bezier(0.34, 0.78, 0.88, 1);
     header.header {
         padding: calc(var(--side-fields) + 40px) calc(var(--side-fields) + 40px) 0 calc(var(--side-fields) + 40px);
         position: static;
@@ -48,16 +51,62 @@ menu {
         align-self: center;
         width: calc(100% - var(--side-fields) * 2);
         position: relative;
+        /*new scroll menu */
+        width: calc(100% + var(--side-fields) * 2);
+        position: relative;
+        position: relative;
+        margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
+        /*new scroll menu end */
         &:after {
             position: absolute;
             content: '';
-            width: 75%;
+            width: 100%;
             height: 20px;
-            background-color: #138bf6;
+            background-color: #148af6;
             bottom: calc(67px + 26px);
-            right: var(--side-fields);
+            // right: var(--side-fields);
+            right: 0;
         }
         position: relative;
+    }
+    .menu__scroll {
+        display: flex;
+        // max-width: 100%;
+        // overflow-x: scroll;
+    }
+    @include from-to(576px, 769px) {
+        .menu__scroll {
+            max-width: 100%;
+            padding-left: 50px;
+            padding-right: 50px;
+            overflow-x: scroll;
+        }
+        menu .menu__content:after {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 24px;
+            background-color: #168cf8;
+            bottom: calc(70px + 20px);
+            right: 1px;
+        }
+    }
+    @include to(575px) {
+        .menu__scroll {
+            flex-direction: column;
+            padding-left: var(--side-fields);
+            padding-right: var(--side-fields);
+        }
+    }
+    @include from(769px) {
+        width: calc(100% + var(--side-fields));
+        margin-left: auto;
+        header.header {
+            padding: calc(var(--side-fields) + 40px) calc((var(--side-fields) * 2) + 40px) 0 calc(var(--side-fields) + 40px);
+        }
+        .wave-for-menu {
+            width: calc(100% - var(--side-fields) * 3);
+        }
     }
     .menu-scroll-element {
         width: 100%;
@@ -65,9 +114,13 @@ menu {
     }
     .menu-content-image-links {
         height: 500px;
-        @include size(8.2);
-        overflow-x: scroll;
-        overflow-y: hidden;
+        @include size(8.3);
+        // width: calc(68%);
+        width: auto;
+        margin-left: auto;
+        // overflow-x: scroll;
+        // overflow-x: hidden;
+        // overflow-y: hidden;
         display: grid;
         grid-template-rows: 225px 225px;
         column-gap: 10px;
@@ -91,11 +144,13 @@ menu {
     }
     .menu__content-text-links {
         @include size(3.8);
+        width: 35vw;
         @include shift-padding-left(1);
         padding-top: 2em;
         .link {
             margin-top: 20px;
             line-height: 1em;
+            font-weight: 500;
         }
         .link:after {
             display: none;
@@ -125,7 +180,7 @@ menu {
         }
         .menu-content-image-links {
             height: 600px;
-            grid-template-rows: 290px 290px;
+            grid-template-rows: 280px 280px;
             column-gap: 12px;
             row-gap: 12px;
             grid-template-columns: repeat(19, 125px);
@@ -143,6 +198,26 @@ menu {
         bottom: 0;
         left: 0;
         z-index: 1;
+    }
+    @media (orientation:landscape) and (max-height:767px) {
+        .menu-scroll-element {
+            width: 100%;
+            margin-top: 20px;
+        }
+        .menu__content:after {
+            background-color: #178df9;
+            bottom: calc(10px + 26px);
+        }
+    }
+    @media (orientation:landscape) and (max-height:720px) {
+        .menu-scroll-element {
+            opacity: 0;
+        }
+    }
+    @include from(769px) {
+        .menu__content-text-links {
+            margin-right: 70px;
+        }
     }
     @include from(576px) {
         .mobile-gradient {
@@ -184,12 +259,24 @@ menu {
     //         display: none;
     //     }
     // }
+    @media (orientation:landscape) and (max-height:690px) {
+        header.header {
+            padding-top: 40px;
+        }
+        .menu-scroll-element {
+            opacity: 0;
+        }
+        .menu-content-image-links {
+            height: 360px;
+            grid-template-rows: 170px 170px;
+        }
+    }
     @include from-to(576px, 768px) {
         .menu-content-image-links {
             margin-left: auto;
             height: 651px;
             grid-template-rows: 318px 318px;
-            grid-template-columns: repeat(19, 130px);
+            grid-template-columns: repeat(19, 105px);
             @include size(8);
             margin-right: 1px;
         }
@@ -211,8 +298,14 @@ menu {
             content: '';
             width: 90%;
             height: 19px;
-            background-color: #1289f5;
+            // background-color: #1289f5;
+            background-color: #168cf8;
             bottom: calc(67px + 20px);
+            right: 1px;
+            width: 100%;
+            height: 24px;
+            background-color: #168cf8;
+            bottom: calc(70px + 20px);
             right: 1px;
         }
     }
@@ -326,6 +419,7 @@ menu {
     .img-gradient.color1 {
         background: linear-gradient(180deg, #000028 0%, rgba(0, 0, 40, 0) 100%);
         mix-blend-mode: color;
+        transform: rotate(-180deg);
     }
     .img-gradient.color2 {
         background: #001F3C;
@@ -341,9 +435,11 @@ menu {
         bottom: 20px;
         font-family: Cera Pro;
         font-style: normal;
-        font-weight: 500;
+        // font-weight: 500;
+        font-weight: 400;
         font-size: 18px;
         line-height: 18px;
+        line-height: 1.25em;
         text-transform: none;
     }
     .link:after {

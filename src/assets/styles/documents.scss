@@ -49,6 +49,10 @@
     .scene-nav {
         border-left: none;
     }
+    .arrows.blue .arrow-prev,
+    .arrows.blue .arrow-next {
+        border-left-color: transparent;
+    }
     @include from(769px) {
         .slider-counter {
             display: none;
