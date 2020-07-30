@@ -66,14 +66,15 @@
 <script type="text/javascript">replaceIstatDynamic(1,1369);</script>
 <!-- конец кода который вставляется перед закрывающим тегом </BODY> -->
 .unvisible-block
-    form.callback-form(data-name="send-message")
+    //- form.callback-form(data-name="send-message")
+    form.callback-form(data-name="callback")
         +callback-border()
         +svg('close-white-button').close-button
         legend #{lang.zvorot[version]}
-        .input-group
-            +svg('circle-white-tel-tube').decor-icon
-            input(type='text' name='name' placeholder="Ім'я" data-required="true") 
+        //- .input-group
+        //-     +svg('circle-white-tel-tube').decor-icon
+        //-     input(type='text' name='name' placeholder="Ім'я" data-required="true") 
         .input-group
             +svg('circle-white-man').decor-icon
             input(type='text' name="tel" placeholder="Телефон:" data-required="true")
-        button(type="submit").link.white.submit-js #{lang.send[version]}
+        button(type="submit" id="").btnRecall.link.white.submit-js #{lang.send[version]}

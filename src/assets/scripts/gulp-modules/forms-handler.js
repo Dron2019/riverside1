@@ -146,8 +146,9 @@ function putCallbackFormInPopup(selector) {
     var cmn_script = 'https://callmenow.com.ua/client_site/call_query';
     var cmn_open_form_script = 'https://callmenow.com.ua/client_site/open_form_event';
 
-    $('#btnRecall').on('click', function(evt) {
+    $('.btnRecall, #btnRecall').on('click', function(evt) {
         evt.preventDefault();
+        console.log('efefefef');
         var phoneField = this.closest('form').querySelector('input[name=tel]');
         var userPhone = this.closest('form').querySelector('input[name=tel]').value;
 

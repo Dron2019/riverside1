@@ -151,6 +151,7 @@ menu {
             margin-top: 20px;
             line-height: 1em;
             font-weight: 500;
+            padding-right: 0;
         }
         .link:after {
             display: none;
@@ -218,6 +219,7 @@ menu {
         .menu__content-text-links {
             margin-right: 70px;
         }
+        .menu__content-text-links .link {}
     }
     @include from(576px) {
         .mobile-gradient {

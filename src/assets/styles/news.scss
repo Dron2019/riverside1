@@ -1,12 +1,23 @@
 #news,
 #promotions {
     .page__content {
-        background: url(../images/common/wave-pattern1.png) top right no-repeat, #F7F5FB;
+        // background: url(../images/common/wave-pattern1.png) top right no-repeat, #F7F5FB;
         background-size: 35vw 100vh;
         background-repeat-y: repeat;
         padding-top: var(--header-height);
         padding-left: var(--side-padding);
         padding-right: var(--side-padding);
+    }
+    .page-bg {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: url(../images/common/wave-pattern1.png) top right no-repeat, #F7F5FB;
+        background-size: auto 100vh;
+        z-index: -1;
+        pointer-events: none;
     }
     .title {
         padding-left: 0;
