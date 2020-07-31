@@ -122,6 +122,7 @@
         text-align: left;
         display: inline-block;
         margin-right: auto;
+        white-space: nowrap;
     }
     @include from(1720px) {
         .flat-name {

@@ -270,6 +270,7 @@
         @include size(8);
         @include shift(2);
         @include shift-padding(1);
+        overflow: hidden;
     }
     &__text p {
         --text-left-padding: 27px;

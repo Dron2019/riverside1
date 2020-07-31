@@ -21,7 +21,7 @@ html(lang="uk")
 		block head
 			
 
-	body.main-scroller
+	body
 		// Google Tag Manager (noscript)
 		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PDDZPDG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		// End Google Tag Manager (noscript)
@@ -48,7 +48,7 @@ html(lang="uk")
 		include ../includes/header.pug
 		include ../includes/menu.pug
 		// END HEADER
-		.page__inner(id=pageName)
+		.page__inner(id=pageName).main-scroller.main-scroller1
 			.page__content
 				block content
 
