@@ -23,13 +23,9 @@ observer.observe(document.querySelector('.location-last-section'));
 let start = function() {
     incrementor = 0;
     return function(incrementor) {
-
         setTimeout(() => {
             console.log('reg');
             window.requestAnimationFrame(start);
-
-
-
         }, 1000 / 25);
     }
 

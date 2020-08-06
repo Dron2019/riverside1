@@ -31,9 +31,16 @@
     .tabs {
         display: flex;
         justify-content: space-between;
+        margin-top: 1em;
     }
     .tabs>.tab {
         @include size(2.4);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        text-align: center;
+        /* max-inline-size: 70%; */
+        display: inline-block;
     }
     @include to(575px) {
         .tabs {
@@ -47,6 +54,17 @@
         .tabs>.tab:last-child {
             width: 100%;
             margin-bottom: 0;
+        }
+    }
+    .build-number-title {
+        text-align: center;
+    }
+    @include from-to(769px, 1240px) {
+        .breadcrumbs-block .title {
+            position: static;
+            transform: none;
+            width: 100%;
+            text-align: center;
         }
     }
 }
@@ -83,7 +101,8 @@
         line-height: 18px;
     }
     @include to(575px) {
-        height: 26px;
+        height: calc(1.4em + 14px);
+        // height: 26px;
     }
 }
 
@@ -163,6 +182,10 @@
     justify-content: space-between;
     grid-template-columns: repeat(4, calc(25% - var( --this-gap)));
     transition: .5s;
+    .title {
+        grid-area: 1/1/1/5;
+        text-align: center;
+    }
     @include to(1024px) {
         grid-template-columns: repeat(3, calc(33% - var( --this-gap)));
     }

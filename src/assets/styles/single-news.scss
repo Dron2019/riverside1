@@ -13,6 +13,9 @@
         padding-bottom: 0;
         max-width: none;
     }
+    .breadcrumbs-block .title {
+        display: none;
+    }
     @include to(480px) {
         .breadcrumbs-block {
             max-inline-size: calc(100vw - 20px);
@@ -150,7 +153,7 @@
         .article__title {
             font-size: 14px;
             line-height: 20px;
-            max-width: calc(100% - 25px - 30px);
+            max-width: calc(100% - 40px - 30px);
         }
         &__subtitle {
             font-size: 14px;

@@ -15,7 +15,7 @@
     }
     @include from(1720px) {
         --breadcrumbs-height: 94px;
-        margin-bottom: 36px;
+        // margin-bottom: 36px;
     }
     @include to(768px) {
         .page__content {}
@@ -67,6 +67,7 @@
         object-fit: contain;
         object-position: top;
         cursor: zoom-in;
+        max-height: 100vh;
         @include to(1200px) {
             @include shift-padding(0);
         }
