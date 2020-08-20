@@ -99,6 +99,12 @@ block content
 					.all 4
 			<div class="title"> Твоє <span class="blue">правильне</span> середовище
 			</div>
+	section.layout.video-block
+		video(onclick="this.paused? this.play():this.pause()" poster="./assets/images/home/video-preview.jpg"  loop="true" muted autostart="false" preload="none"  playsinline )
+			source(src="./static/video/riverside-home-about.mp4" type="video/mp4" autostart="false")
+		//- <iframe src="https://www.youtube.com/embed/D8YKTNpJXoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		+wave-bottom()
+		.title <span class="blue">Відео </span> комплексу
 	section.genplan.layout
 		.genplan-svg
 			//- include ../../assets/images/genplan/svg/genplan.svg

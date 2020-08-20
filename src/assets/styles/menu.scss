@@ -3,6 +3,7 @@ menu {
     margin-block-end: 0;
     padding-inline-start: 0;
     position: fixed;
+    margin-top: 0;
     top: 0;
     left: 0;
     height: 100vh;
@@ -16,6 +17,9 @@ menu {
     display: flex;
     flex-wrap: wrap;
     transform: translateY(-100vh);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     flex-direction: column;
     // transition: transform 1s ease-in-out;
     // transition: transform 1s cubic-bezier(0.34, 0.78, 0.88, 1);
@@ -28,6 +32,9 @@ menu {
     &.opened {
         transform: none;
         // animation: flipInY 1s 1 linear;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
         .close-svg {
             display: initial;
             animation: none;
@@ -76,6 +83,20 @@ menu {
         // overflow-x: scroll;
     }
     @include from-to(576px, 769px) {
+        // height: calc(100vh - 100px);
+        margin-left: 0;
+        header.header {
+            margin-left: -35px;
+            padding: calc(var(--side-fields) + 15px) calc(var(--side-fields) + 15px) 0 calc(var(--side-fields) + 15px);
+            width: 100vw;
+            // border: 1px solid red;
+        }
+        .wave-for-menu {
+            left: 0;
+        }
+        .title {
+            left: 0;
+        }
         .menu__scroll {
             max-width: 100%;
             padding-left: 50px;

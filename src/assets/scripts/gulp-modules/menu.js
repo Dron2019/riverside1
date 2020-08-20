@@ -12,6 +12,7 @@ document.querySelectorAll(menuOpenSelector).forEach(but => {
 
                 $menu.classList.add('opened');
                 $menu.prepend($header);
+                $menu.focus();
                 but.classList.add('opened');
             } else {
                 $menu.classList.remove('opened');
