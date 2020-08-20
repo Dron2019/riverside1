@@ -206,18 +206,18 @@ document.querySelector('.scroll-element svg').onclick = () => {
 };
 
 /**Отключение прелоадера */
-let mainScreenEvent = new Event('mainscreenload');
-let preloader = document.querySelector('.preloader-js');
-document.querySelector('.preloader-js').addEventListener('mainscreenload', function(evt) {
-    // evt.stopPropagation();
-    // document.querySelector('.preloader-js').remove();
-    evt.target.classList.add('closing');
-    // console.log(evt.target);
+// let mainScreenEvent = new Event('mainscreenload');
+// let preloader = document.querySelector('.preloader-js');
+// document.querySelector('.preloader-js').addEventListener('mainscreenload', function(evt) {
+//     // evt.stopPropagation();
+//     // document.querySelector('.preloader-js').remove();
+//     evt.target.classList.add('closing');
+//     // console.log(evt.target);
 
-});
-setTimeout(() => {
-    preloader.dispatchEvent(mainScreenEvent);
-}, 2000);
+// });
+// setTimeout(() => {
+//     preloader.dispatchEvent(mainScreenEvent);
+// }, 2000);
 /**Отключение прелоадера */
 
 (function($) {
@@ -245,3 +245,38 @@ setTimeout(() => {
 })(jQuery);
 
 $('.preload-num').animateNumbers(100);
+
+let videoInSecondBlock = document.querySelector('.video-block video'),
+    videoBlock = document.querySelector('.video-block');
+
+videoInSecondBlock.addEventListener('click', function(evt) {
+    if (videoInSecondBlock.paused) {
+        videoInSecondBlock.play();
+        changePseudoProperties(videoBlock, 'opacity:0', 'after');
+    } else {
+        videoInSecondBlock.pause();
+        changePseudoProperties(videoBlock, 'opacity:1', 'after');
+
+    }
+});
+
+
+function changePseudoProperties(container, cssText, pseudoType) {
+    let containerSelector = '';
+    if (pseudoType === undefined) {
+        console.warn(`Pseudo element is not defined, ${changePseudoProperties.name} is stopping`);
+        return;
+    }
+    if (typeof container === 'string') {
+        containerSelector = container;
+        container = document.querySelector(container);
+    } else {
+        containerSelector = `.${container.classList[0]}`;
+    }
+    let style = document.createElement('style');
+    style.innerHTML = `
+    ${containerSelector}:${pseudoType}{
+        ${cssText}
+    } `;
+    container.append(style);
+};
