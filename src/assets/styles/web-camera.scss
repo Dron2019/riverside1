@@ -43,11 +43,15 @@
     &__title {
         // font-family: Montserrat;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 18px;
-        line-height: 28px;
+        line-height: 18px;
         color: var(--gray-light);
-        margin-top: 20px;
+        // margin-top: 20px;
+        margin-top: 10px;
+    }
+    @include from(1720px) {
+        padding-bottom: 30px;
     }
     @include to(768px) {
         width: 100%;

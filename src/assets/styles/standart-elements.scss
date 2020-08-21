@@ -175,10 +175,16 @@
         color: var(--blue);
     }
     & .blue.with-waves:after {
-        content: url("data:image/svg+xml,%3Csvg width='87' height='36' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
+        // content: url("data:image/svg+xml,%3Csvg width='87' height='36' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
+        content: '';
+        background-image: url(../images/common/wave-for-title.svg);
         margin-left: 30px;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
         width: 87px;
-        height: 30px;
+        height: 36px;
+        transform: translateY(10px);
     }
     & .blue {
         color: var(--blue);
@@ -190,6 +196,11 @@
     }
     @include from(1720px) {
         font-size: 64px;
+        & .blue.with-waves:after {
+            width: 113px;
+            height: 47px;
+            transform: translateY(12px);
+        }
     }
     @include to(1024px) {
         & .blue.with-waves:after {
@@ -201,8 +212,12 @@
     }
     @include to(480px) {
         & .blue.with-waves:after {
-            content: url("data:image/svg+xml,%3Csvg width='60' height='20' viewBox='0 0 87 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M87 20C43.5 20 43.5 3 -7.7879e-07 3' stroke='%230085FF' stroke-width='6'/%3E%3Cpath d='M87 33C43.5 33 43.5 15 -6.91367e-07 15' stroke='%230085FF' stroke-width='6'/%3E%3C/svg%3E%0A");
-            margin-left: 6px;
+            content: '';
+            background-image: url(../images/common/wave-for-title.svg);
+            margin-left: 10px;
+            display: inline-block;
+            background-size: contain;
+            background-repeat: no-repeat;
             width: 60px;
             height: 20px;
             position: relative;
@@ -875,20 +890,22 @@ section.forms {
     font-family: Cera Pro;
     font-style: normal;
     font-weight: 500;
-    font-size: 8px;
+    font-size: 18px;
     line-height: 10px;
     position: fixed;
-    width: 60px;
+    width: 13ch;
     color: var(--white);
     height: 30px;
+    display: flex;
+    align-items: center;
     opacity: 0;
     &.visible {
         opacity: 1;
     }
     @include from(1720px) {
-        font-size: 12px;
+        font-size: 24px;
         line-height: 14px;
-        width: 90px;
+        // width: 90px;
     }
     @include to(769px) {
         display: none;
@@ -1404,5 +1421,12 @@ section.forms {
 
 .square-metres {
     display: inline-block;
-    margin-top: -0.1em;
+    // margin-top: -0.1em;
+    margin-top: -0.3em;
+}
+
+@include from(769px) {
+    a:hover {
+        cursor: url(../images/cursor-big.png), auto !important;
+    }
 }

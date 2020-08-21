@@ -121,7 +121,7 @@
 
 .callback-form {
     width: 490px;
-    height: 560px;
+    height: 430px;
     background: url(../images/common/callback-form-bg.png) bottom no-repeat, linear-gradient(0deg, #0085ff 100%, #0085ff 100%);
     background-size: 100%, cover;
     position: relative;
@@ -129,7 +129,7 @@
     top: 0;
     left: 0;
     z-index: 100;
-    padding: 85px 65px;
+    padding: 85px 85px;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -156,9 +156,11 @@
     }
     button[type=submit] {
         margin-left: auto;
+        padding-right: 0;
     }
     .input-group {
         border-bottom: 2px solid #fff;
+        width: 100%;
         padding-bottom: 0;
         margin: 0 auto;
         input,
@@ -305,7 +307,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 60px;
-    margin-bottom: 87px;
+    margin-bottom: 40px;
     width: 100%;
     --footer-links-color: #A3D3FF;
     &__group {

@@ -94,6 +94,12 @@
         font-size: 24px;
         line-height: 36px;
     }
+    @include from(769px) {
+        &:hover {
+            background-color: var(--gray-light);
+            color: var(--white);
+        }
+    }
     @include to(768px) {
         height: 50px;
         text-align: center;
@@ -133,6 +139,9 @@
     .card-row {
         display: flex;
         justify-content: space-between;
+        font-size: 14px;
+        line-height: 1.6em;
+        color: var(--gray-light);
     }
     .card-row span:first-child {
         width: Min(75%, 15ch);
@@ -144,12 +153,15 @@
         white-space: nowrap;
     }
     @include from(1720px) {
+        .card-row {
+            font-size: 18px;
+        }
         .flat-name {
             font-size: 24px;
             line-height: 36px;
         }
     }
-    @include from(1200px) {
+    @include to(1200px) {
         padding: 15px;
     }
     @include from(769px) {

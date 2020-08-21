@@ -254,13 +254,19 @@ a[href] {
             stroke-width: 3;
         }
     }
-    @include from-to(769px,
+    @include from-to(768px,
     1720px) {
         .wave .bottom-line {
             width: calc(100% - 658px);
         }
         .wave:after {
             height: calc(100% - (var(--side-padding) * 2) - 111.7px);
+        }
+    }
+    @include from-to(768px,
+    768px) {
+        .wave .bottom-line {
+            width: calc(100% - 642px);
         }
     }
     @media screen and (min-width: 1720px) {
@@ -351,6 +357,9 @@ a[href] {
         }
         .wave .bottom-line {
             width: calc(100% - 1046px);
+        }
+        .link {
+            line-height: 1em;
         }
     }
     @include from-to(951px,
@@ -456,6 +465,7 @@ a[href] {
         width: 70%;
         height: 100%;
         z-index: -1;
+        background: var(--blue);
     }
     .genplan-svg svg {
         width: 100%;
@@ -893,12 +903,13 @@ a[href] {
     &__block:nth-child(n+2)>video {
         height: 100%;
     }
-    &__block:nth-child(3)>video {
-        max-height: 50vh;
-    }
+    // &__block:nth-child(3)>video {
+    //     max-height: 50vh;
+    // }
     @include from(1720px) {
         .title {
-            max-width: 400px;
+            // max-width: 400px;
+            max-width: none;
         }
         padding-left: 150px;
         padding-right: 150px;
@@ -918,11 +929,10 @@ a[href] {
             width: calc(100% / 12 * 5 - 32.5px);
         }
     }
-    @include from-to(575px,
-    950px) {
-        &__block video {
-            max-height: 30vh;
-        }
+    @include from(575px) {
+        // &__block video {
+        //     max-height: 30vh;
+        // }
     }
     @include from-to(575px,
     768px) {
@@ -969,10 +979,10 @@ a[href] {
         }
         .slider-counter {
             margin-left: auto;
-            margin-right: 40px;
+            // margin-right: 40px;
             position: absolute;
-            bottom: 10vh;
-            right: 75px;
+            bottom: calc(var(--side-fields) + 50px);
+            right: calc(var(--side-fields) + 50px);
         }
     }
     .wave {
@@ -985,6 +995,7 @@ a[href] {
         width: 100%;
         position: relative;
         z-index: 2;
+        pointer-events: none;
         // background: linear-gradient(90deg, rgba(0, 0, 0, 0) 60.29%, rgba(0, 0, 0, 0.5) 100%), linear-gradient(-90deg, rgba(0, 0, 0, 0) 60.29%, rgba(0, 0, 0, 0.5) 100%);
     }
     .title {
@@ -1004,6 +1015,9 @@ a[href] {
         left: var(--side-fields);
         width: calc(100% - (var( --side-fields) * 2) - 2px);
         transform: translateY(-50%);
+    }
+    .scene-nav {
+        pointer-events: auto;
     }
     canvas {
         position: absolute;
@@ -1058,8 +1072,8 @@ a[href] {
             margin-left: auto;
             margin-right: 0px;
             position: absolute;
-            bottom: 10vh;
-            right: 90px;
+            bottom: calc(var(--side-fields) + 50px);
+            right: calc(var(--side-fields) + 20px);
         }
     }
 }
@@ -1080,7 +1094,8 @@ a[href] {
             width: calc(100% - 1046px);
         }
     }
-    @include from(951px) {
+    @include from-to(951px,
+    1719px) {
         .wave svg {
             width: 740px;
             left: var(--side-padding);
@@ -1100,10 +1115,11 @@ a[href] {
         flex-wrap: wrap;
     }
     &__content-text {
-        @include size(3);
+        @include size(2.8);
         @include size-sm(5);
         @include shift-right(1);
-        @include shift-left(7);
+        // @include shift-left(7);
+        margin-left: auto;
         margin-top: auto;
         line-height: 1.6em;
     }
@@ -1469,11 +1485,15 @@ a[href] {
             margin-bottom: 0.5em;
         }
         &__info-blocks-wrapper {
-            @include shift(1);
+            @include shift(0.65);
             margin-bottom: 120px;
         }
         &__info-block-column {
             margin-bottom: -0.3em;
+            @include shift-padding-right(0.5);
+        }
+        &__info-block-column.double {
+            column-gap: 8%;
         }
         .decor-icon {
             top: 0.3em;
@@ -1616,11 +1636,11 @@ a[href] {
         margin-right: 30px;
     }
     .link {
-        max-width: 230px;
+        max-width: 240px;
     }
     @include from(1720px) {
         .link {
-            max-width: 300px;
+            max-width: 270px;
         }
     }
 }
@@ -1672,6 +1692,7 @@ form.callback {
     }
     button {
         margin-left: auto;
+        margin-left: 5%;
     }
 }
 
@@ -1729,6 +1750,18 @@ form.promotions {
     .input-group {
         margin-right: auto;
     }
+    @include from(1720px) {
+        .link {
+            margin-bottom: 0;
+            margin-left: 0%;
+        }
+    }
+}
+
+#home form.promotions .link {
+    @include from(1720px) {
+        margin-bottom: 50px;
+    }
 }
 
 button[type=submit] {
@@ -1743,7 +1776,7 @@ button[type=submit] {
 // }
 .sales-link {
     position: absolute;
-    right: calc(var(--side-fields) * 2);
+    right: calc(var(--side-fields) + 20px);
     top: calc(var(--side-fields) + var(--header-height) + 15px);
     z-index: 3;
     width: 113px;
@@ -1758,5 +1791,15 @@ button[type=submit] {
     .sales-link {
         width: 45px;
         height: 45px;
+    }
+}
+
+.infinite-rotation {
+    animation: rotation 15s infinite;
+}
+
+@keyframes rotation {
+    to {
+        transform: rotate(360deg);
     }
 }

@@ -115,7 +115,7 @@
      $('.gallery').imagesLoaded(function() {
          var gallerySlider = new CanvasSlideshow({
              sprites: galleryImagesSrc,
-             displacementImage: './assets/images/gallery-screen-filter.jpg',
+             displacementImage: './assets/images/displacment-gallery.jpg',
              autoPlay: false,
              selector: '.gallery',
              autoPlaySpeed: [0.3, 0.3],
@@ -128,10 +128,11 @@
              image: document.querySelectorAll('.gallery .slide-item__image'),
              navElement: document.querySelectorAll('.gallery .scene-nav'),
              displacementCenter: true,
-             interactive: false,
+             interactive: true,
              interactionEvent: 'click', // 'click', 'hover', 'both' 
          });
          gallerySlider.init();
+         galleryCanvasPopup()
      });
      setTimeout(() => {
          let preloader = document.querySelector('.gallery .preload-block') || null;
@@ -143,3 +144,31 @@
      }, 500);
      window.galleryLoadingStatus = true;
  }
+
+
+ /**Всплывающая подсказка на галерее экране */
+ function galleryCanvasPopup() {
+     const mousePopup = document.createElement('div');
+     const canvas = document.querySelector('.gallery canvas');
+     const container = document.querySelector('.gallery');
+     mousePopup.classList.add('mouse-popup');
+     mousePopup.innerHTML = 'Click & hold';
+     document.querySelector('.gallery').append(mousePopup);
+     canvas.addEventListener('mousemove', function(evt) {
+         //  console.log(evt);
+         mousePopup.style.top = evt.clientY + 'px';
+         mousePopup.style.left = evt.clientX + 30 + 'px';
+     });
+     canvas.addEventListener('mouseenter', function(evt) {
+         container.append(mousePopup);
+         mousePopup.classList.add('visible');
+     });
+     canvas.addEventListener('mouseleave', function(evt) {
+         mousePopup.remove();
+         mousePopup.classList.remove('visible');
+     });
+ };
+
+
+
+ /**Всплывающая подсказка на галерее экране END */

@@ -1,3 +1,8 @@
+/* beautify preserve:start */
+
+@@include('../libs/artem-scroll/scroll.js')
+/* beautify preserve:end */
+
 gsap.fromTo('.location-first-section', { opacity: 0 }, {
     opacity: 1,
     duration: 1
@@ -20,18 +25,17 @@ observer.observe(document.querySelector('.location-last-section'));
 
 
 
-let start = function() {
-    incrementor = 0;
-    return function(incrementor) {
+function closure(incrementor) {
+    function start1() {
         setTimeout(() => {
-            console.log('reg');
-            window.requestAnimationFrame(start);
-        }, 1000 / 25);
-    }
+            console.log(incrementor);
+            incrementor += 1;
+            if (incrementor > 100) return;
+            start1(incrementor);
+        }, 100);
+    };
+    start1();
+}
+// console.log(incrementor);
 
-
-
-};
-
-
-start();
+closure(50);

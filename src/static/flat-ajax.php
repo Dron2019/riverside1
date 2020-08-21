@@ -1,7 +1,7 @@
 <?php
 $roomsCount = $_POST['rooms'];
 for ($i=0; $i<20; $i++) {?>
-    <div class="card fadeIn" style="opacity:0; animation-delay:<?=$i/15;?>s"  onanimationend="this.style.opacity=1">
+    <a href="flat.html" class="card fadeIn" style="opacity:0; animation-delay:<?=$i/15;?>s"  onanimationend="this.style.opacity=1">
         <div class="flat-name" >Квартира <?=$roomsCount?>А</div>
         <img class="flat-img" src="./assets/images/choose-flat/15.png" alt="foto"/>
         <div class="card-row"> 
@@ -16,7 +16,7 @@ for ($i=0; $i<20; $i++) {?>
             <span>Житлова площа:</span>
             <span class="value square-metres">15 м<sub>2</sub></span>
         </div>
-        <a class="link blue" href="flat.html">Дивитися планування</a>
-    </div>
+        <div class="link blue" href="flat.html">Дивитися планування</div>
+    </a>
     <?}
 ?>

@@ -379,7 +379,7 @@
         background-color: #F7F5FB;
         height: 100%;
         width: var(--adv-row-height);
-        padding: 0 34px;
+        padding: 0 50px;
         position: relative;
         z-index: 1;
         display: flex;
@@ -415,6 +415,9 @@
     &.vertical-reverse &__text-block {
         padding-bottom: 0;
         padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
     }
     &.vertical &__image-wave {
         position: static;
@@ -453,6 +456,17 @@
         }
         &.vertical-reverse &__text-block {
             padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        &__text-block {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+    }
+    @include from-to(1100px,
+    1300px) {
+        &__text-block {
+            padding: 0 30px;
         }
     }
     @include from-to(769px,

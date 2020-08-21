@@ -63,7 +63,7 @@
     }
     .flat-img {
         @include size(5);
-        @include shift-padding(0.5);
+        @include shift-padding(0.75);
         object-fit: contain;
         object-position: top;
         cursor: zoom-in;
@@ -85,7 +85,7 @@
     background: url(../images/flat/left-bock-bg.jpg) right no-repeat;
     background-size: cover;
     margin-left: calc(var(--side-fields) - (var(--side-fields) * 2));
-    padding: 73px var(--side-fields);
+    padding: 73px calc(var(--side-fields) + 4%) 73px var(--side-fields);
     margin-bottom: 0;
     margin-top: 0;
     margin-right: 0;
@@ -100,8 +100,15 @@
     .decor-icon {
         left: 0em;
     }
+    @include from(1720px) {
+        padding: 73px calc(var(--side-fields) + 6%) 73px var(--side-fields);
+        .contacts__mini-group {
+            margin-bottom: 50px;
+        }
+    }
     @include to(1200px) {
         @include size(4);
+        padding: 73px var(--side-fields) 73px var(--side-fields);
     }
     @include to(950px) {
         width: calc(100% + var(--side-fields) * 2);
@@ -276,9 +283,10 @@
 
 .flat-info-list {
     font-size: 14px;
-    line-height: 22px;
+    line-height: 1.6em;
     & li {
         display: grid;
+        line-height: 1.6em;
         grid-template-columns: 65% 30%;
     }
     & li span:first-child {

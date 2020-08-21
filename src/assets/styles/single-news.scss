@@ -87,6 +87,11 @@
         margin-left: 24px;
         margin-right: 24px;
     }
+    .news-article__list li:before {
+        content: '·';
+        margin-left: 24px;
+        margin-right: 24px;
+    }
     .link {
         display: inline-flex;
         width: calc(50% - 5px);

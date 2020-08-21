@@ -40,6 +40,10 @@
         .input-group:last-of-type {
             margin-top: 50px;
         }
+        .callback .input-group,
+        .promotions .input-group {
+            margin-top: 0px;
+        }
         .forms {
             padding: 60px 107px;
         }

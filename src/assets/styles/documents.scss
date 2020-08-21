@@ -122,12 +122,25 @@
     align-items: center;
     text-align: center;
     width: Max(293px, 25%);
+    position: relative;
+    padding-bottom: 1.6em;
     .icon--double-blue-wave {
         margin: 20px auto;
     }
     .icon--doc-icon {
         width: 90px;
         height: 106px;
+        position: relative;
+    }
+    &:after {
+        content: attr(data-hover);
+        position: absolute;
+        transition: .5s;
+        color: var(--blue);
+        bottom: 0;
+        left: 50%;
+        transform-origin: top;
+        transform: translate(-50%, 0) scaleY(0);
     }
     .doc-name {
         padding-left: Min(5%, 50px);
@@ -140,6 +153,11 @@
         .icon--doc-icon {
             width: 136px;
             height: 161px;
+        }
+    }
+    @include from(769px) {
+        &:hover:after {
+            transform: translate(-50%, 0) scaleY(1);
         }
     }
     @include to(575px) {
