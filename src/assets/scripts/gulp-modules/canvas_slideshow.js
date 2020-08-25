@@ -123,6 +123,7 @@
 
             stage.addChild(displacementSprite);
 
+
         };
 
 
@@ -177,7 +178,8 @@
                 slidesContainer.addChild(image);
 
             }
-
+            this.maxSlides = slidesContainer.children;
+            this.maxSlides = this.maxSlides.length;
         };
 
 
@@ -256,7 +258,7 @@
                 .to(slideImages[that.currentIndex], 1.5, { alpha: 0, ease: Power2.easeOut }, 0)
                 .to(slideImages[newIndex], 1, { alpha: 1, ease: Power2.easeOut }, '<')
                 .to(displacementFilter.scale, 1.5, { x: options.displaceScaleTo[0], y: options.displaceScaleTo[1], ease: Expo.easeOut }, 0.4);
-
+            counterBlock.querySelector('.current').innerHTML = that.currentIndex + 1;
         };
 
 

@@ -929,6 +929,33 @@ a[href] {
             width: calc(100% / 12 * 5 - 32.5px);
         }
     }
+    @include from(769px) {
+        &__block:after {
+            content: '';
+            background-image: url(../images/home/video-block-hover-element.svg);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 75px;
+            transform: translate(-50%, -50%);
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: .5s;
+        }
+        &__block:first-child:after {
+            top: calc(50% + 50px);
+        }
+        &__block:hover:after {
+            opacity: 1;
+            animation: fadeIn .5s 1 ease-in;
+        }
+        &__block:hover video {
+            filter: brightness(0.75);
+            transition: .5s;
+        }
+    }
     @include from(575px) {
         // &__block video {
         //     max-height: 30vh;
@@ -1640,7 +1667,7 @@ a[href] {
     }
     @include from(1720px) {
         .link {
-            max-width: 270px;
+            max-width: 280px;
         }
     }
 }

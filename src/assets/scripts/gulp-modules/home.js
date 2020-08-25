@@ -1,5 +1,123 @@
 /* beautify preserve:start */
-@@include('../libs/artem-scroll/scroll.js')
+@@include('../libs/artem-scroll/scroll.js');
+
+
+class CanvasSlidewhowSwitcher {
+    constructor(props) {
+        this.canvas = props.canvas;
+        this.timeToSwitch = props.timeToSwitch || 2000;
+        this._holdedTime = 0;
+        this.canvasSlideshowObject = props.slideshowObject;
+        this.i = 0;
+        this.timeCanvasWasHolded = 0;
+    }
+    handle() {
+        let that = this;
+        this.canvas.addEventListener('mousedown', function(evt) {
+            that._holdedTime = Date.now();
+            that.renderProgressBar(evt, false);
+            that.move(that.timeToSwitch);
+        });
+        this.canvas.closest('section').addEventListener('mouseup', function(evt) {
+            that.renderProgressBar(evt, true);
+            /*если пользователь отпустил кнопку раньше времени, отмена переключения и отмена анимации */
+            clearInterval(that.id)
+        });
+        this.canvas.addEventListener('mousemove', function(evt) {
+
+            that.moveProgressBar(evt);
+        });
+    }
+
+    switchCanvasSlide(slideShowObject) {
+        if (this.canvasSlideshowObject.currentIndex + 1 >= this.canvasSlideshowObject.maxSlides) {
+            this.canvasSlideshowObject.moveSlider(0);
+        } else {
+            this.canvasSlideshowObject.moveSlider(this.canvasSlideshowObject.currentIndex + 1);
+        }
+    }
+
+
+    move(timeToSwitch) {
+        this.i=0;
+        var that = this;
+        if (this.i == 0) {
+            this.i = 1;
+            var elem = document.getElementById("myBar");
+            this.id = setInterval(frame, timeToSwitch / 100);
+
+            function frame() {
+                if (that.i >= 100) {
+                    clearInterval(that.id);
+                    let holdedTime = (that._holdedTime - Date.now()) * -1;
+                        that.switchCanvasSlide(moveSlider);
+                    that.renderProgressBar({}, true);
+                    that.i = 0;
+                } else {
+                    that.i++;
+                    elem.style.width = "100%";
+                    // elem.style.transform = `scale(${that.i/100})`;
+                }
+            }
+        }
+    };
+
+
+    renderProgressBar(cords, remove1 = false) {
+        if (remove1 === true) {
+            document.querySelector('.canvas-bar').remove();
+            return;
+        }
+    let bar = `
+    <svg style=" width: 45px;
+    height:45px;
+    border-radius:50%;
+    overflow:hidden;
+    position:fixed;
+    pointer-events:none;
+    top:${cords.clientY - 10}px;
+    left:${cords.clientX - 20}px;
+    z-index:10;" id="myProgress" class="canvas-bar" viewBox="25 25 50 50" >
+      <circle id="myBar" class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="red" stroke-width="10" />
+    </svg>`;
+        document.body.insertAdjacentHTML("afterbegin", bar);
+        this.simulatePathDrawing(document.querySelector('#myBar'),2 , this.timeToSwitch )
+    };
+
+
+    moveProgressBar(cords) {
+        var progressBar = document.querySelector('.canvas-bar');
+        if (progressBar === null) return;
+
+        progressBar.style.left = `${cords.clientX - 20}px`;
+        progressBar.style.top = `${cords.clientY  - 10}px`;
+        // progressBar.style.transform = `translate(${cords.clientX}px,${cords.clientY - 30}px)`;
+    }
+
+    simulatePathDrawing(path, strokeWidth = '3', time = 100) {
+        if (path.done) return;
+        // var path = document.querySelector('.squiggle-animated path');
+        var length = path.getTotalLength();
+        console.log(length);
+        // Clear any previous transition
+        path.style.transition = path.style.WebkitTransition =
+            'none';
+        // Set up the starting positions
+        path.style.strokeDasharray = length + ' ' + length;
+        path.style.strokeDashoffset = length;
+        // Trigger a layout so styles are calculated & the browser
+        // picks up the starting position before animating
+        path.getBoundingClientRect();
+        // Define our transition
+        path.style.transition = path.style.WebkitTransition =
+            `stroke-dashoffset ${time/1000}s linear`;
+        // Go!
+        path.style.strokeDashoffset = '0';
+        path.style.strokeWidth = strokeWidth;
+        path.style.stroke = '#ffffff';
+        path.done = true;
+    }
+};
 /* beautify preserve:end */
 
 // Select all your images
@@ -48,13 +166,20 @@ var moveSlider = new CanvasSlideshow({
     interactionEvent: 'click', // 'click', 'hover', 'both' 
 });
 moveSlider.init();
+
+let msSwitcher = new CanvasSlidewhowSwitcher({
+    canvas: document.querySelector('.main-screen canvas'),
+    timeToSwitch: 700,
+    slideshowObject: moveSlider,
+});
+msSwitcher.handle();
 /**Всплывающая подсказка на первом экране */
 const mousePopup = document.createElement('div');
 mousePopup.classList.add('mouse-popup');
 mousePopup.innerHTML = 'Click & hold';
 document.querySelector('.main-screen').append(mousePopup);
 document.querySelector('.main-screen canvas').addEventListener('mousemove', function(evt) {
-    console.log(evt);
+    // console.log(evt);
 
     mousePopup.style.top = evt.clientY + 'px';
     mousePopup.style.left = evt.clientX + 30 + 'px';

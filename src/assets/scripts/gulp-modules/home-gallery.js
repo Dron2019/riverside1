@@ -132,7 +132,14 @@
              interactionEvent: 'click', // 'click', 'hover', 'both' 
          });
          gallerySlider.init();
-         galleryCanvasPopup()
+         galleryCanvasPopup();
+
+         let gallerySwitcher = new CanvasSlidewhowSwitcher({
+             canvas: document.querySelector('.gallery canvas'),
+             timeToSwitch: 3000,
+             slideshowObject: gallerySlider,
+         });
+         gallerySwitcher.handle();
      });
      setTimeout(() => {
          let preloader = document.querySelector('.gallery .preload-block') || null;
