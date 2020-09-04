@@ -90,9 +90,6 @@ header.header {
     1719px) {
         font-size: 18px;
     }
-    &:hover:after {
-        width: calc(var(--pseudo-width) * 1.2);
-    }
     &:after {
         content: '';
         transition: .5s;
@@ -102,6 +99,13 @@ header.header {
         top: calc(50% - 1px);
         height: 2px;
         background-color: var(--white);
+        transform-origin: left;
+    }
+    @include from(769px) {
+        &:hover:after {
+            // width: calc(var(--pseudo-width) * 1.2);
+            transform: scaleX(1.2);
+        }
     }
 }
 
@@ -201,8 +205,10 @@ header.header {
         background-image: url(../images/common/language-birdy.svg);
         background-repeat: no-repeat;
         background-size: contain;
-        width: 13px;
-        height: 7px;
+        // width: 13px;
+        // height: 7px;
+        width: 19px;
+        height: 11px;
         display: inline-block;
         top: 0.8em;
         transform: translateY(-50%);

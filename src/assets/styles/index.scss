@@ -295,17 +295,31 @@ a[href] {
         height: 100%;
         object-fit: cover;
     }
+    // &:after {
+    //     content: '';
+    //     transition: .5s;
+    //     pointer-events: none;
+    //     width: 50%;
+    //     height: 30vh;
+    //     position: absolute;
+    //     top: 50%;
+    //     left: 50%;
+    //     transform: translate(-35%, -50%);
+    //     background: url(../images/home/video-play-button.png);
+    //     background-size: contain;
+    //     background-repeat: no-repeat;
+    // }
     &:after {
         content: '';
         transition: .5s;
         pointer-events: none;
-        width: 50%;
-        height: 30vh;
+        width: calc(160px * 0.65);
+        height: calc(108px * 0.65);
         position: absolute;
-        top: 50%;
+        top: 75%;
         left: 50%;
-        transform: translate(-35%, -50%);
-        background: url(../images/home/video-play-button.png);
+        transform: translate(-50%, -50%);
+        background: url(../images/home/video-play-button2.png);
         background-size: contain;
         background-repeat: no-repeat;
     }
@@ -314,13 +328,13 @@ a[href] {
             content: '';
             transition: .5s;
             pointer-events: none;
-            width: 150px;
-            height: 150px;
+            width: 80px;
+            height: 54px;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-35%, -50%);
-            background: url(../images/home/video-play-button.png);
+            background: url(../images/home/video-play-button2.png);
             background-size: contain;
             background-repeat: no-repeat;
         }
@@ -1149,6 +1163,7 @@ a[href] {
         margin-left: auto;
         margin-top: auto;
         line-height: 1.6em;
+        margin-bottom: auto;
     }
     .title {
         margin-top: auto;
@@ -1187,6 +1202,14 @@ a[href] {
             margin-bottom: 30px;
         }
     }
+    @include from(769px) {
+        .title {
+            align-self: flex-end;
+            position: absolute;
+            left: var(--side-fields);
+            bottom: var(--side-fields);
+        }
+    }
     @include to(768px) {
         &__content-text {
             // margin-right: 0;
@@ -1195,13 +1218,22 @@ a[href] {
         }
     }
     @include to(480px) {
+        &__content {
+            flex-direction: column;
+        }
         &__content-text {
             margin: 0;
-            @include size(10);
-            margin-left: auto;
+            // @include size(10);
+            width: calc(100vw - var(--side-fields) * 2);
+            // padding-left: 30vw;
+            padding-right: var(--side-fields);
+            padding-left: 8%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            // border: 1px solid red;
             // @include shift-right(1);
-            padding-right: 15px;
-            align-self: center;
             // overflow: hidden;
         }
         .title {
